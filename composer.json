@@ -17,7 +17,9 @@
         "rmzamora/admin-bundle": "2.2.*@dev",
         "rmzamora/jquery-bundle": "1.9.*@dev",
         "rz/block-bundle": "2.2.*@dev",
-        "rz/field-type-bundle": "2.2.*@dev"
+        "rz/field-type-bundle": "2.2.*@dev",
+        "rz/ckeditor-bundle": "2.2.*@dev",
+        "rz/codemirror-bundle": "2.2.*@dev"
     },
     "autoload": {
         "psr-0": { "Rz\\AdminBundle": "" }
