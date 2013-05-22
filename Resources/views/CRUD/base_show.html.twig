@@ -1,0 +1,74 @@
+{#
+
+This file is part of the Rz package.
+
+(c) mell m. zamora <me@rmzamora.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{% block actions %}
+    <div class="row-fluid admin-action-buttons">
+        <div class="span12">
+            <div class="sonata-actions btn-group hidden-phone hidden-tablet visible-desktop pull-right">
+                {% include 'SonataAdminBundle:Button:edit_button.html.twig' %}
+                {% include 'SonataAdminBundle:Button:history_button.html.twig' %}
+                {% include 'SonataAdminBundle:Button:create_button.html.twig' %}
+                {% include 'SonataAdminBundle:Button:list_button.html.twig' %}
+            </div>
+            <div class="btn-group visible-phone visible-tablet hidden-desktop  pull-right">
+                <button class="btn btn-primary admin-actions admin-actions-group">Select an action to perform</button>
+                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle admin-actions"><i class=" icon-chevron-down"></i></button>
+                <ul class="dropdown-menu">
+                    {% include 'SonataAdminBundle:Button:edit_button_mobile.html.twig' %}
+                    {% include 'SonataAdminBundle:Button:history_button_mobile.html.twig' %}
+                    {% include 'SonataAdminBundle:Button:create_button_mobile.html.twig' %}
+                    {% include 'SonataAdminBundle:Button:list_button_mobile.html.twig' %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block side_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active'}, 'list') }}{% endblock %}
+
+{% block show %}
+    <div class="sonata-ba-view">
+        <div class="widget-box">
+            <div class="widget-title">
+                <span class="icon">
+                    <i class="icon-th-list"></i>
+                </span>
+                <h5>Details</h5>
+            </div>
+            <div class="widget-content rmz-list-widget-content">
+                {% block show_content %}
+                {% for name, view_group in admin.showgroups %}
+                    <table class="table table-bordered rz-admin-show-table">
+                        {% if name %}
+                            <tr class="sonata-ba-view-title rmz-show-header">
+                                <th colspan="2">
+                                    {{ admin.trans(name) }}
+                                </th>
+                            </tr>
+                        {% endif %}
+
+                        {% for field_name in view_group.fields %}
+                            <tr class="sonata-ba-view-container">
+                                {% if elements[field_name] is defined %}
+                                    {{ elements[field_name]|render_view_element(object) }}
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+                {% endblock show_content %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

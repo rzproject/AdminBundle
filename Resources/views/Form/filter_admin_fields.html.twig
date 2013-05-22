@@ -1,0 +1,37 @@
+{#
+
+This file is part of the Rz package.
+
+(c) mell m. zamora <me@rmzamora.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'RzAdminBundle:Form:silex_form_div_layout.html.twig' %}
+
+{% block widget_attributes %}
+{% spaceless %}
+    id="{{ id }}" name="{{ full_name }}"{% if read_only %} readonly="readonly"{% endif %}{% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if max_length %} maxlength="{{ max_length }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
+    {% set has_class = false %}
+    {% for attrname, attrvalue in attr %}
+        {% if attrname in ['placeholder', 'title'] %}
+            {{ attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+        {% elseif (attrname == 'class') %}
+             {% set has_class = true %}
+             {# for now hardcoded TODO #}
+             {% if attrvalue == 'span5' %}
+                 {{attrname}}="span12"
+             {% else %}
+                 {{attrname}}="span12 {{attrvalue}}"
+             {% endif %}
+        {% else %}
+            {{ attrname }}="{{ attrvalue }}"
+        {% endif %}
+    {% endfor %}
+    {% if not has_class %}
+    class="span12"
+    {% endif %}
+{% endspaceless %}
+{% endblock widget_attributes %}

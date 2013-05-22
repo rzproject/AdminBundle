@@ -1,0 +1,28 @@
+{
+    "name": "rz/admin-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 Bundle SonataAdminBundle Extension",
+    "keywords": ["symfony2", "Sonata Project", "RZProject"],
+    "homepage": "https://github.com/rzproject/AdminBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mell zamora",
+            "email": "mell@rzproject.org",
+            "homepage": "http://www.rzproject.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "rmzamora/admin-bundle": "2.2.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "Rz\\AdminBundle": "" }
+    },
+    "target-dir": "Rz/AdminBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.2.x-dev"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{#
+
+This file is part of the Rz package.
+
+(c) mell m. zamora <me@rmzamora.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% block content %}
+    {% block preview %}{% endblock %}
+    {% block form %}{% endblock %}
+    {% block list %}{% endblock %}
+    {% block show %}{% endblock %}
+    <div class="sonata-ba-filter row-fluid">
+        {% block list_filters %}{% endblock %}
+    </div>
+    <div class="sonata-ba-list row-fluid">
+        {% block list_table %}{% endblock %}
+    </div>
+{% endblock %}

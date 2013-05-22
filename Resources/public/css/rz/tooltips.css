@@ -1,0 +1,34 @@
+/* Add some nice box-shadow-ness to the modal tooltip */
+#qtip-rz-form-modal{
+    max-width: 200px;
+    -moz-box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
+}
+
+#qtip-rz-form-modal .qtip-content{
+    padding: 0px;
+}
+
+#rz-qtip-modal-content.widget-box {
+    margin: 10px;
+}
+
+@media (min-width: 980px) {
+    #qtip-rz-form-modal{
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 767px) {
+    #qtip-rz-form-modal{
+        max-width: 600px;
+    }
+}
+
+
+@media (max-width: 479px) {
+    #qtip-rz-form-modal{
+        max-width: 400px;
+    }
+}

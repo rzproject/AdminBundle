@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="rz_admin.twig.extension.template_loader.class">Rz\AdminBundle\Twig\Extension\TemplateLoaderExtension</parameter>
+        <parameter key="rz_admin.twig.extension.string_helper.class">Rz\AdminBundle\Twig\Extension\StringHelperExtention</parameter>
+    </parameters>
+
+
+    <services>
+        <service id="rz_admin.twig.extension.template_loader" class="%rz_admin.twig.extension.template_loader.class%">
+            <argument type="service" id="rz_admin.template.loader"/>
+            <tag name="twig.extension"/>
+        </service>
+
+        <service id="rz_admin.twig.extension.string_helper" class="%rz_admin.twig.extension.string_helper.class%">
+            <tag name="twig.extension"/>
+        </service>
+    </services>
+
+</container>

@@ -1,0 +1,12 @@
+<div class="span2 admin-table-footer-per-page">
+    <label class="control-label" for="{{ admin.uniqid }}_per_page">{% trans from 'RzAdminBundle' %}label_per_page{% endtrans %}</label>
+    <div class="controls">
+        <select class="span8 selectpicker show-tick per-page" id="{{ admin.uniqid }}_per_page">
+            {% for per_page in admin.getperpageoptions %}
+                <option {% if per_page == admin.datagrid.pager.maxperpage %}selected="selected"{% endif %} value="{{ admin.generateUrl('list', {'filter': admin.datagrid.values | merge({'_per_page': per_page})}) }}">
+                    {{ per_page }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

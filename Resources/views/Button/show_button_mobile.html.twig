@@ -1,0 +1,7 @@
+{% if admin.hasroute('show') and admin.id(object) and admin.isGranted('VIEW', object) and admin.show|length > 0 %}
+    <li>
+        <a class="sonata-action-element" href="{{ admin.generateObjectUrl('show', object) }}">
+            <i class="icon-eye-open"></i>
+            {{ 'link_action_show'|trans({}, 'SonataAdminBundle') }}</a>
+    </li>
+{% endif %}

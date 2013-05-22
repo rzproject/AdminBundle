@@ -1,0 +1,197 @@
+{#
+
+This file is part of the Rz package.
+
+(c) mell m. zamora <me@rmzamora.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends base_template %}
+
+{% block sonata_javascript_block %}
+    {{ parent() }}
+    {# page specific JS #}
+    <script src="{{ asset('bundles/rzadmin/js/sonata/list.batch.action.js') }}" type="text/javascript"></script>
+{% endblock sonata_javascript_block %}
+
+{% block actions %}
+<div class="row-fluid admin-action-buttons">
+    <div class="span12">
+        <div class="sonata-actions btn-group hidden-phone hidden-tablet visible-desktop pull-right">
+            {% include 'SonataAdminBundle:Button:filter_button.html.twig' %}
+            {% include 'SonataAdminBundle:Button:create_button.html.twig' %}
+        </div>
+        <div class="btn-group visible-phone visible-tablet hidden-desktop  pull-right">
+            <div class="btn-group visible-phone visible-tablet hidden-desktop  pull-right">
+                <button class="btn btn-primary admin-actions admin-actions-group">Select an action to perform</button>
+                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle admin-actions"><i class=" icon-chevron-down"></i></button>
+                <ul class="dropdown-menu">
+                    {% include 'SonataAdminBundle:Button:filter_button_mobile.html.twig' %}
+                    <li class="divider"></li>
+                    {% include 'SonataAdminBundle:Button:create_button_mobile.html.twig' %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block list_table %}
+    {% if app.request.isxmlhttprequest %}
+        {{ block('list_table_ajax') }}
+    {% else %}
+        {{ block('list_table_standard') }}
+    {% endif %}
+{% endblock list_table %}
+
+{% block side_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active'}, 'list') }}{% endblock %}
+
+{% block list_table_ajax %}
+    <div class="modal-header modal-primary">
+        <button class="close" data-dismiss="modal"><i class="icon-remove-sign"></i></button>
+        {# TODO: set on configuration #}
+        <h3>Data</h3>
+    </div>
+    <div class="modal-body">
+        {{ block('list_filters_standard') }}
+        {{ block('list_table_standard') }}
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success sepH_a sepV_a filter admin-ajax-ignore-event" data-toggle="collapse" data-target="#admin-filter"><i class="icon-search"></i> Filter</button>
+        <button class="btn btn-danger sepH_a sepV_a" type="button" data-dismiss="modal"><i class="micon-undo"></i> close</button>
+    </div>
+{% endblock list_table_ajax %}
+
+{% block list_table_standard %}
+<div class="widget-box">
+    <div class="widget-title">
+        <span class="icon">
+            <i class="micon-database"></i>
+        </span>
+        {# TODO: set on configuration #}
+        <h5>Data</h5>
+    </div>
+    <div class="widget-content nopadding">
+        {% set batchactions = admin.batchactions %}
+        {% if admin.datagrid.results|length > 0 %}
+            <form action="{{ admin.generateUrl('batch', {'filter': admin.filterParameters}) }}" method="POST" >
+                <table class="table fixed table-bordered table-hover with-check footable">
+                    {% block table_header %}
+                        <thead>
+                        <tr class="sonata-ba-list-field-header">
+                            {% for field_description in admin.list.elements %}
+                                {% if field_description.getOption('code') == '_batch' and batchactions|length > 0%}
+                                    <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch row-selector">
+                                        <input class="uni_style_batch_action" type="checkbox" id="list_batch_checkbox" />
+                                    </th>
+                                {% elseif field_description.name == '_action' and app.request.isXmlHttpRequest %}
+                                    {# Action buttons disabled in ajax view! #}
+                                {% else %}
+                                    {% set sortable = false %}
+                                    {% if field_description.options.sortable is defined and field_description.options.sortable%}
+                                        {% set sortable             = true %}
+                                        {% set current              = admin.datagrid.values._sort_by == field_description %}
+                                        {% set sort_parameters      = admin.modelmanager.sortparameters(field_description, admin.datagrid) %}
+                                        {% set sort_active_class    = current ? 'sonata-ba-list-field-order-active' : '' %}
+                                        {% set sort_by                  = current ? admin.datagrid.values._sort_order : field_description.options._sort_order %}
+                                    {% endif %}
+
+                                    {% spaceless %}
+                                        <th class="sonata-ba-list-field-header-{{ field_description.type}} {% if sortable %} sonata-ba-list-field-header-order-{{ sort_by|lower }} {{ sort_active_class }}{% endif %}"{% if field_description.options.footable is defined and field_description.options.footable.attr.data_hide is defined %} data-hide="{{ field_description.options.footable.attr.data_hide }}"{% endif %} >
+                                            {% if sortable %}<a href="{{ admin.generateUrl('list', sort_parameters) }}">{% endif %}
+                                                {{ admin.trans(field_description.label) }}
+                                                {% if sortable %}</a>{% endif %}
+                                        </th>
+                                    {% endspaceless %}
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                    {% endblock %}
+
+                    {% block table_body %}
+                        <tbody>
+                        {% for object in admin.datagrid.results %}
+                            <tr>
+                                {% include admin.getTemplate('inner_list_row') %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    {% endblock %}
+                </table>
+                {% block table_footer %}
+                    {% include admin.getTemplate('rz_list_table_footer') %}
+                {% endblock %}
+            </form>
+        {% else %}
+            <div class="row-fluid">
+                <div class="span12 admin-list-no-result">
+                    <div class="alert alert-success">
+                        {{ 'no_result'|trans({}, 'SonataAdminBundle') }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock list_table_standard %}
+
+{% block list_filters_standard %}
+    {% if admin.datagrid.filters %}
+    <div class="collapse admin-filter{% if app.request.isxmlhttprequest %} admin-filter-ajax{% else %} in{% endif %}" id="admin-filter">
+        <div class="row-fluid">
+            <div class="span12 admin-filter-content sonata-ba-filter">
+                <div class="widget-title">
+                    <span class="icon">
+                        <i class="micon-search"></i>
+                    </span>
+                    {# TODO: add label to configuration #}
+                    <h5>Filter</h5>
+                    <a class="{% if app.request.isxmlhttprequest %}admin-ajax-ignore-event {% endif %}filter" href="#rz-page-slider-modal" data-toggle="collapse" data-target="#admin-filter"><i class="icon-remove-sign icon-large"></i></a>
+                </div>
+                <div class="widget-content nopadding">
+                    <form class="sonata-filter-form {{ admin.isChild and 1 == admin.datagrid.filters|length ? 'hide' : '' }}" action="{{ admin.generateUrl('list') }}" method="GET">
+                        {% for filter in admin.datagrid.filters %}
+                            <div class="control-group formSepH_pa formSepV_pc" id="filter_{{ filter.name }}_row">
+                                <div class="row-fluid">
+                                    <div class="span3">
+                                        <label class="control-label">{{ admin.trans(filter.label) }}</label>
+                                    </div>
+                                    <div class="span3">
+                                        <div class="controls">
+                                            {{ form_widget(form.children[filter.formName].children['type']) }}
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <div class="controls">
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        <input type="hidden" name="filter[_page]" id="filter__page" value="1" />
+                        {% set foo = form.children['_page'].setRendered() %}
+                        {{ form_rest(form) }}
+                        <div class="form-actions formSepH_pa formSepV_pc">
+                            <a class="btn btn-danger pull-right rz-admin-filter-reset-button" href="{{ admin.generateUrl('list') }}">{{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}</a>
+                            <button type="submit" class="btn btn-success pull-right sepV_a" value="{{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}">{{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock list_filters_standard %}
+
+{% block list_filters %}
+    {% if not app.request.isxmlhttprequest %}
+        {{ block('list_filters_standard') }}
+    {% endif %}
+{% endblock %}

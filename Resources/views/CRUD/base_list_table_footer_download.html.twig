@@ -1,0 +1,22 @@
+<div class="span4 admin-table-footer-downloads">
+    <label class="control-label">{{ "label_export_download"|trans({}, "RzAdminBundle") }}</label>
+    <div class="controls">
+        <div class="btn-group">
+            {% for format in admin.getExportFormats() %}
+                <a class="btn" href="{{ admin.generateUrl('export', admin.modelmanager.paginationparameters(admin.datagrid, 0) + {'format' : format}) }}">
+                    {# TODO create dynamic class for insterting icons #}
+                    {% if format == 'json' %}
+                        <i class="icon-bar-chart"></i>&nbsp;
+                    {% elseif format == 'xml' %}
+                        <i class="micon-stats-up"></i>&nbsp;
+                    {% elseif format == 'csv' %}
+                        <i class="micon-bars"></i>&nbsp;
+                    {% else %}
+                        <i class="micon-file-excel"></i>&nbsp;
+                    {% endif %}
+                    {{ format }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

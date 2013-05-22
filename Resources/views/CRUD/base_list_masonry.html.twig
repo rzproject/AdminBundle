@@ -1,0 +1,44 @@
+{#
+
+This file is part of the Rz package.
+
+(c) mell m. zamora <me@rmzamora.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'RzAdminBundle:CRUD:base_list.html.twig' %}
+
+{% block list_table_standard %}
+{% set batchactions = admin.batchactions %}
+{% if admin.datagrid.results|length > 0 %}
+<form action="{{ admin.generateUrl('batch', {'filter': admin.filterParameters}) }}" method="POST" class="rz-masonry">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="rz_grid">
+                <ul>
+                {% for object in admin.datagrid.results %}
+                    {% include admin.getTemplate('inner_list_row') %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12 well">
+            {% include admin.getTemplate('rz_list_table_footer') %}
+        </div>
+    </div>
+</form>
+{% else %}
+    <div class="row-fluid">
+        <div class="span12 admin-list-no-result">
+            <div class="alert alert-success">
+                {{ 'no_result'|trans({}, 'SonataAdminBundle') }}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock list_table_standard %}
