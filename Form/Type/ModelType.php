@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rz\AdminBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractTypeExtension;
@@ -8,8 +7,6 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-
-
 
 /**
  * This type define a standard select input with a + sign to add new associated object
@@ -21,14 +18,14 @@ class ModelType extends AbstractTypeExtension
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         //* TODO: enable via config
-        if(!$options['expanded'] && $options['multiple']) {
+        if (!$options['expanded'] && $options['multiple']) {
             $view->vars['chosen_enabled'] = $options['chosen_enabled'];
             //enable selectpicker by default
-            if ($view->vars['chosen_enabled'] ) {
+            if ($view->vars['chosen_enabled']) {
                 $view->vars['selectpicker_enabled'] = false;
-            } elseif($options['multiselect_enabled']) {
+            } elseif ($options['multiselect_enabled']) {
                 $view->vars['selectpicker_enabled'] = false;
-            } elseif($options['multiselect_search_enabled']) {
+            } elseif ($options['multiselect_search_enabled']) {
                 $view->vars['selectpicker_enabled'] = false;
             } else {
                 $view->vars['selectpicker_enabled'] = $options['selectpicker_enabled'] ? $options['selectpicker_enabled'] : true;

@@ -2,7 +2,6 @@
 
 namespace Rz\AdminBundle\Helper;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Rz\AdminBundle\Helper\TemplateLoaderInterface;
 
 class TemplateLoader implements TemplateLoaderInterface

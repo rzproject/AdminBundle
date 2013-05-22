@@ -2,8 +2,6 @@
 
 namespace Rz\AdminBundle\Helper;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
 interface TemplateLoaderInterface
 {
     /**

@@ -1,7 +1,6 @@
 <?php
 namespace Rz\AdminBundle\Form\Type\Filter;
 
-
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;

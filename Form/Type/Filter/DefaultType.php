@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Rz\AdminBundle\Form\Type\Filter;
 
 use Symfony\Component\Form\AbstractTypeExtension;

@@ -22,6 +22,7 @@ class Configuration implements ConfigurationInterface
         $node = $treeBuilder->root('rz_admin');
         $this->addAdminServices($node);
         $this->addAdminTemplates($node);
+
         return $treeBuilder;
     }
 

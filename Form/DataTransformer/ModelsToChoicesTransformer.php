@@ -85,7 +85,6 @@ class ModelsToChoicesTransformer implements DataTransformerInterface
             $this->choiceList->getClass()
         );
 
-
         if (!$collection instanceof \Doctrine\Common\Collections\ArrayCollection) {
             throw new UnexpectedTypeException($collection, '\Doctrine\Common\Collections\ArrayCollection');
         }

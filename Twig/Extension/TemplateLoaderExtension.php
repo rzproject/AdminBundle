@@ -16,7 +16,6 @@ class TemplateLoaderExtension extends \Twig_Extension
      */
     protected $loader;
 
-
     /**
      * @param \Rz\AdminBundle\Helper\TemplateLoaderInterface $loader
      */

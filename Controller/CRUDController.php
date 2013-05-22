@@ -2,20 +2,15 @@
 
 namespace Rz\AdminBundle\Controller;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sonata\AdminBundle\Exception\ModelManagerException;
 use Symfony\Component\HttpFoundation\Request;
-use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Sonata\AdminBundle\Controller\CRUDController as BaseCRUDController;
 
 class CRUDController extends BaseCRUDController
 {
-
 
     /**
      * return the Response object associated to the edit action
@@ -94,8 +89,6 @@ class CRUDController extends BaseCRUDController
             'object' => $object,
         ));
     }
-
-
 
     /**
      * return the Response object associated to the create action
