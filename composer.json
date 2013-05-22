@@ -14,7 +14,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "rmzamora/admin-bundle": "2.2.*@dev"
+        "rmzamora/admin-bundle": "2.2.*@dev",
+        "rmzamora/jquery-bundle": "1.9.*@dev",
+        "rz/block-bundle": ">=2.2.1,<3.0"
     },
     "autoload": {
         "psr-0": { "Rz\\AdminBundle": "" }
