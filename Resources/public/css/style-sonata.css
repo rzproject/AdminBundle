@@ -64,3 +64,10 @@ margin-top: 10px;
     font-size: 14px !important;
     min-height: 37px !important;
 }
+
+.sonata-ba-field-help {
+    margin-top: 10px;
+    -webkit-font-smoothing: antialiased;
+    font-family:"Ubuntu" !important;
+    font-size: 12px !important;
+}

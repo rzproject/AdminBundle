@@ -155,6 +155,7 @@ file that was distributed with this source code.
                 </div>
                 <div class="widget-content nopadding">
                     <form class="sonata-filter-form {{ admin.isChild and 1 == admin.datagrid.filters|length ? 'hide' : '' }}" action="{{ admin.generateUrl('list') }}" method="GET">
+                        {{ block('list_filter_persistent_parameters') }}
                         {% for filter in admin.datagrid.filters %}
                             <div class="control-group formSepH_pa formSepV_pc" id="filter_{{ filter.name }}_row">
                                 <div class="row-fluid">
@@ -195,3 +196,6 @@ file that was distributed with this source code.
         {{ block('list_filters_standard') }}
     {% endif %}
 {% endblock %}
+
+
+{% block list_filter_persistent_parameters %}{% endblock %}

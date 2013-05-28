@@ -98,9 +98,12 @@ file that was distributed with this source code.
                             {{ form_errors(form) }}
                         </div>
                     {% endif %}
-
                     {% if sonata_admin.field_description.help %}
-                        <span class="help-block sonata-ba-field-help">{{ sonata_admin.field_description.help }}</span>
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <em><span class="help-block sonata-ba-field-help">{{ sonata_admin.field_description.help }}</span></em>
+                            </div>
+                        </div>
                     {% endif %}
                 </div>
             {% endif %}
