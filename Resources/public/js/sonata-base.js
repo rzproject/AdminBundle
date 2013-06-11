@@ -124,7 +124,7 @@ var Admin = {
                         var elm = jQuery(subject).parent();
                         elm.children().remove();
                         // fix issue with html comment ...
-                        elm.html(jQuery(json.content.replace(/<!--[\s\S]*?-->/g, "")).html());
+                        elm.html(jQuery(jQuery.parseHTML(json.content.replace(/<!--[\s\S]*?-->/g, "").replace(/[\r\n]+(?=[^\r\n])/g,""))).html());
                         elm.effect("highlight", {'color' : '#57A957'}, 2000);
                         Admin.set_object_field_value(elm);
                     } else {
