@@ -56,7 +56,9 @@ class CRUDController extends BaseCRUDController
         $form->setData($object);
 
         if ($this->getRestMethod() == 'POST') {
-            $form->bind($this->get('request'));
+
+            $form->handleRequest($this->get('request'));
+            //$form->bind($this->get('request'));
 
             $isFormValid = $form->isValid();
 
@@ -123,7 +125,8 @@ class CRUDController extends BaseCRUDController
         $form->setData($object);
 
         if ($this->getRestMethod()== 'POST') {
-            $form->bind($this->get('request'));
+            //$form->bind($this->get('request'));
+            $form->handleRequest($this->get('request'));
 
             $isFormValid = $form->isValid();
 
