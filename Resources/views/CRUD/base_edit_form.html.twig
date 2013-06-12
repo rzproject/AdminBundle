@@ -138,13 +138,15 @@ file that was distributed with this source code.
     {% endif %}
     {% if admin.id(object) %}
         <button type="submit" class="btn btn-primary sepH_a sepV_a" name="btn_update_and_edit"><i class="micon-pencil-2"></i> {{ 'btn_update_and_edit_again'|trans({}, 'SonataAdminBundle') }}</button>
-
-        {% if admin.hasroute('list') %}
+        {% if not app.request.isxmlhttprequest %}
+            {% if admin.hasroute('list') %}
             <button type="submit" class="btn btn-primary sepH_a sepV_a" name="btn_update_and_list"><i class="micon-exit"></i> {{ 'btn_update_and_return_to_list'|trans({}, 'SonataAdminBundle') }}</button>
-        {% endif %}
-
-        {% if admin.hasroute('delete') and admin.isGranted('DELETE', object) %}
+            {% endif %}
+            {% if admin.hasroute('delete') and admin.isGranted('DELETE', object) %}
             <a class="btn btn-danger sepH_a sepV_a" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="micon-remove"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
+            {% endif %}
+        {% else %}
+            <button class="btn btn-danger sepH_a sepV_a" type="button" data-dismiss="modal"><i class="micon-undo"></i> close</button>
         {% endif %}
     {% else %}
         <button class="btn btn-primary sepH_a sepV_a" type="submit" name="btn_create_and_edit"><i class="icon-save"></i> {{ 'btn_create_and_edit_again'|trans({}, 'SonataAdminBundle') }}</button>
