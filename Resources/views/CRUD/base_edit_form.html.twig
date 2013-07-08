@@ -14,17 +14,18 @@ file that was distributed with this source code.
 {% block form_basic %}
     {% spaceless %}
     <form class="rz-form{{ block('form_orientation_type') }}"
-          action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}"
-            {{ form_enctype(form) }}
-          method="POST">
-        {% if form.vars.errors|length > 0 %}
-            <div class="rz-form-alert-block">
-                <div class="alert alert-block alert-error sonata-ba-form-error">
-                    <a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>
-                    {{ form_errors(form) }}
-                </div>
-            </div>
-        {% endif %}
+        action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}" {{ form_enctype(form) }}
+        method="POST"
+        {% if not admin_pool.getOption('html5_validate') %}novalidate="novalidate"{% endif %}
+        >
+        {#{% if form.vars.errors|length > 0 %}#}
+            {#<div class="rz-form-alert-block">#}
+                {#<div class="alert alert-block alert-error sonata-ba-form-error">#}
+                    {#<a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>#}
+                    {#{{ form_errors(form) }}#}
+                {#</div>#}
+            {#</div>#}
+        {#{% endif %}#}
         <div class="widget-box">
             <div class="widget-title">
                 <span class="icon"><i class="icon-time"></i></span>
@@ -47,9 +48,11 @@ file that was distributed with this source code.
 {% endblock form_basic %}
 
 {% block form_ajax %}
-<form class="rz-form" action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}"
-        {{ form_enctype(form) }}
-        method="POST">
+<form class="rz-form"
+      action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}" {{ form_enctype(form) }}
+      method="POST"
+      {% if not admin_pool.getOption('html5_validate') %}novalidate="novalidate"{% endif %}
+      >
     <div class="modal-header modal-primary">
         <button class="close" data-dismiss="modal"><i class="icon-remove-sign"></i></button>
         <h3>

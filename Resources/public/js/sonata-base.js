@@ -51,25 +51,19 @@ var Admin = {
                 target = input;
             }
 
-            target.qtip({
-                content: message,
-                show: 'focusin',
-                hide: 'focusout',
-                position: {
-                    corner: {
-                        target: 'rightMiddle',
-                        tooltip: 'leftMiddle'
-                    }
-                },
-                style: {
-                    name: 'red',
-                    border: {
-                        radius: 2
-                    },
-                    tip: 'leftMiddle'
-                }
-            });
+//            if (jQuery(target).css('display') == 'none') {
+//                console.log(target);
+//            }
 
+            console.log(jQuery(target).css('visibility'));
+
+            target.popover({
+                title: 'Error Message',
+                content: message,
+                trigger:'focus',
+                placement: 'top',
+                html: true
+            });
         });
     },
 
