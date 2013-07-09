@@ -32,7 +32,7 @@ file that was distributed with this source code.
 
 {% block side_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active'}, 'list') }}{% endblock %}
 
-{% block content %}
+{% block basic_content %}
 <div class="widget-box sonata-ba-delete">
     <div class="widget-title">
         <span class="icon">
@@ -44,19 +44,59 @@ file that was distributed with this source code.
         <div class="control-group">
             <p>{{ 'message_delete_confirmation'|trans({'%object%': admin.toString(object)}, 'SonataAdminBundle') }}</p>
         </div>
-        <div class="well form-actions">
-            <form method="POST" action="{{ admin.generateObjectUrl('delete', object) }}">
-                <input type="hidden" value="DELETE" name="_method" />
-
-                <input type="submit" class="btn btn-danger" value="{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}" />
-
-                {% if admin.hasRoute('edit') and admin.isGranted('EDIT', object) %}
-                    <a class="btn btn-success" href="{{ admin.generateObjectUrl('edit', object) }}">
-                        <i class="icon-edit"></i>
-                        {{ 'link_action_edit'|trans({}, 'SonataAdminBundle') }}</a>
-                {% endif %}
-            </form>
-        </div>
+        {% if not app.request.isxmlhttprequest %}
+            {{ block('delete_actions') }}
+        {% endif %}
     </div>
 </div>
+{% endblock %}
+
+{% block ajax_delete_actions %}
+    <form method="POST" action="{{ admin.generateObjectUrl('delete', object) }}">
+        <input type="hidden" value="DELETE" name="_method" />
+        <button type="submit" class="btn btn-danger sepH_a sepV_a">{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}</button>
+        <button class="btn btn-primary sepH_a sepV_a" type="button" data-dismiss="modal"><i class="micon-undo"></i> Cancel</button>
+    </form>
+{% endblock %}
+
+{% block delete_actions %}
+    <div class="well form-actions">
+        <form method="POST" action="{{ admin.generateObjectUrl('delete', object) }}">
+            <input type="hidden" value="DELETE" name="_method" />
+            <input type="submit" class="btn btn-danger" value="{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}" />
+
+            {% if admin.hasRoute('edit') and admin.isGranted('EDIT', object) %}
+                <a class="btn btn-success" href="{{ admin.generateObjectUrl('edit', object) }}">
+                    <i class="icon-edit"></i>
+                    {{ 'link_action_edit'|trans({}, 'SonataAdminBundle') }}</a>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}
+
+{% block ajax_content %}
+    <div class="modal-header modal-primary">
+        <button class="close" data-dismiss="modal"><i class="icon-remove-sign"></i></button>
+        <h3>
+            {% if admin.id(object) %}
+                {{ "title_edit"|trans({'%name%': admin.toString(object) }, 'SonataAdminBundle') }}
+            {% else %}
+                {{ "title_create"|trans({}, 'SonataAdminBundle') }}
+            {% endif %}
+        </h3>
+    </div>
+    <div class="modal-body">
+        {{ block('basic_content') }}
+    </div>
+    <div class="modal-footer">
+        {{ block('ajax_delete_actions') }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% if app.request.isxmlhttprequest %}
+        {{ block('ajax_content') }}
+    {% else %}
+        {{ block('basic_content') }}
+    {% endif %}
 {% endblock %}

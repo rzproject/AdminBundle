@@ -13,12 +13,12 @@ var Admin = {
      * render log message
      */
     log: function() {
-//        var msg = '[Sonata.Admin] ' + Array.prototype.join.call(arguments,', ');
-//        if (window.console && window.console.log) {
-//            window.console.log(msg);
-//        } else if (window.opera && window.opera.postError) {
-//            window.opera.postError(msg);
-//        }
+        var msg = '[Sonata.Admin] ' + Array.prototype.join.call(arguments,', ');
+        if (window.console && window.console.log) {
+            window.console.log(msg);
+        } else if (window.opera && window.opera.postError) {
+            window.opera.postError(msg);
+        }
     },
 
     /**
