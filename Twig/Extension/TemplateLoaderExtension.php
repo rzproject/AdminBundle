@@ -49,7 +49,7 @@ class TemplateLoaderExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'get_rz_admin_template' => new \Twig_Function_Method($this, 'getTemplate', array('is_safe' => array('html'))),
+             new \Twig_SimpleFunction('rz_admin_get_template', array($this, 'getTemplate')),
         );
     }
 

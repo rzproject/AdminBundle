@@ -22,7 +22,7 @@ class StringHelperExtention extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'rz_str_replace' => new \Twig_Function_Method($this, 'strReplace', array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction('rz_str_replace', array($this, 'strReplace')),
         );
     }
 
@@ -31,7 +31,7 @@ class StringHelperExtention extends \Twig_Extension
      */
     public function getName()
     {
-        return 'rz_admin_template_loader';
+        return 'rz_admin_string_helper';
     }
 
     /**

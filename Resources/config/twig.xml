@@ -12,12 +12,12 @@
 
     <services>
         <service id="rz_admin.twig.extension.template_loader" class="%rz_admin.twig.extension.template_loader.class%">
+            <tag name="twig.extension" />
             <argument type="service" id="rz_admin.template.loader"/>
-            <tag name="twig.extension"/>
         </service>
 
         <service id="rz_admin.twig.extension.string_helper" class="%rz_admin.twig.extension.string_helper.class%">
-            <tag name="twig.extension"/>
+            <tag name="twig.extension" />
         </service>
     </services>
 

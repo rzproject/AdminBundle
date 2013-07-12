@@ -24,7 +24,7 @@ class TemplateLoader implements TemplateLoaderInterface
      */
     public function setTemplates(array $templates)
     {
-        $this->templates = $templates;
+        $this->templates = array_merge($this->templates, $templates);
     }
 
     /**
