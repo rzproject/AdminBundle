@@ -37,7 +37,6 @@ file that was distributed with this source code.
             </span>
         </label>
     {% else %}
-
         {% if (expanded_custom_checkbox is defined and expanded_custom_checkbox) or (uniform_custom_label is defined and uniform_custom_label) and widget is defined %}
             <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
             {{ widget|raw }}
@@ -61,6 +60,123 @@ file that was distributed with this source code.
     {% endif %}
 {% endspaceless %}
 {% endblock form_label %}
+
+{% block rz_tree_options %}
+    <div {{ block('widget_container_attributes_choice_widget') }}>
+        {% set level = -1 %}
+        {% set is_closed = false %}
+        {% set prev_root = null %}
+        {% for child in form %}
+            {% if loop.first %}
+                {{ block('rz_tree_options_root_open') }}
+                {{ block('rz_tree_option_child_none') }}
+                {{ block('rz_tree_options_root_close') }}
+            {% else %}
+                {% if child.vars.label.level == level %}
+                    {{ block('rz_tree_option_child') }}
+                {% elseif child.vars.label.level > level %}
+                    {{ block('rz_tree_options_root_open') }}
+                    {{ block('rz_tree_option_child') }}
+                {% elseif child.vars.label.level < level %}
+                    {% if child.vars.label.isRoot %}
+                        {% for lvl in 1..level %}
+                            {{ block('rz_tree_options_root_close') }}
+                        {% endfor %}
+                        {{ block('rz_tree_options_root_close') }}
+                        {{ block('rz_tree_options_root_open') }}
+                        {{ block('rz_tree_option_child') }}
+                    {% else %}
+                        {{ block('rz_tree_options_root_close') }}
+                        {{ block('rz_tree_option_child') }}
+                    {% endif %}
+                {% endif %}
+                {% set level = child.vars.label.level %}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock rz_tree_options %}
+
+{% block rz_tree_option_child_none %}
+<li>
+{{ form_label(child, child.vars.label|default(null),
+    { 'in_list_checkbox' : true,
+      'widget' : form_widget(child)
+    }
+)}}
+</li>
+{% endblock rz_tree_option_child_none %}
+
+{% block rz_tree_option_child %}
+<li>
+{% if child.vars.label.id == form.vars.current.id
+   or form.vars.current.hasChild(child.vars.label) %}
+{{ form_label(child, child.vars.label|default(null),
+    { 'in_list_checkbox' : true,
+      'widget' : form_widget(child, {'attr': {'disabled':true} })
+    }
+)}}
+{% else %}
+{{ form_label(child, child.vars.label|default(null),
+    { 'in_list_checkbox' : true,
+      'widget' : form_widget(child)
+    }
+)}}
+{% endif %}
+</li>
+{% endblock rz_tree_option_child %}
+
+{% block rz_tree_options_root_open %}
+<ul>
+{% endblock rz_tree_options_root_open %}
+
+{% block rz_tree_options_root_close %}
+</ul>
+{% endblock rz_tree_options_root_close %}
+
+{% block rz_tree_options_child_open %}
+<li>
+{% endblock rz_tree_options_child_open %}
+
+{% block rz_tree_options_child_close %}
+</li>
+{% endblock rz_tree_options_child_close %}
+
+{% block choice_widget %}
+    {% spaceless %}
+        {% if expanded %}
+            {% if form.vars.tree_enabled is defined and form.vars.tree_enabled %}
+                {{ block('rz_tree_options') }}
+            {% else %}
+                <ul {{ block('widget_container_attributes_choice_widget') }}>
+                    {% for child in form %}
+                        <li>
+                            {{ form_label(child, child.vars.label|default(null),
+                            { 'in_list_checkbox' : true,
+                              'widget' : form_widget(child)
+                            }
+                            )}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+                {% if empty_value is not none %}
+                    <option value="">{{ empty_value|trans }}</option>
+                {% endif %}
+                {% if preferred_choices|length > 0 %}
+                    {% set options = preferred_choices %}
+                    {{ block('choice_widget_options') }}
+                    {% if choices|length > 0 %}
+                        <option disabled="disabled">{{ separator }}</option>
+                    {% endif %}
+                {% endif %}
+                {% set options = choices %}
+                {{ block('choice_widget_options') }}
+            </select>
+        {% endif %}
+    {% endspaceless %}
+{% endblock choice_widget %}
 
 {% block widget_container_attributes_choice_widget %}
     {% spaceless %}
