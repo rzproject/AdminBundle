@@ -62,68 +62,161 @@ file that was distributed with this source code.
 {% endblock form_label %}
 
 {% block rz_tree_options %}
-    <div {{ block('widget_container_attributes_choice_widget') }}>
-        {% set level = -1 %}
-        {% set is_closed = false %}
-        {% set prev_root = null %}
-        {% for child in form %}
-            {% if loop.first %}
-                {{ block('rz_tree_options_root_open') }}
-                {{ block('rz_tree_option_child_none') }}
-                {{ block('rz_tree_options_root_close') }}
-            {% else %}
-                {% if child.vars.label.level == level %}
-                    {{ block('rz_tree_option_child') }}
-                {% elseif child.vars.label.level > level %}
-                    {{ block('rz_tree_options_root_open') }}
-                    {{ block('rz_tree_option_child') }}
-                {% elseif child.vars.label.level < level %}
-                    {% if child.vars.label.isRoot %}
-                        {% for lvl in 1..level %}
-                            {{ block('rz_tree_options_root_close') }}
-                        {% endfor %}
-                        {{ block('rz_tree_options_root_close') }}
-                        {{ block('rz_tree_options_root_open') }}
-                        {{ block('rz_tree_option_child') }}
-                    {% else %}
-                        {{ block('rz_tree_options_root_close') }}
-                        {{ block('rz_tree_option_child') }}
+{% spaceless %}
+    {% set level = -1 %}
+    <div id="tree_{{ id }}">
+        {{ block('rz_tree_options_root_open') }}
+            {% for child in form %}
+                {% if loop.first %}
+                    <li>
+                        {{ form_label(child, child.vars.label|default(null),
+                                { 'in_list_checkbox' : true,
+                                  'widget' : form_widget(child)
+                                }
+                            )
+                        }}
+                    </li>
+                {% else %}
+
+                    {% if form.vars.current.id == child.vars.label.id %}
+                        {% set disabled = true %}
+                        {% set disabled_level = child.vars.label.level %}
+                        {% set disabled_root = child.vars.label.root %}
                     {% endif %}
+
+                    {% if disabled and  child.vars.label.level < disabled_level %}
+                        {% set disabled = false %}
+                    {% endif  %}
+
+                    {% if child.vars.label.isRoot %}
+                        {% if loop.index > 2 %}
+                            {% for lvl in 0..level %}
+                                </ul>
+                            {% endfor %}
+                            </li>
+                        {% endif %}
+                        {% set level = -1 %}
+                    {% endif %}
+
+                    {% if child.vars.label.level == level  %}
+                        <li>{{ block('rz_tree_option_child') }}</li>
+                    {% elseif child.vars.label.level > level %}
+                        <li>{{ block('rz_tree_option_child') }}
+                            <ul>
+                    {% elseif child.vars.label.level < level %}
+                        {% for lvl in 0..level %}
+                            </ul>
+                        {% endfor %}
+                        </li>
+                        <li>{{ block('rz_tree_option_child') }}</li>
+                    {% endif %}
+                    {% set level = child.vars.label.level %}
+
                 {% endif %}
-                {% set level = child.vars.label.level %}
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+        {{ block('rz_tree_options_root_close') }}
     </div>
+{% endspaceless %}
 {% endblock rz_tree_options %}
 
-{% block rz_tree_option_child_none %}
-<li>
-{{ form_label(child, child.vars.label|default(null),
-    { 'in_list_checkbox' : true,
-      'widget' : form_widget(child)
-    }
-)}}
-</li>
-{% endblock rz_tree_option_child_none %}
-
 {% block rz_tree_option_child %}
-<li>
-{% if child.vars.label.id == form.vars.current.id
-   or form.vars.current.hasChild(child.vars.label) %}
-{{ form_label(child, child.vars.label|default(null),
-    { 'in_list_checkbox' : true,
-      'widget' : form_widget(child, {'attr': {'disabled':true} })
-    }
-)}}
+{% if disabled %}
+    {{ form_label(child, child.vars.label|default(null),
+            { 'in_list_checkbox' : true,
+              'widget' : form_widget(child, {'attr': {'disabled':true} })
+            }
+          )
+    }}
 {% else %}
-{{ form_label(child, child.vars.label|default(null),
-    { 'in_list_checkbox' : true,
-      'widget' : form_widget(child)
-    }
-)}}
+    {{ form_label(child, child.vars.label|default(null),
+            { 'in_list_checkbox' : true,
+              'widget' : form_widget(child)
+            }
+        )
+    }}
 {% endif %}
-</li>
-{% endblock rz_tree_option_child %}
+{% endblock %}
+
+{% macro renderTree(child) %}
+{{ block('rz_tree_options_child_open') }}
+    {{ form_label(child, child.vars.label|default(null),
+        { 'in_list_checkbox' : true,
+          'widget' : form_widget(child)
+        })
+    }}
+    {% if child.vars.label.getChildren|length %}
+        <ul>
+            {% for child in child.vars.label.getChildren %}
+                {{ _self.recursiveCategory(child) }}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{{ block('rz_tree_options_child_close') }}
+{% endmacro %}
+
+{#{% block rz_tree_options %}#}
+    {#<div {{ block('widget_container_attributes_choice_widget') }}>#}
+        {#{% set level = -1 %}#}
+        {#{% set is_closed = false %}#}
+        {#{% set prev_root = null %}#}
+        {#{% for child in form %}#}
+            {#{% if loop.first %}#}
+                {#{{ block('rz_tree_options_root_open') }}#}
+                {#{{ block('rz_tree_option_child_none') }}#}
+                {#{{ block('rz_tree_options_root_close') }}#}
+            {#{% else %}#}
+                {#{% if child.vars.label.level == level %}#}
+                    {#{{ block('rz_tree_option_child') }}#}
+                {#{% elseif child.vars.label.level > level %}#}
+                    {#{{ block('rz_tree_options_root_open') }}#}
+                    {#{{ block('rz_tree_option_child') }}#}
+                {#{% elseif child.vars.label.level < level %}#}
+                    {#{% if child.vars.label.isRoot %}#}
+                        {#{% for lvl in 1..level %}#}
+                            {#{{ block('rz_tree_options_root_close') }}#}
+                        {#{% endfor %}#}
+                        {#{{ block('rz_tree_options_root_close') }}#}
+                        {#{{ block('rz_tree_options_root_open') }}#}
+                        {#{{ block('rz_tree_option_child') }}#}
+                    {#{% else %}#}
+                        {#{{ block('rz_tree_options_root_close') }}#}
+                        {#{{ block('rz_tree_option_child') }}#}
+                    {#{% endif %}#}
+                {#{% endif %}#}
+                {#{% set level = child.vars.label.level %}#}
+            {#{% endif %}#}
+        {#{% endfor %}#}
+    {#</div>#}
+{#{% endblock rz_tree_options %}#}
+
+{#{% block rz_tree_option_child_none %}#}
+{#<li>#}
+{#{{ form_label(child, child.vars.label|default(null),#}
+    {#{ 'in_list_checkbox' : true,#}
+      {#'widget' : form_widget(child)#}
+    {#}#}
+{#)}}#}
+{#</li>#}
+{#{% endblock rz_tree_option_child_none %}#}
+
+{#{% block rz_tree_option_child %}#}
+{#<li>#}
+{#{% if child.vars.label.id == form.vars.current.id#}
+   {#or form.vars.current.hasChild(child.vars.label) %}#}
+{#{{ form_label(child, child.vars.label|default(null),#}
+    {#{ 'in_list_checkbox' : true,#}
+      {#'widget' : form_widget(child, {'attr': {'disabled':true} })#}
+    {#}#}
+{#)}}#}
+{#{% else %}#}
+{#{{ form_label(child, child.vars.label|default(null),#}
+    {#{ 'in_list_checkbox' : true,#}
+      {#'widget' : form_widget(child)#}
+    {#}#}
+{#)}}#}
+{#{% endif %}#}
+{#</li>#}
+{#{% endblock rz_tree_option_child %}#}
 
 {% block rz_tree_options_root_open %}
 <ul>
