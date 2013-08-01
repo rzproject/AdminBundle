@@ -8,6 +8,7 @@
     <parameters>
         <parameter key="rz_admin.form.type.sonata_type_model.class">Rz\AdminBundle\Form\Type\ModelType</parameter>
         <parameter key="rz_admin.form.type.translatable_choice.class">Rz\AdminBundle\Form\Type\TranslatableChoiceType</parameter>
+        <parameter key="rz_admin.form.type.tree.class">Rz\AdminBundle\Form\Type\TreeType</parameter>
         <!-- filter type -->
         <parameter key="rz_admin.form.filter.type.default.class">Rz\AdminBundle\Form\Type\Filter\DefaultType</parameter>
         <parameter key="rz_admin.form.filter.type.choice.class">Rz\AdminBundle\Form\Type\Filter\ChoiceType</parameter>
@@ -21,6 +22,10 @@
     <services>
         <service id="rz_admin.form.type.sonata_type_model" class="%rz_admin.form.type.sonata_type_model.class%">
             <tag name="form.type_extension" alias="sonata_type_model" />
+        </service>
+
+        <service id="rz_admin.form.type.tree" class="%rz_admin.form.type.tree.class%">
+            <tag name="form.type" alias="rz_type_tree" />
         </service>
 
         <service id="rz_admin.form.type.translatable_choice" class="%rz_admin.form.type.translatable_choice.class%">

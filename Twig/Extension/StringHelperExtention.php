@@ -23,6 +23,7 @@ class StringHelperExtention extends \Twig_Extension
     {
         return array(
             new \Twig_SimpleFunction('rz_str_replace', array($this, 'strReplace')),
+            new \Twig_SimpleFunction('rz_str_repeat', array($this, 'strRepeat')),
         );
     }
 
@@ -47,4 +48,16 @@ class StringHelperExtention extends \Twig_Extension
     {
         return str_replace($search , $replace , $subject );
     }
+
+    /**
+     * @param $str
+     * @param $repeat
+     *
+     * @return \Twig_TemplateInterface
+     */
+    public function strRepeat($str , $repeat )
+    {
+        return str_repeat($str , $repeat);
+    }
+
 }
