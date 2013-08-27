@@ -97,3 +97,7 @@ margin-top: 10px;
     font-family:"Ubuntu" !important;
     font-size: 12px !important;
 }
+
+.sonata-ba-list-field-action {
+    text-align: center !important;
+}
