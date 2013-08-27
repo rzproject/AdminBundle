@@ -77,7 +77,9 @@ file that was distributed with this source code.
     <div class="widget-content nopadding">
         {% set batchactions = admin.batchactions %}
         {% if admin.datagrid.results|length > 0 %}
+            {% if admin.hasRoute('batch') %}
             <form action="{{ admin.generateUrl('batch', {'filter': admin.filterParameters}) }}" method="POST" >
+            {% endif %}
                 <table class="table fixed table-bordered table-hover with-check footable">
                     {% block table_header %}
                         <thead>
@@ -125,7 +127,9 @@ file that was distributed with this source code.
                 {% block table_footer %}
                     {% include admin.getTemplate('rz_list_table_footer') %}
                 {% endblock %}
+            {% if admin.hasRoute('batch') %}
             </form>
+            {% endif %}
         {% else %}
             <div class="row-fluid">
                 <div class="span12 admin-list-no-result">
