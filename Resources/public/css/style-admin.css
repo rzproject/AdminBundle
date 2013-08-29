@@ -294,6 +294,14 @@ form.rz-form .tabbable-bordered .nav-tabs>.active>a,.nav-tabs>.active>a:hover,.n
     color: #fff !important;
 }
 
+
+.ot-content > ul,
+.qtip-content > ul {
+list-style-type: none !important;
+margin-top: 5px !important;
+margin-left: 5px !important;
+}
+
 @media (min-width: 768px) and (max-width: 979px) {
     .admin-action-buttons {
         margin-top: 10px;

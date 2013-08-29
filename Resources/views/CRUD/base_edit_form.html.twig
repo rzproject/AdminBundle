@@ -64,16 +64,16 @@ file that was distributed with this source code.
         </h3>
     </div>
     <div class="modal-body">
-            {% if form.vars.errors|length > 0 %}
-                <div class="rz-form-alert-block">
-                    <div class="alert alert-block alert-error sonata-ba-form-error">
-                        <a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>
-                        {{ form_errors(form) }}
-                    </div>
+        {% if form.vars.errors|length > 0 %}
+            <div class="rz-form-alert-block">
+                <div class="alert alert-block alert-error sonata-ba-form-error">
+                    <a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>
+                    {{ form_errors(form) }}
                 </div>
-            {% endif %}
-            {{ block('form_body') }}
-            {{ form_rest(form) }}
+            </div>
+        {% endif %}
+        {{ block('form_body') }}
+        {{ form_rest(form) }}
     </div>
     <div class="modal-footer">
         {{ block('form_actions') }}

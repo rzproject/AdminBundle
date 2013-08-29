@@ -6,6 +6,7 @@ jQuery(document).ready(function() {
     Admin.setup_collection_buttons(document);
     Admin.setup_per_page_switcher(document);
     Admin.setup_form_tabs_for_errors(document);
+
 });
 
 var Admin = {
@@ -21,50 +22,89 @@ var Admin = {
         }
     },
 
+    //* detect touch devices
+    is_touch_device: function() {
+        return !!('ontouchstart' in window);
+    },
+
     /**
      * display related errors messages
      *
      * @param subject
      */
     add_pretty_errors: function(subject) {
-        jQuery('div.sonata-ba-field-error', subject).each(function(index, element) {
-            var input = jQuery('input, textarea, select', element);
 
-            var message = jQuery('div.sonata-ba-field-error-messages', element).html();
-            jQuery('div.sonata-ba-field-error-messages', element).html('');
-            if (!message) {
-                message = '';
-            }
+        if(!Admin.is_touch_device()) {
 
-            if (message.length == 0) {
-                return;
-            }
+            jQuery('div.sonata-ba-field-error', subject).each(function(index, element) {
 
-            var target;
+                var input = jQuery('input, textarea, select', element);
 
-            /* Hack to handle qTip on select */
-            if(jQuery(input).is('select')) {
-                input.wrap('<span></span>');
-                target = input.parent();
-            }
-            else {
-                target = input;
-            }
+                var message = jQuery('div.sonata-ba-field-error-messages', element).html();
+                jQuery('div.sonata-ba-field-error-messages', element).html('');
+                if (!message) {
+                    message = '';
+                }
+
+                if (message.length == 0) {
+                    return;
+                }
+
+                var target;
+
+                /* Hack to handle qTip on select */
+                if(jQuery(input).is('select')) {
+                    input.wrap('<span></span>');
+                    target = input.parent();
+                }
+                else {
+                    target = input;
+                }
 
 //            if (jQuery(target).css('display') == 'none') {
 //                console.log(target);
 //            }
 
-            console.log(jQuery(target).css('visibility'));
+                console.log(jQuery(target).css('visibility'));
+                console.log(target);
+                console.log(message);
 
-            target.popover({
-                title: 'Error Message',
-                content: message,
-                trigger:'focus',
-                placement: 'top',
-                html: true
+                var shared = {
+                    style		: {
+                        classes: 'qtip-bootstrap'
+                    },
+                    show		: {
+                        delay: 100
+                    },
+                    hide		: {
+                        delay: 0
+                    },
+                    content: {
+                        text: message,
+                        title: 'Error Message'
+                    }
+                };
+
+                if(target.length) {
+                    target.qtip( jQuery.extend({}, shared, {
+                        position: {
+                            my		: 'right center',
+                            at		: 'left center',
+                            viewport: jQuery(window)
+                        }
+                    }));
+                }
+
+                //target.opentip(message, { target: true,  targetJoint: null, tipJoint: 'left', showOn: 'mouseover', containInViewport: false, style: 'alert' });
+
+//            jQuery(target).popover({
+//                title: 'Error Message',
+//                content: message,
+//                placement: 'top',
+//                html: true
+//            });
             });
-        });
+        }
     },
 
     stopEvent: function(event) {

@@ -62,3 +62,25 @@
         {% endif %}
     {% endspaceless %}
 {% endblock form_label %}
+
+{# Misc #}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            {% if not form.parent  or 'repeated' in form.vars['block_prefixes'] %}
+                <div class="control-group error">
+            {% endif %}
+            <span class="help-inline">
+            {% for error in errors %}
+                {% if loop.first %}
+                    {{ error.messageTemplate|trans(error.messageParameters, 'validators') }}
+                {% endif %}
+            {% endfor %}
+        </span>
+            {% if not form.parent  or 'repeated' in form.vars['block_prefixes'] %}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
