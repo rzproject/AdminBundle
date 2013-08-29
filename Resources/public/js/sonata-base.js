@@ -61,14 +61,6 @@ var Admin = {
                     target = input;
                 }
 
-//            if (jQuery(target).css('display') == 'none') {
-//                console.log(target);
-//            }
-
-                console.log(jQuery(target).css('visibility'));
-                console.log(target);
-                console.log(message);
-
                 var shared = {
                     style		: {
                         classes: 'qtip-bootstrap'
