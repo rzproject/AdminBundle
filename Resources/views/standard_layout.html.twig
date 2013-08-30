@@ -247,7 +247,11 @@ file that was distributed with this source code.
                                 {% endfor %}
                             {% endif %}
                         {% endblock %}
-                        {% block top_bar_after_nav %}{% endblock %}
+                        {% block top_bar_after_nav %}
+                            {% if app.user %}
+                                <li><a href="{{ path(rz_render_page_url('homepage')) }}"><i class="icon-eye-open"></i> Preview Site</a></li>
+                            {% endif %}
+                        {% endblock %}
                         {% include admin_pool.getTemplate('user_block') %}
                     </ul>
                 </div>{#/.nav-collapse #}
