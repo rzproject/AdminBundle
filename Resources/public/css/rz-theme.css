@@ -1,0 +1,21 @@
+.box.box-bordered.box-color .slimScrollDiv {
+    border-bottom: 2px solid #253454;
+}
+
+.row-selector [class^="icheckbox_flat-"] {
+    margin: auto !important;
+}
+.admin-sidebar-container .nav-list li > a {
+    color: #333;
+}
+.admin-sidebar-container .nav-list .first {
+    padding-top: 5px;
+}
+.admin-sidebar-container .nav-list .active > a{
+    background: #941414 !important;
+    color: #fff;
+}
+
+.rz-datagird-form {
+    margin-bottom: 0px !important;
+}

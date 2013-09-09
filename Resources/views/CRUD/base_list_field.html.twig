@@ -15,14 +15,14 @@ file that was distributed with this source code.
     and admin.isGranted(field_description.options.route.name == 'show' ? 'VIEW' : field_description.options.route.name|upper, object)
     and admin.hasRoute(field_description.options.route.name)
     %}
-        <a href="{{ admin.generateObjectUrl(field_description.options.route.name, object, field_description.options.route.parameters) }}">
-            <i class="picon-blinklist icon-large icon-border"></i>&nbsp;
-            {%- block field %}{{ value }}{% endblock -%}
-        </a>
         {% if field_description.options.footable is defined and
               field_description.options.footable.attr.data_toggle is defined %}
-        <button class="btn btn-primary btn-mini hidden-desktop visible-tablet visible-phone pull-right footable-toggle-selector"><i class="icon-eye-open footable-toggle-selector"></i> SHOW</button>
+            <button class="btn btn-primary btn-small hidden-desktop visible-tablet visible-phone footable-toggle-selector"><i class="icon-plus footable-toggle-selector"></i></button>
         {% endif %}
+        <a href="{{ admin.generateObjectUrl(field_description.options.route.name, object, field_description.options.route.parameters) }}">
+            <i class="icon-link icon-large hidden-tablet hidden-phone"></i>&nbsp;
+            {%- block field %}{{ value }}{% endblock -%}
+        </a>
     {% else %}
         {{ block('field') }}
     {% endif %}

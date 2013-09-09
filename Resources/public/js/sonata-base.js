@@ -249,60 +249,79 @@ var Admin = {
 
     initElements: function(modal) {
         //TODO: change to selector
-        jQuery('[class*="selectpicker"]', modal).selectpicker();
-        jQuery('[class*="uni_style"]', modal).uniform();
-        jQuery('[class="footable"]', modal).footable();
-        //jQuery('.checker').hide();
+        if (jQuery('[class*="selectpicker"]', modal).length > 0) {
+            jQuery('[class*="selectpicker"]', modal).selectpicker();
+        }
 
-        //find all selectpicker
-        //modal.find('.selectpicker').selectpicker();
-        //find all chosen
-        modal.find(".chzn-select").chosen({
-            allow_single_deselect: true
-        });
-        modal.find(".chzn-select-multiple").chosen().change(function(){
-            var ret = null;
-            $(this).find('.chzn-choices').each(function(){
-                console.log(this);
-                console.log('child');
-            })
-        });
-        //date picker
-        modal.find('.rz-datepicker').datepicker({'autoclose': true});
-        //timepicker
-        modal.find('.rz-timepicker').timepicker({'defaultTime': false, 'showMeridian': false});
-        //datetimepicker
-        modal.find('.rz-datetimepicker').datetimepicker({
-            autoclose: true,
-            todayBtn: true,
-            pickerPosition: "bottom-left",
-            minuteStep: 5
-        });
-        //get hisghest z-index
-        //push zindex
-        jQuery('.datepicker.dropdown-menu').css('z-index', 9999);
+        if(jQuery('[class*="uni_style"]', modal).length > 0) {
+            jQuery('[class*="uni_style"]', modal).uniform();
+        }
 
-        jQuery('.rz_grid ul', modal).imagesLoaded(jQuery.proxy(function() {
-            // Prepare layout options.
-            var options = {
-                autoResize: true, // This will auto-update the layout when the browser window is resized.
-                container: $('.rz_grid'), // Optional, used for some extra CSS styling
-                offset: 5, // Optional, the distance between grid items
-                itemWidth: 220, // Optional, the width of a grid item (li)
-                flexibleItemWidth: false
-            };
+        if (jQuery('[class="footable"]', modal).length > 0) {
+            jQuery('[class="footable"]', modal).footable();
+        }
 
-            // Get a reference to your grid items.
-            var handler = jQuery('.rz_grid ul li', modal);
+        if(jQuery('.chosen-select', modal).length>0) {
+            modal.find(".chosen-select").chosen({
+                allow_single_deselect: true
+            });
+        }
 
-            // Call the layout function.
-            handler.wookmark(options);
+        if(jQuery(".chosen-select-multiple", modal).length > 0) {
+            modal.find(".chosen-select-multiple").chosen().change(function(){
+                var ret = null;
+                $(this).find('.chosen-choices').each(function(){
+                    console.log(this);
+                    console.log('child');
+                })
+            });
+        }
 
-            jQuery('.rz_grid ul li').on('mouseenter',function(){
-                $(this).addClass('act_tools');
-            }).on('mouseleave',function(){
-                    $(this).removeClass('act_tools');
-                });
-        }, modal));
+        if(jQuery('.rz-datepicker', modal).length > 0) {
+            modal.find('.rz-datepicker').datepicker({'autoclose': true});
+        }
+
+        if(jQuery('.rz-timepicker', modal).length > 0) {
+            modal.find('.rz-timepicker').timepicker({'defaultTime': false, 'showMeridian': false});
+        }
+
+        if(jQuery('.rz-datetimepicker', modal).length > 0) {
+            modal.find('.rz-datetimepicker').datetimepicker({
+                autoclose: true,
+                todayBtn: true,
+                pickerPosition: "bottom-left",
+                minuteStep: 5
+            });
+        }
+
+        if(jQuery('.datepicker.dropdown-menu', modal).length > 0) {
+            jQuery('.datepicker.dropdown-menu').css('z-index', 9999);
+        }
+
+
+        if(jQuery('.rz_grid ul', modal).length > 0) {
+            jQuery('.rz_grid ul', modal).imagesLoaded(jQuery.proxy(function() {
+                // Prepare layout options.
+                var options = {
+                    autoResize: true, // This will auto-update the layout when the browser window is resized.
+                    container: $('.rz_grid'), // Optional, used for some extra CSS styling
+                    offset: 5, // Optional, the distance between grid items
+                    itemWidth: 220, // Optional, the width of a grid item (li)
+                    flexibleItemWidth: false
+                };
+
+                // Get a reference to your grid items.
+                var handler = jQuery('.rz_grid ul li', modal);
+
+                // Call the layout function.
+                handler.wookmark(options);
+
+                jQuery('.rz_grid ul li').on('mouseenter',function(){
+                    $(this).addClass('act_tools');
+                }).on('mouseleave',function(){
+                        $(this).removeClass('act_tools');
+                    });
+            }, modal));
+        }
     }
 }

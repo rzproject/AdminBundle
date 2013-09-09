@@ -13,37 +13,39 @@ file that was distributed with this source code.
 
 {% block form_basic %}
     {% spaceless %}
-    <form class="rz-form{{ block('form_orientation_type') }}"
-        action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}" {{ form_enctype(form) }}
-        method="POST"
-        {% if not admin_pool.getOption('html5_validate') %}novalidate="novalidate"{% endif %}
-        >
-        {#{% if form.vars.errors|length > 0 %}#}
-            {#<div class="rz-form-alert-block">#}
-                {#<div class="alert alert-block alert-error sonata-ba-form-error">#}
-                    {#<a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>#}
-                    {#{{ form_errors(form) }}#}
-                {#</div>#}
-            {#</div>#}
-        {#{% endif %}#}
-        <div class="widget-box">
-            <div class="widget-title">
-                <span class="icon"><i class="icon-time"></i></span>
-                <h5>
-                    {% if admin.id(object) is not null %}
+        <div class="box box-color box-bordered">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-file-alt"></i>
+                    {% if admin.id(object) %}
                         {{ "title_edit"|trans({'%name%': admin.toString(object) }, 'SonataAdminBundle') }}
                     {% else %}
                         {{ "title_create"|trans({}, 'SonataAdminBundle') }}
                     {% endif %}
-                </h5>
+                </h3>
             </div>
-            <div class="widget-content">
-                {{ block('form_body') }}
+            <div class="box-content nopadding">
+                <form class="rz-form{{ block('form_orientation_type') }}"
+                    action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}" {{ form_enctype(form) }}
+                    method="POST"
+                    {% if not admin_pool.getOption('html5_validate') %}novalidate="novalidate"{% endif %}
+                    >
+                    {#{% if form.vars.errors|length > 0 %}#}
+                        {#<div class="rz-form-alert-block">#}
+                            {#<div class="alert alert-block alert-error sonata-ba-form-error">#}
+                                {#<a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>#}
+                                {#{{ form_errors(form) }}#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#{% endif %}#}
+                    <div class="form-container">
+                            {{ block('form_body') }}
+                    </div>
+                    {{ form_rest(form) }}
+                    {{ block('form_actions') }}
+                </form>
             </div>
         </div>
-        {{ form_rest(form) }}
-        {{ block('form_actions') }}
-    </form>
     {% endspaceless %}
 {% endblock form_basic %}
 
@@ -56,7 +58,7 @@ file that was distributed with this source code.
     <div class="modal-header modal-primary">
         <button class="close" data-dismiss="modal"><i class="icon-remove-sign"></i></button>
         <h3>
-            {% if admin.id(object) is not null %}
+            {% if admin.id(object) %}
                 {{ "title_edit"|trans({'%name%': admin.toString(object) }, 'SonataAdminBundle') }}
             {% else %}
                 {{ "title_create"|trans({}, 'SonataAdminBundle') }}
@@ -126,7 +128,7 @@ file that was distributed with this source code.
 {% block form_actions %}
     {% block formactions %}
         {% if not app.request.isxmlhttprequest %}
-            <div class="well form-actions">
+            <div class="form-actions">
                 {{ block('form_actions_buttons') }}
             </div>
         {% else %}
@@ -139,7 +141,7 @@ file that was distributed with this source code.
     {% if admin.supportsPreviewMode %}
         <button class="btn btn-info persist-preview sepH_a sepV_a" name="btn_preview" type="submit"><i class="icon-save"></i> {{ 'btn_preview'|trans({}, 'SonataAdminBundle') }}</button>
     {% endif %}
-    {% if admin.id(object) is not null %}
+    {% if admin.id(object) %}
         <button type="submit" class="btn btn-primary sepH_a sepV_a" name="btn_update_and_edit"><i class="micon-pencil-2"></i> {{ 'btn_update_and_edit_again'|trans({}, 'SonataAdminBundle') }}</button>
         {% if not app.request.isxmlhttprequest %}
             {% if admin.hasroute('list') %}
@@ -168,7 +170,7 @@ file that was distributed with this source code.
 {% endblock form_actions_buttons %}
 
 {% block form %}
-    {% set url = admin.id(object) is not null ? 'edit' : 'create' %}
+    {% set url = admin.id(object) ? 'edit' : 'create' %}
     {% if not admin.hasRoute(url)%}
         <div>
             {{ "form_not_available"|trans({}, "SonataAdminBundle") }}

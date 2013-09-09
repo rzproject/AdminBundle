@@ -1,19 +1,16 @@
 jQuery(document).ready(function(){
-    //rz_pageslide.init();
+    console.log('admin-list.js');
+    // theme specific actions
     rz_collapsible_filter.init();
-    //rz_batch_action.init();
     rz_popover.init();
     rz_tabdrop.init();
+
+    //sonata specific actions
+    sonata_rz_list.initBatchAction();
+    sonata_rz_pager_alt.initAltPager();
 });
 
-
-//var rz_pageslide = {
-//    init: function() {
-//        /* Slide to the left, and make it model (you'll have to call jQuery.pageslide.close() to close) */
-//        jQuery(".filter").pageslide({ direction: "right", modal: true });
-//    }
-//}
-
+//*filter
 var rz_collapsible_filter = {
     init: function() {
         jQuery(".admin-filter").collapse();
@@ -27,22 +24,7 @@ var rz_tabdrop = {
     }
 };
 
-
-//* batch action
-//var rz_batch_action = {
-//    init: function() {
-//        jQuery('#list_batch_checkbox').on('click', function() {
-//            console.log('heres');
-//            jQuery.each(jQuery('.admin-field-batch'), jQuery.proxy(function(key, el) {
-//                console.log(el);
-//                jQuery(el).prop("checked", jQuery(this).is(':checked'));
-//            }, this));
-//
-//            jQuery.uniform.update(jQuery('.admin-field-batch'));
-//        });
-//    }
-//}
-
+//* popover
 var rz_popover = {
     init: function() {
         jQuery("a[data-toggle=popover]")
@@ -50,5 +32,32 @@ var rz_popover = {
             .click(function(e) {
                 e.preventDefault()
             });
+    }
+}
+
+//* batch action
+var sonata_rz_list = {
+    initBatchAction: function() {
+        $('#list_batch_checkbox').on('click', function() {
+            var is_checked = $(this).is(':checked');
+            jQuery.each(jQuery('.admin-field-batch'), jQuery.proxy(function(key, el) {
+                if(is_checked) {
+                    $(el).iCheck('check');
+                } else {
+                    $(el).iCheck('uncheck');
+                }
+            }, this));
+        });
+    }
+}
+
+
+var sonata_rz_pager_alt = {
+    initAltPager: function() {
+        jQuery('input[type=submit]').hide();
+        jQuery('.rz-alt-pager').on('change', function() {
+            console.log('here'+ this.options[this.selectedIndex].value);
+            window.top.location.href=this.options[this.selectedIndex].value;
+        });
     }
 }

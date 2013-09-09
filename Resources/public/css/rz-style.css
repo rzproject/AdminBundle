@@ -1,0 +1,48 @@
+/* Admin General */
+.page-header h1 {
+   text-transform: capitalize;
+}
+
+.form-actions .btn {
+    margin-right: 5px;
+}
+
+/* Admin Form */
+.form-container {
+    padding: 30px 20px 0px 20px;
+}
+
+/* Admin List Filter */
+.sonata-ba-filter  form {
+    margin: 0px;
+    padding-top: 15px;
+}
+
+/* Admin List*/
+.admin-action-buttons {
+    margin-top: 20px;
+}
+
+.sonata-ba-list-field-boolean, .sonata-ba-list-field-impersonating,
+.row-selector,.sonata-ba-list-field-header-text, .sonata-ba-list-field-header-orm_many_to_many, .sonata-ba-list-field-header-boolean, .sonata-ba-list-field-header-datetime, .sonata-ba-list-field-header-string {
+    text-align: center !important;
+    text-overflow:ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100px;
+}
+
+.sonata-ba-list-field-string > a,
+.sonata-ba-list-field-boolean, .sonata-ba-list-field-impersonating,
+.sonata-ba-list-field-datetime,
+.sonata-ba-list-field-text
+{
+    white-space: nowrap;
+    text-overflow:ellipsis !important;
+    overflow: hidden;
+    max-width: 100px;
+}
+
+.sonata-ba-list-field-boolean, .sonata-ba-list-field-impersonating{
+    max-width: 50;
+}

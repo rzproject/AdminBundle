@@ -11,22 +11,23 @@ file that was distributed with this source code.
 {% extends 'SonataBlockBundle:Block:block_base.html.twig' %}
 
 {% block block %}
-<div class="widget-box">
-    <div class="widget-title">
-        <span class="icon">
-            <i class="micon-dashboard"></i>
-        </span>
-        <h5>Dashboard Shorcuts</h5>
+<div class="box box-color box-bordered">
+    <div class="box-title">
+        <h3>
+            <i class="icon-table"></i>
+            Dashboard Shortcuts
+        </h3>
     </div>
-    <div class="widget-content">
-    {% for group in groups %}
-        <table class="table table-bordered table-striped sonata-dashboard-list">
-            <thead>
+    <div class="box-content nopadding">
+
+        {% for group in groups %}
+            <table class="table table-hover table-nomargin">
+                <thead>
                 <tr>
                     <th colspan="3">{{ group.label|trans({}, group.label_catalogue) }}</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 {% for admin in group.items %}
                     {% if admin.hasroute('create') and admin.isGranted('CREATE') or admin.hasroute('list') and admin.isGranted('LIST') %}
                         <tr>
@@ -35,12 +36,12 @@ file that was distributed with this source code.
                                 <div class="btn-group">
                                     {% if admin.hasroute('create') and admin.isGranted('CREATE') %}
                                         {% if admin.subClasses is empty %}
-                                            <a class="btn btn-primary btn-small" href="{{ admin.generateUrl('create')}}">
+                                            <a class="btn btn-primary" href="{{ admin.generateUrl('create')}}">
                                                 <i class="icon-plus-sign"></i>
                                                 {% trans from 'SonataAdminBundle' %}link_add{% endtrans %}
                                             </a>
                                         {% else %}
-                                            <a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
                                                 <i class="icon-plus-sign"></i>
                                                 {% trans from 'SonataAdminBundle' %}link_add{% endtrans %}
                                                 <span class="caret"></span>
@@ -55,7 +56,7 @@ file that was distributed with this source code.
                                         {% endif %}
                                     {% endif %}
                                     {% if admin.hasroute('list') and admin.isGranted('LIST') %}
-                                        <a class="btn btn-primary btn-small" href="{{ admin.generateUrl('list')}}">
+                                        <a class="btn btn-primary" href="{{ admin.generateUrl('list')}}">
                                             <i class="icon-table"></i>
                                             {% trans from 'SonataAdminBundle' %}link_list{% endtrans -%}
                                         </a>
@@ -65,9 +66,9 @@ file that was distributed with this source code.
                         </tr>
                     {% endif %}
                 {% endfor %}
-            </tbody>
-        </table>
-    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
