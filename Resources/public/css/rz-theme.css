@@ -19,3 +19,27 @@
 .rz-datagird-form {
     margin-bottom: 0px !important;
 }
+
+.theme-darkblue .rz-datagird-form table tr td > a{
+    text-decoration: none;
+}
+
+.theme-darkblue .rz-datagird-form table tr td > a:hover {
+    color: #941414;
+}
+
+
+.rz-datagird-settings-pane .tab-content.tab-content-inline.tab-content-bottom {
+  border-top: 5px solid #eee;
+}
+
+.rz-datagird-settings {
+    padding: 10px;
+}
+
+.rz-datagird-settings-form {
+    margin: 0px;
+}
+.rz-datagird-settings-form .form-batch-action {
+    padding-top: 15px;
+}

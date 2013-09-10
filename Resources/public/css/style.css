@@ -7929,22 +7929,22 @@ div.DTS div.dataTables_scrollBody {
 .datepicker.datepicker-dropdown:before, .datepicker.datepicker-dropdown:after {
     border: 0;
 }
-.datepicker.datepicker-dropdown .datepicker-days td, .datepicker.datepicker-dropdown .datepicker-days th, .datepicker.datepicker-dropdown .datepicker-days span, .datepicker.datepicker-dropdown .datepicker-years td, .datepicker.datepicker-dropdown .datepicker-years th, .datepicker.datepicker-dropdown .datepicker-years span, .datepicker.datepicker-dropdown .datepicker-months td, .datepicker.datepicker-dropdown .datepicker-months th, .datepicker.datepicker-dropdown .datepicker-months span {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-}
 .datepicker.datepicker-dropdown .datepicker-days .active, .datepicker.datepicker-dropdown .datepicker-years .active, .datepicker.datepicker-dropdown .datepicker-months .active {
     background: #4b6399;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
 }
 .datepicker.datepicker-dropdown .datepicker-days .active:hover, .datepicker.datepicker-dropdown .datepicker-years .active:hover, .datepicker.datepicker-dropdown .datepicker-months .active:hover {
     background: #1e74c5;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+    color: #fff;
+}
+
+.datepicker tfoot tr th.clear {
+    background: #4b6399;
+    color: #fff;
+    cursor: pointer !important;
+}
+
+.datepicker table {
+    width: 100%;
 }
 
 .daterangepicker:before, .daterangepicker:after {

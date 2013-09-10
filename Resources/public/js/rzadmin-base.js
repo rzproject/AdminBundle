@@ -80,7 +80,6 @@ var rzadmin = {
         rzadmin.initPickers();
         rzadmin.initSpinners();
         rzadmin.initPickers();
-        rzadmin.resizeChosen();
         rzadmin.initRetina();
         rzadmin.initProgressBar();
         rzadmin.initBatchAction();
@@ -91,7 +90,7 @@ var rzadmin = {
         rzadmin.mediaGirdMixed();
         rzadmin.initFootable();
         rzadmin.initTabDrop();
-
+        //rzadmin.resizeChosen();
         rzadmin.dashboardCurrentDateTime();
     },
 
@@ -421,7 +420,6 @@ var rzadmin = {
     },
 
     resizeChosen: function(){
-
         if (jQuery('.chosen-container').length > 0){
 
             jQuery('.chosen-container').each(function() {
@@ -909,11 +907,6 @@ jQuery(window).resize(function(e){
     rzadmin.getSidebarScrollHeight();
     rzadmin.resizeContent();
     rzadmin.resizeHandlerHeight();
-});
-
-jQuery("#main").on('heightChange', function(e){
-    console.log('here');
-    rzadmin.resizeContent();
 });
 
 (function( $ ){

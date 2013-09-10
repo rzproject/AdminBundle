@@ -9,10 +9,18 @@
 
 /* Admin Form */
 .form-container {
-    padding: 30px 20px 0px 20px;
+    /*padding: 30px 20px 0px 20px;*/
+    padding: 0px;
 }
 
-/* Admin List Filter */
+.form-container ul.tabs-inline > li > a {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+
+/* Admin List Filter */.form-container
 .sonata-ba-filter  form {
     margin: 0px;
     padding-top: 15px;
@@ -45,4 +53,13 @@
 
 .sonata-ba-list-field-boolean, .sonata-ba-list-field-impersonating{
     max-width: 50;
+}
+
+.box-content.nopadding .sonata-filter-form {
+  padding-top: 15px;
+}
+
+.box-content.nopadding .sonata-filter-form .form-actions {
+    padding: 9px 10px 10px !important;
+    margin: 10px 0px !important;
 }

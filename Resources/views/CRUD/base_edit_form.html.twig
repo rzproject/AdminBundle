@@ -86,7 +86,7 @@ file that was distributed with this source code.
 {% block form_body %}
     {% block sonata_pre_fieldsets %}
         <div class="tabbable tabbable-bordered">
-        <ul class="nav nav-tabs tabdrop">
+        <ul class="nav nav-tabs tabs-inline tabdrop">
             {% for name, form_group in admin.formgroups %}
                 <li class="{% if loop.first %}active{% endif %}"><a href="#tab_{{ admin.uniqid }}_{{ name|sonata_slugify }}"{% if app.request.isXmlHttpRequest  %} class="admin-ajax-ignore-tabbable" {% endif %}data-toggle="tab">{{ admin.trans(name)|humanize }}</a></li>
             {% endfor %}

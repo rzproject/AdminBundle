@@ -2687,6 +2687,35 @@ ul > li.darkblue, .label-darkblue {
     background: #253454;
     border: 1px solid #1e334d !important;
 }
+
+.theme-darkblue .form-container ul.tabs-inline > li > a:hover {
+    background: #253454;
+    color:  #fff;
+}
+
+.theme-darkblue .tabdrop .dropdown-menu > .active > a {
+    background: #253454;
+    color:  #fff;
+}
+
+.theme-darkblue .datepicker tbody tr td.today {
+    background: #780f0f;
+    color:  #fff;
+}
+
+.theme-darkblue .datepicker tbody tr td.today:hover {
+    background: #192338;
+    color:  #fff;
+}
+
+.theme-darkblue .datepicker tfoot tr th.clear {
+    background: #253454;
+}
+
+.theme-darkblue .datepicker tfoot tr th.clear:hover {
+    background: #192338;
+}
+
 .theme-darkblue .btn.btn-primary:hover {
     background: #192338;
 }
