@@ -28,9 +28,9 @@ file that was distributed with this source code.
 
     {% block stylesheets %}
     {# bootstrap #}
-    <link href="{{ asset('bundles/rmzamorabootstrap/css/bootstrap.min.css') }}" type="text/css" media="all" rel="stylesheet">
+    <link href="{{ asset('bundles/rmzamorabootstrap/css/bootstrap.css') }}" type="text/css" media="all" rel="stylesheet">
     <link href="{{ asset('bundles/rmzamorabootstrap/css/docs.min.css') }}" type="text/css" media="all" rel="stylesheet">
-    <link href="{{ asset('bundles/rmzamorabootstrap/css/bootstrap-responsive.min.css') }}" type="text/css" media="all" rel="stylesheet">
+    <link href="{{ asset('bundles/rmzamorabootstrap/css/bootstrap-responsive.css') }}" type="text/css" media="all" rel="stylesheet">
     {# form or page specific css TODO: move to specific templates #}
     {# modal #}
     <link href="{{ asset('bundles/rmzamorabootstrap/plugins/modal/css/modal.css') }}" type="text/css" media="all" rel="stylesheet"/>
@@ -61,7 +61,6 @@ file that was distributed with this source code.
     {# icheck #}
     <link href="{{ asset('bundles/rzadmin/css/plugins/icheck/all.css') }}" rel="stylesheet">
     {% block sonata_stylesheet_block %}{% endblock sonata_stylesheet_block %}
-
     {# rztheme #}
     <link rel="stylesheet" href="{{ asset('bundles/rzadmin/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('bundles/rzadmin/css/rz-style.css')}}">
@@ -271,11 +270,15 @@ file that was distributed with this source code.
                             {% block notice %}
                                 {% for notice_level in ['success','error','info', 'warning'] %}
                                     {% set session_var = 'sonata_flash_' ~ notice_level %}
-                                    {% for flash in app.session.flashbag.get(session_var) %}
-                                        <div class="alert {{ 'alert-' ~ notice_level }}">
-                                            {{ flash|trans([], 'SonataAdminBundle') }}
+                                    {% if app.session.flashbag.get(session_var) is defined %}
+                                        <div class="rz-main-message">
+                                        {% for flash in app.session.flashbag.get(session_var) %}
+                                            <div class="alert {{ 'alert-' ~ notice_level }}">
+                                                {{ flash|trans([], 'SonataAdminBundle') }}
+                                            </div>
+                                        {% endfor %}
                                         </div>
-                                    {% endfor %}
+                                    {% endif %}
                                 {% endfor %}
                             {% endblock %}
                             {#/ notices & flash messages #}
@@ -374,7 +377,9 @@ file that was distributed with this source code.
                                 <div class="admin-sidebar-container span3">
                                     <div class="box box-color box-bordered red">
                                         <div class="box-title">
-                                            <h3><i class="icon-list-ul"></i>SideBar</h3>
+                                            <h3>
+                                                <i class="icon-list-ul"></i>
+                                            </h3>
                                         </div>
                                         <div class="box-content nopadding">
                                             {{ _side_menu|raw }}
@@ -395,12 +400,12 @@ file that was distributed with this source code.
  ##############################################}
 {% block footer %}
 {#footer #}
-<div id="footer">
-    {% block footer_content %}
-        <p>{{ admin_pool.title }}</p>
-    {% endblock footer_content %}
-    <a href="#" class="gototop"><i class="icon-arrow-up"></i></a>
-</div>
+{#<div id="footer">#}
+    {#{% block footer_content %}#}
+        {#<p>{{ admin_pool.title }}</p>#}
+    {#{% endblock footer_content %}#}
+    {#<a href="#" class="gototop"><i class="icon-arrow-up"></i></a>#}
+{#</div>#}
 {#/footer #}
 {% endblock %}
 {# javascript code block #}

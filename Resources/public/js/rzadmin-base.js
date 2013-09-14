@@ -90,7 +90,6 @@ var rzadmin = {
         rzadmin.mediaGirdMixed();
         rzadmin.initFootable();
         rzadmin.initTabDrop();
-        //rzadmin.resizeChosen();
         rzadmin.dashboardCurrentDateTime();
     },
 
@@ -724,25 +723,12 @@ var rzadmin = {
     },
 
     initPickers: function() {
-        // datepicker
-//        if(jQuery('.datepick').length > 0){
-//            jQuery('.datepick').datepicker();
-//        }
 
         // daterangepicker
         if(jQuery('.daterangepick').length > 0){
             jQuery('.daterangepick').daterangepicker();
         }
 
-        // timepicker
-//        if(jQuery('.timepick').length > 0){
-//            jQuery('.timepick').timepicker({
-//                defaultTime: 'current',
-//                minuteStep: 1,
-//                disableFocus: true,
-//                template: 'dropdown'
-//            });
-//        }
         // colorpicker
         if(jQuery('.colorpick').length > 0){
             jQuery('.colorpick').colorpicker();
@@ -754,47 +740,10 @@ var rzadmin = {
                 buttonClass : 'uni-button'
             });
         }
-        // Chosen (chosen)
-//        if(jQuery('.chosen-select').length > 0)
-//        {
-//            jQuery('.chosen-select').each(function(){
-//                var $el = jQuery(this);
-//                var search = ($el.attr("data-nosearch") === "true") ? true : false,
-//                    opt = {};
-//                if(search) opt.disable_search_threshold = 9999999;
-//                $el.chosen(opt);
-//            });
-//        }
 
         if(jQuery(".select2-me").length > 0){
             jQuery(".select2-me").select2();
         }
-
-        // multi-select
-//        if(jQuery('.multiselect').length > 0)
-//        {
-//            jQuery(".multiselect").each(function(){
-//                var $el = jQuery(this);
-//                var selectableHeader = $el.attr('data-selectableheader'),
-//                    selectionHeader  = $el.attr('data-selectionheader');
-//                if(selectableHeader != undefined)
-//                {
-//                    selectableHeader = "<div class='multi-custom-header'>"+selectableHeader+"</div>";
-//                }
-//                if(selectionHeader != undefined)
-//                {
-//                    selectionHeader = "<div class='multi-custom-header'>"+selectionHeader+"</div>";
-//                }
-//                $el.multiSelect({
-//                    selectionHeader : selectionHeader,
-//                    selectableHeader : selectableHeader
-//                });
-//            });
-//        }
-
-//        if(jQuery('.selectpicker').length > 0) {
-//            jQuery('.selectpicker').selectpicker();
-//        }
     },
 
     initSpinners:function() {
@@ -840,6 +789,84 @@ var rzadmin = {
         }
     },
 
+    initElements: function(modal) {
+        //TODO: change to selector
+        if (jQuery('[class*="selectpicker"]', modal).length > 0) {
+            jQuery('[class*="selectpicker"]', modal).selectpicker();
+        }
+
+        if(jQuery('[class*="uni_style"]', modal).length > 0) {
+            jQuery('[class*="uni_style"]', modal).uniform();
+        }
+
+        if (jQuery('[class="footable"]', modal).length > 0) {
+            jQuery('[class="footable"]', modal).footable();
+        }
+
+        if(jQuery('.chosen-select', modal).length>0) {
+            modal.find(".chosen-select").chosen({
+                allow_single_deselect: true
+            });
+        }
+
+        if(jQuery(".chosen-select-multiple", modal).length > 0) {
+            modal.find(".chosen-select-multiple").chosen().change(function(){
+                var ret = null;
+                $(this).find('.chosen-choices').each(function(){
+                    console.log(this);
+                    console.log('child');
+                })
+            });
+        }
+
+        if(jQuery('.rz-datepicker', modal).length > 0) {
+            modal.find('.rz-datepicker').datepicker({'autoclose': true});
+        }
+
+        if(jQuery('.rz-timepicker', modal).length > 0) {
+            modal.find('.rz-timepicker').timepicker({'defaultTime': false, 'showMeridian': false});
+        }
+
+        if(jQuery('.rz-datetimepicker', modal).length > 0) {
+            modal.find('.rz-datetimepicker').datetimepicker({
+                autoclose: true,
+                todayBtn: true,
+                pickerPosition: "bottom-left",
+                minuteStep: 5
+            });
+        }
+
+        if(jQuery('.datepicker.dropdown-menu', modal).length > 0) {
+            jQuery('.datepicker.dropdown-menu').css('z-index', 9999);
+        }
+
+
+        if(jQuery('.rz_grid ul', modal).length > 0) {
+            jQuery('.rz_grid ul', modal).imagesLoaded(jQuery.proxy(function() {
+                // Prepare layout options.
+                var options = {
+                    autoResize: true, // This will auto-update the layout when the browser window is resized.
+                    container: $('.rz_grid'), // Optional, used for some extra CSS styling
+                    offset: 5, // Optional, the distance between grid items
+                    itemWidth: 220, // Optional, the width of a grid item (li)
+                    flexibleItemWidth: false
+                };
+
+                // Get a reference to your grid items.
+                var handler = jQuery('.rz_grid ul li', modal);
+
+                // Call the layout function.
+                handler.wookmark(options);
+
+                jQuery('.rz_grid ul li').on('mouseenter',function(){
+                    $(this).addClass('act_tools');
+                }).on('mouseleave',function(){
+                        $(this).removeClass('act_tools');
+                    });
+            }, modal));
+        }
+    },
+
     //* Sonata Specific JS
     initBatchAction: function() {
         if (jQuery('#list_batch_checkbox').length > 0) {
@@ -863,6 +890,96 @@ var rzadmin = {
                 console.log('here'+ this.options[this.selectedIndex].value);
                 window.top.location.href=this.options[this.selectedIndex].value;
             });
+        }
+    },
+
+
+    /** DoctrineORMAdminBundle */
+
+    /** DoctrineORMAdminBundle One To Many */
+
+    rz_orm_otm: {
+        id: null,
+        sortable_id: null,
+        type: 'table',
+
+        init:function(options) {
+            rzadmin.rz_orm_otm.id = options.id;
+            rzadmin.rz_orm_otm.sortable_id = options.sortable_id;
+            rzadmin.rz_orm_otm.type = options.type;
+            rzadmin.rz_orm_otm.initSortable();
+        },
+
+        initSortable: function() {
+            //table
+            if (jQuery('div#field_container_'+rzadmin.rz_orm_otm.id+' tbody.sonata-ba-tbody').length > 0) {
+                jQuery('div#field_container_'+rzadmin.rz_orm_otm.id+' tbody.sonata-ba-tbody').sortable({
+                    axis: 'y',
+                    opacity: 0.6,
+                    items: 'tr',
+                    stop: rzadmin.rz_orm_otm.addElement
+                });
+            } else if (jQuery('div#field_container_'+rzadmin.rz_orm_otm.id+' .rz-widget-container-one-to-many').length > 0) {
+                jQuery('div#field_container_'+rzadmin.rz_orm_otm.id+' .rz-widget-container-one-to-many').sortable({
+                    axis: 'y',
+                    opacity: 0.6,
+                    items: 'div.sonata-ba-box',
+                    stop: rzadmin.rz_orm_otm.addElement
+                });
+            }
+
+            rzadmin.rz_orm_otm.applyPositionValue();
+        },
+
+        applyPositionValue: function() {
+
+            console.log('apply');
+            var container = null;
+            // update the input value position
+            if (rzadmin.rz_orm_otm.type =='table') {
+
+                container = 'div#field_container_'+rzadmin.rz_orm_otm.id+
+                            ' tbody.sonata-ba-tbody td.sonata-ba-td-'+rzadmin.rz_orm_otm.id+'-'+rzadmin.rz_orm_otm.sortable_id;
+
+            } else if (rzadmin.rz_orm_otm.type == 'form'){
+
+                container = 'div#field_container_'+rzadmin.rz_orm_otm.id+
+                            ' .sonata-ba-box .sonata-ba-control-group-'+rzadmin.rz_orm_otm.id+'-'+rzadmin.rz_orm_otm.sortable_id;
+            }
+
+            jQuery(container).each(function(index, element) {
+                    if (rzadmin.rz_orm_otm.type =='table') {
+                        // remove the sortable handler and put it back
+                        jQuery('span.sonata-ba-sortable-handler', element).remove();
+                        jQuery(element).append('<span class="sonata-ba-sortable-handler"><i class="icon-move"></i></span>');
+                        jQuery('input', element).hide();
+                    } else if (rzadmin.rz_orm_otm.type =='form') {
+                        jQuery('span.sonata-ba-sortable-handler', element).remove();
+                        jQuery('.controls', element).append('<span class="sonata-ba-sortable-handler"><i class="icon-move"></i></span>');
+                        jQuery('input', element).hide();
+                    }
+                });
+
+            jQuery(container+' input').each(function(index, value) {
+                    //update position
+                    jQuery(value).val(index + 1);
+                });
+        },
+
+        addElement: function() {
+            if (jQuery('#sonata-ba-field-container-'+rzadmin.rz_orm_otm.id).length > 0 ) {
+                jQuery('#sonata-ba-field-container-'+rzadmin.rz_orm_otm.id).on('sonata.add_element', function() {
+                    rzadmin.rz_orm_otm.applyPositionValue();
+                    if (rzadmin.rz_orm_otm.type =='table') {
+                        jQuery('div#field_container_'+rzadmin.rz_orm_otm.id+' tbody.sonata-ba-tbody').sortable('refresh');
+                    } else if (rzadmin.rz_orm_otm.type =='table') {
+                        jQuery('div#field_container_'+rzadmin.rz_orm_otm.id+' .rz-widget-container-one-to-many').sortable('refresh');
+                    }
+                    rzadmin.initElements(jQuery('#field_container_'+rzadmin.rz_orm_otm.id));
+                });
+
+                rzadmin.rz_orm_otm.applyPositionValue();
+            }
         }
     }
 }

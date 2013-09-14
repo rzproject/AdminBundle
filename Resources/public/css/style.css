@@ -3947,9 +3947,6 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 .alert {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
     border: 0;
 }
 
@@ -5291,6 +5288,10 @@ label, input, button, select, textarea {
 }
 .box.box-color .box-title h3 {
     color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
 }
 .box.box-color .box-title .tabs > li.active > a {
     background: #fff;
@@ -5360,7 +5361,9 @@ label, input, button, select, textarea {
     border-bottom: 1px solid #ddd;
     padding: 7px 0 7px 10px;
     margin-top: 20px;
+
 }
+
 .box .box-title:after {
     content: "";
     display: table;
@@ -5516,6 +5519,147 @@ label, input, button, select, textarea {
     border-bottom: 1px solid #ddd;
     padding: 10px 20px;
 }
+
+/* rz theme forms */
+
+.rz-main-message {
+    margin-top: 15px;
+}
+
+.rz-form .nav-tabs.tabs-inline>.active>a,
+.rz-form .nav-tabs.tabs-inline>li>a{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.rz-form .nav-tabs.tabs-inline>li>a,
+.rz-form .nav-tabs.tabs-inline>li.dropdown>a{
+    color: #333;
+}
+
+.rz-form .nav-tabs.tabs-inline>li.dropdown>a:hover {
+    color:#fff;
+}
+
+.rz-form .form-description {
+    padding: 10px 25px 25px;
+    color: #368ee0;
+}
+
+.rz-form .control-group .control-label {
+    padding-left: 25px;
+}
+
+.rz-form .control-group .control-label {
+    padding-left: 25px;
+}
+.rz-form .control-group .controls {
+    margin: 0px 25px;
+}
+
+.rz-form .rz-widget-container-one-to-many .control-group .controls {
+    margin: 0px 25px 10px 25px;
+}
+
+.rz-form .rz-widget-container-one-to-many .control-group:first-child {
+    padding-top: 10px !important;
+}
+
+.rz-form .rz-widget-container-one-to-many .control-group:last-child {
+    border-bottom: 0px;
+}
+
+.rz-form .form-actions {
+    padding: 0px 20px 20px;
+}
+
+.rz-form .form-actions .btn > span {
+    margin-left: 3px;
+}
+
+.rz-form .help-block {
+    color: #448a37;
+}
+
+.rz-form .field-container{
+    margin-bottom: 10px;
+}
+
+.rz-form .rz-chosen .chosen-container-single,
+.rz-form .rz-chosen .chosen-container-multi{
+    margin: 0px !important;
+}
+
+.rz-form .rz-chosen .chosen-container-multi {
+
+}
+
+.rz-form .rz-chosen.chosen-multi .field-actions a,
+.rz-form .rz-chosen.chosen-multi .field-actions button{
+    margin: 10px 0px 0px 0px !important;
+}
+
+
+.rz-form.form-vertical.form-bordered .control-group {
+    padding: 0px;
+}
+
+.rz-form .chosen-container-multi .chosen-choices {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.rz-admin-list-no-result {
+    padding: 20px 20px 0px 20px;
+}
+
+.rz-form .chosen-container.chosen-container-multi .chosen-choices .search-choice {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.rz-form .rz-multipleselect {
+    margin-bottom: 20px;
+}
+
+.rz-form .rz-icheckme {
+    margin: 0px 20px 10px;
+}
+
+.rz-form .check-line .inline {
+    top: 1px;
+}
+
+.rz-form .check-line .help-block {
+    margin-top: 5px;
+}
+
+.rz-form .rz-widget-container-one-to-many {
+    margin-bottom: 10px;
+}
+
+.rz-form .rz-widget-container-one-to-many table thead > tr > th,
+.rz-form .rz-widget-container-one-to-many table tbody > tr > td{
+    text-align: center;
+}
+
+.rz-form .rz-widget-container-one-to-many table tbody > tr > td > input,
+.rz-form .rz-widget-container-one-to-many table tbody > tr > td > .rz-block-service-choice{
+  margin-bottom: 0px;
+}
+
+.rz-form .rz-widget-container-one-to-many table tbody > tr > td > input {
+    width: 100% !important;
+}
+
+.rz-form .rz-widget-container-one-to-many table tbody > tr > td > [class^='icheckbox_'] {
+    margin: 0 auto !important;
+}
+
 
 .form-striped .control-group:nth-child(odd) {
     background: #f6f6f6;
@@ -7598,66 +7742,9 @@ body.error .wrapper .input-append .btn:hover {
     border-radius: 0;
 }
 
-.cke.cke_chrome {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border: 0;
-}
-.cke .cke_top {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-bottom: 0;
-    border-top: 0;
-}
-.cke .cke_top .cke_button, .cke .cke_top .cke_combo_button {
-    background: #eee;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    border: 0;
-    cursor: pointer;
-}
-.cke .cke_top .cke_button:hover, .cke .cke_top .cke_button.cke_button_on, .cke .cke_top .cke_button:active, .cke .cke_top .cke_button:focus, .cke .cke_top .cke_combo_button:hover, .cke .cke_top .cke_combo_button.cke_button_on, .cke .cke_top .cke_combo_button:active, .cke .cke_top .cke_combo_button:focus {
-    background: #bbb;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border: 0;
-}
-.cke .cke_top .cke_combo.cke_combo_on .cke_combo_button {
-    background: #bbb;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}
-.cke .cke_top .cke_toolbar_separator {
-    background: #aaa;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}
-.cke .cke_top .cke_toolgroup {
-    margin: 0 10px 9px 0;
-    border: 0;
-    background: #fff;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}
-.cke .cke_contents {
-    border: 1px solid #ddd;
-}
-.cke .cke_bottom {
-    background: #eee;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border: 1px solid #ddd;
-    border-top: 0;
+.rz-ckeditor-container,
+.rz-codemirror-container{
+    margin-bottom: 10px;
 }
 
 table.DTCR_clonedTable {
@@ -8680,7 +8767,67 @@ a:focus {
 
 
 .btn-group>.btn+.dropdown-toggle {
--webkit-box-shadow: none !important;
--moz-box-shadow:none !important;
-box-shadow:none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow:none !important;
+    box-shadow:none !important;
 }
+
+@media
+(min-width: 768px) and (max-width: 979px),
+(max-width: 767px){
+
+    /* Force table to not be like tables anymore */
+    table .rz-table-responsive,
+    .rz-table-responsive thead,
+    .rz-table-responsive tbody,
+    .rz-table-responsive th,
+    .rz-table-responsive td,
+    .rz-table-responsive tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .rz-table-responsive thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .rz-table-responsive tr {
+        border-bottom: 2px solid #337e42;
+    }
+
+    .rz-table-responsive tr:last-child {
+        border: 0px;
+    }
+
+    .rz-table-responsive td {
+        /* Behave  like a "row" */
+        border: none;
+        /*border-bottom: 0px solid #eee;*/
+        position: relative;
+        padding-left: 50%;
+        text-align: left !important;
+
+    }
+
+    .rz-table-responsive td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    .rz-form .rz-widget-container-one-to-many table tbody > tr > td > [class^='icheckbox_'] {
+        margin: 0px !important;
+    }
+
+
+
+
+}
+

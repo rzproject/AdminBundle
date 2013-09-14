@@ -3,7 +3,7 @@
         <div class="row-fluid">
             <form action="{{ admin.generateUrl('batch', {'filter': admin.filterParameters}) }}" method="POST" class="rz-datagird-settings-form">
                 <div class="check-line">
-                    <input class="icheck-me uni_style_batch_action" data-skin="square" data-color="red" type="checkbox" name="all_elements" id="{{ admin.uniqid }}_all_elements"/>
+                    <input class="icheck-me" data-skin="square" data-color="red" type="checkbox" name="all_elements" id="{{ admin.uniqid }}_all_elements"/>
                     <label class="control-label inline"  for="{{ admin.uniqid }}_all_elements">
                         {{ 'all_elements'|trans({}, 'SonataAdminBundle') }}
                     </label>
@@ -14,7 +14,7 @@
                         <option value="{{ action }}">{{ options.label }}</option>
                     {% endfor %}
                 </select>
-                <button type="submit" class="btn btn-danger"><i class="icon-cogs"></i> {{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}</button>
+                <button type="submit" class="btn btn-primary"><i class="icon-cogs"></i> {{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}</button>
             </form>
         </div>
     </div>

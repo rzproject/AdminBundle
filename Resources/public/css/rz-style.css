@@ -55,6 +55,17 @@
     max-width: 50;
 }
 
+.sonata-ba-list-field-header-batch,
+.sonata-one-to-many-delete-header,
+.sonata-one-to-many-table-boolean,
+.sonata-one-to-many-table-integer{
+    width: 40px !important;
+}
+
+.sonata-ba-sortable-handler {
+    cursor: move;
+}
+
 .box-content.nopadding .sonata-filter-form {
   padding-top: 15px;
 }
@@ -62,4 +73,27 @@
 .box-content.nopadding .sonata-filter-form .form-actions {
     padding: 9px 10px 10px !important;
     margin: 10px 0px !important;
+}
+
+.sonata-ba-box-settings {
+    margin-bottom: 20px;
+}
+
+.sonata-ba-box-settings .control-group:first-child {
+    padding-top: 10px !important;
+}
+
+.sonata-ba-box-settings .control-group:last-child {
+    border-bottom: 0px;
+}
+
+@media
+(min-width: 768px) and (max-width: 979px),
+(max-width: 767px){
+    .sonata-ba-list-field-header-batch,
+    .sonata-one-to-many-delete-header,
+    .sonata-one-to-many-table-boolean,
+    .sonata-one-to-many-table-integer{
+        width: auto !important;
+    }
 }

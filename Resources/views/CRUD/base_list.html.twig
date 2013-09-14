@@ -23,14 +23,12 @@ file that was distributed with this source code.
         <div class="sonata-actions btn-group hidden-phone hidden-tablet visible-desktop pull-right">
             {% include 'SonataAdminBundle:Button:create_button.html.twig' %}
         </div>
-        <div class="btn-group visible-phone visible-tablet hidden-desktop  pull-right">
-            <div class="btn-group visible-phone visible-tablet hidden-desktop  pull-right">
-                <button class="btn btn-primary admin-actions admin-actions-group">Select an action to perform</button>
-                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle admin-actions"><i class=" icon-chevron-down"></i></button>
-                <ul class="dropdown-menu">
-                    {% include 'SonataAdminBundle:Button:create_button_mobile.html.twig' %}
-                </ul>
-            </div>
+        <div class="btn-group visible-phone visible-tablet hidden-desktop">
+            <button class="btn btn-primary admin-actions admin-actions-group">Select an action to perform</button>
+            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle admin-actions"><i class=" icon-chevron-down"></i></button>
+            <ul class="dropdown-menu">
+                {% include 'SonataAdminBundle:Button:create_button_mobile.html.twig' %}
+            </ul>
         </div>
     </div>
 </div>
@@ -56,8 +54,8 @@ file that was distributed with this source code.
         {{ block('list_table_standard') }}
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success filter admin-ajax-ignore-event" data-toggle="collapse" data-target="#admin-filter"><i class="icon-search"></i> Filter</button>
-        <button class="btn btn-danger " type="button" data-dismiss="modal"><i class="micon-undo"></i> close</button>
+        <button class="btn btn-primary filter admin-ajax-ignore-event" data-toggle="collapse" data-target="#admin-filter"><i class="icon-search"></i> Filter</button>
+        <button class="btn btn-primary " type="button" data-dismiss="modal"><i class="icon-undo"></i> Close</button>
     </div>
 {% endblock list_table_ajax %}
 
@@ -93,9 +91,9 @@ file that was distributed with this source code.
                                 <thead>
                                 <tr class="sonata-ba-list-field-header">
                                     {% for field_description in admin.list.elements %}
-                                        {% if field_description.getOption('code') == '_batch' and batchactions|length > 0%}
+                                        {% if field_description.getOption('code') == '_batch' and batchactions|length > 0 and not app.request.isXmlHttpRequest %}
                                             <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch row-selector">
-                                                <input class="icheck-me uni_style_batch_action" data-skin="flat" data-color="blue" type="checkbox" id="list_batch_checkbox" />
+                                                <input class="icheck-me" data-skin="flat" data-color="blue" type="checkbox" id="list_batch_checkbox" />
                                             </th>
                                         {% elseif field_description.name == '_action' and app.request.isXmlHttpRequest %}
                                             {# Action buttons disabled in ajax view! #}
@@ -159,32 +157,30 @@ file that was distributed with this source code.
                     <div class="tab-content padding tab-content-inline tab-content-bottom">
                         <div class="tab-pane active" id="settings-batch-action">
                             {% if batchactions|length > 0  %}
-                                {% block table_footer_batch %}
+                                {% block table_batch %}
                                     {% include admin.getTemplate('rz_list_table_batch') %}
-                                {% endblock table_footer_batch %}
+                                {% endblock table_batch %}
                             {% endif %}
                         </div>
                         <div class="tab-pane" id="settings-downloads">
                             {% if admin.hasRoute('export') and admin.isGranted("EXPORT") and admin.getExportFormats()|length %}
-                                {% block table_footer_download %}
+                                {% block table_download %}
                                     {% include admin.getTemplate('rz_list_table_download') %}
-                                {% endblock  table_footer_download %}
+                                {% endblock  table_download %}
                             {% endif %}
                         </div>
                         <div class="tab-pane" id="settings-page">
-                            {% block  table_footer_per_page %}
-                                {% include admin.getTemplate('rz_list_table_footer_per_page') %}
-                            {% endblock  table_footer_per_page %}
+                            {% block  table_per_page %}
+                                {% include admin.getTemplate('rz_list_table_per_page') %}
+                            {% endblock  table_per_page %}
                         </div>
                     </div>
                 </div>
             </div>
         {% else %}
-            <div class="row-fluid">
-                <div class="span12 admin-list-no-result">
-                    <div class="alert alert-success">
-                        {{ 'no_result'|trans({}, 'SonataAdminBundle') }}
-                    </div>
+            <div class="rz-admin-list-no-result">
+                <div class="alert alert-success">
+                    <strong>{{ 'no_result'|trans({}, 'SonataAdminBundle') }}</strong>
                 </div>
             </div>
         {% endif %}
@@ -220,8 +216,8 @@ file that was distributed with this source code.
         {% set foo = form.children['_page'].setRendered() %}
         {{ form_rest(form) }}
         <div class="form-actions">
-            <a class="btn btn-danger pull-right rz-admin-filter-reset-button" href="{{ admin.generateUrl('list') }}">{{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}</a>
-            <button type="submit" class="btn btn-success pull-right sepV_a" value="{{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}">{{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
+            <a class="btn btn-primary pull-right rz-admin-filter-reset-button" href="{{ admin.generateUrl('list') }}"><i class="icon-undo"></i> {{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}</a>
+            <button type="submit" class="btn btn-primary pull-right" value="{{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}"><i class="icon-search"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
         </div>
     </form>
     {% endif %}
