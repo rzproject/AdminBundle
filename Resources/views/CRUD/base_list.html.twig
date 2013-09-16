@@ -108,7 +108,10 @@ file that was distributed with this source code.
                                             {% endif %}
 
                                             {% spaceless %}
-                                                <th class="sonata-ba-list-field-header-{{ field_description.type}} {% if sortable %} sonata-ba-list-field-header-order-{{ sort_by|lower }} {{ sort_active_class }}{% endif %}"{% if field_description.options.footable is defined and field_description.options.footable.attr.data_hide is defined %} data-hide="{{ field_description.options.footable.attr.data_hide }}"{% endif %} >
+                                                <th class="sonata-ba-list-field-header-{{ field_description.type}}
+                                                           {% if sortable %} sonata-ba-list-field-header-order-{{ sort_by|lower }} {{ sort_active_class }}{% endif %}
+                                                           {% if field_description.options.footable is defined and field_description.options.footable.attr.data_hide is not defined %}rz-admin-list-main{% endif %}"
+                                                           {% if field_description.options.footable is defined and field_description.options.footable.attr.data_hide is defined %} data-hide="{{ field_description.options.footable.attr.data_hide }}"{% endif %} >
                                                     {% if sortable %}<a href="{{ admin.generateUrl('list', sort_parameters) }}">{% endif %}
                                                         {{ admin.trans(field_description.label) }}
                                                         {% if sortable %}</a>{% endif %}

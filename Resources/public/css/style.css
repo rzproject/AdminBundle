@@ -5615,6 +5615,17 @@ label, input, button, select, textarea {
     padding: 20px 20px 0px 20px;
 }
 
+.rz-admin-list-pagetype {
+  width: 80px !important;
+  text-align: center !important;
+  color: #393;
+}
+
+.rz-admin-list-main {
+    width: auto !important;
+
+}
+
 .rz-form .chosen-container.chosen-container-multi .chosen-choices .search-choice {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
