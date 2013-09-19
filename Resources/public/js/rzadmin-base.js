@@ -60,6 +60,7 @@ var rzadmin = {
     },
 
     init:function(){
+        jQuery('html').removeClass('no-js');
         //functions should be called
         rzadmin.resizeContent();
         rzadmin.initGoToTopActions();
@@ -91,6 +92,15 @@ var rzadmin = {
         rzadmin.initFootable();
         rzadmin.initTabDrop();
         rzadmin.dashboardCurrentDateTime();
+
+        //Sonata
+        rzadmin.addPrettyErrors(document);
+        rzadmin.addFilters(document);
+        rzadmin.initListPopovers();
+        rzadmin.setObjectFieldValue(document);
+        rzadmin.setupCollectionButtons(document);
+        rzadmin.setupPerPageSwitcher(document);
+        rzadmin.setupFormTabsForErrors(document);
     },
 
     /**
@@ -647,11 +657,12 @@ var rzadmin = {
 
     initPopOver: function() {
         if (jQuery("[rel=popover]").length > 0) {
-            jQuery("a[data-toggle=popover]")
-                .popover()
-                .click(function(e) {
-                    e.preventDefault()
-                });
+            //jQuery("a[data-toggle=popover]")
+            jQuery("[rel=popover]")
+                    .popover()
+                    .click(function(e) {
+                        e.preventDefault();
+                    });
         }
     },
 
@@ -790,23 +801,44 @@ var rzadmin = {
     },
 
     initElements: function(modal) {
+
+        rzadmin.log('initElements initiated');
+
+        if(jQuery(".icheck-me", modal).length > 0){
+            jQuery(".icheck-me", modal).each(function(){
+                var $el = jQuery(this);
+                var skin = ($el.attr('data-skin') !== undefined) ? "_"+$el.attr('data-skin') : "",
+                    color = ($el.attr('data-color') !== undefined) ? "-"+$el.attr('data-color') : "";
+
+                var opt = {
+                    checkboxClass: 'icheckbox' + skin + color,
+                    radioClass: 'iradio' + skin + color,
+                    increaseArea: "10%"
+                }
+
+                $el.iCheck(opt);
+            });
+        }
+
         //TODO: change to selector
         if (jQuery('[class*="selectpicker"]', modal).length > 0) {
             jQuery('[class*="selectpicker"]', modal).selectpicker();
         }
 
-        if(jQuery('[class*="uni_style"]', modal).length > 0) {
-            jQuery('[class*="uni_style"]', modal).uniform();
-        }
+//        if(jQuery('[class*="uni_style"]', modal).length > 0) {
+//            jQuery('[class*="uni_style"]', modal).uniform();
+//        }
 
-        if (jQuery('[class="footable"]', modal).length > 0) {
-            jQuery('[class="footable"]', modal).footable();
+        if (jQuery('.footable', modal).length > 0) {
+            jQuery('.footable', modal).footable();
         }
 
         if(jQuery('.chosen-select', modal).length>0) {
             modal.find(".chosen-select").chosen({
                 allow_single_deselect: true
             });
+
+            rzadmin.resizeChosen();
         }
 
         if(jQuery(".chosen-select-multiple", modal).length > 0) {
@@ -870,16 +902,32 @@ var rzadmin = {
     //* Sonata Specific JS
     initBatchAction: function() {
         if (jQuery('#list_batch_checkbox').length > 0) {
-            jQuery('#list_batch_checkbox').on('click', function() {
-                var is_checked = $(this).is(':checked');
-                jQuery.each(jQuery('.admin-field-batch'), jQuery.proxy(function(key, el) {
-                    if(is_checked) {
+
+            if(jQuery('#list_batch_checkbox').hasClass( "icheck-me" )) {
+                jQuery('#list_batch_checkbox').on('ifChecked', function(event){
+                    jQuery.each(jQuery('.admin-field-batch'), jQuery.proxy(function(key, el) {
                         $(el).iCheck('check');
-                    } else {
+                    }, this));
+                });
+
+                jQuery('#list_batch_checkbox').on('ifUnchecked', function(event){
+                    var is_checked = $(this).is(':checked');
+                    jQuery.each(jQuery('.admin-field-batch'), jQuery.proxy(function(key, el) {
                         $(el).iCheck('uncheck');
-                    }
-                }, this));
-            });
+                    }, this));
+                });
+            } else {
+                jQuery('#list_batch_checkbox').on('click', function() {
+                    var is_checked = $(this).is(':checked');
+                    jQuery.each(jQuery('.admin-field-batch'), jQuery.proxy(function(key, el) {
+                        if(is_checked) {
+                            $(el).iCheck('check');
+                        } else {
+                            $(el).iCheck('uncheck');
+                        }
+                    }, this));
+                });
+            }
         }
     },
 
@@ -891,6 +939,269 @@ var rzadmin = {
                 window.top.location.href=this.options[this.selectedIndex].value;
             });
         }
+    },
+
+    initListPopovers: function() {
+        //specific for rzadmin
+        if (jQuery("#rz-admin-list-settings-batch-action-trigger").length > 0) {
+            jQuery("#rz-admin-list-settings-batch-action-trigger")
+                .popover({html: true})
+                .click(function(e) {
+                    e.preventDefault();
+                    rzadmin.initElements(jQuery('#rz-admin-list-settings-batch-action-container'));
+                    jQuery("#rz-admin-list-settings-download-action-trigger").popover('hide');
+                    jQuery("#rz-admin-list-settings-per-page-action-trigger").popover('hide');
+
+                });
+        }
+
+        if (jQuery("#rz-admin-list-settings-download-action-trigger").length > 0) {
+            jQuery("#rz-admin-list-settings-download-action-trigger")
+                .popover({html: true})
+                .click(function(e) {
+                    e.preventDefault();
+                    jQuery("#rz-admin-list-settings-batch-action-trigger").popover('hide');
+                    jQuery("#rz-admin-list-settings-per-page-action-trigger").popover('hide');
+                });
+        }
+
+        if (jQuery("#rz-admin-list-settings-per-page-action-trigger").length > 0) {
+            jQuery("#rz-admin-list-settings-per-page-action-trigger")
+                .popover({html: true})
+                .click(function(e) {
+                    e.preventDefault();
+                    rzadmin.initElements(jQuery('#rz-admin-list-settings-per-page-action-container'));
+                    rzadmin.setupPerPageSwitcher();
+                    jQuery("#rz-admin-list-settings-batch-action-trigger").popover('hide');
+                    jQuery("#rz-admin-list-settings-download-action-trigger").popover('hide');
+                });
+        }
+    },
+
+    /** Sonata Admin **/
+
+    //* detect touch devices
+    isTouchDevice: function() {
+        return !!('ontouchstart' in window);
+    },
+
+    /**
+     * display related errors messages
+     *
+     * @param subject
+     */
+    addPrettyErrors: function(subject) {
+
+        if(!rzadmin.isTouchDevice()) {
+
+            jQuery('div.sonata-ba-field-error', subject).each(function(index, element) {
+
+                var input = jQuery('input, textarea, select', element);
+                var message = jQuery('div.sonata-ba-field-error-messages', element).html();
+
+                jQuery('div.sonata-ba-field-error-messages', element).html('');
+                if (!message) {
+                    message = '';
+                }
+
+                if (message.length == 0) {
+                    return;
+                }
+
+                var target;
+
+                /* Hack to handle qTip on select */
+                if(jQuery(input).is('select')) {
+                    input.wrap('<span></span>');
+                    target = input.parent();
+                }
+                else {
+                    target = input;
+                }
+
+                var shared = {
+                    style		: {
+                        classes: 'qtip-bootstrap'
+                    },
+                    show		: {
+                        delay: 100
+                    },
+                    hide		: {
+                        delay: 0
+                    },
+                    content: {
+                        text: message,
+                        title: 'Error Message'
+                    }
+                };
+
+                if(target.length) {
+                    target.qtip( jQuery.extend({}, shared, {
+                        position: {
+                            my		: 'top center',
+                            at		: 'bottom right',
+                            viewport: jQuery(window)
+                        },
+                        style: {
+                            classes: 'qtip-bootstrap qtip-shadow'
+                        }
+                    }));
+                }
+
+                //target.opentip(message, { target: true,  targetJoint: null, tipJoint: 'left', showOn: 'mouseover', containInViewport: false, style: 'alert' });
+
+//            jQuery(target).popover({
+//                title: 'Error Message',
+//                content: message,
+//                placement: 'top',
+//                html: true
+//            });
+            });
+        }
+    },
+
+    stopEvent: function(event) {
+        // https://github.com/sonata-project/SonataAdminBundle/issues/151
+        //if it is a standard browser use preventDefault otherwise it is IE then return false
+        if(event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+
+        //if it is a standard browser get target otherwise it is IE then adapt syntax and get target
+        if (typeof event.target != 'undefined') {
+            targetElement = event.target;
+        } else {
+            targetElement = event.srcElement;
+        }
+
+        return targetElement;
+    },
+
+    addFilters: function(subject) {
+        jQuery(".admin-ajax-ignore-event").on('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            jQuery(".admin-filter-ajax").collapse('toggle');
+        });
+    },
+
+    /**
+     * Change object field value
+     * @param subject
+     */
+    setObjectFieldValue: function(subject) {
+
+        jQuery('a.sonata-ba-edit-inline', subject).click(function(event) {
+            rzadmin.stopEvent(event);
+
+            var subject = jQuery(this);
+            jQuery.ajax({
+                url: subject.attr('href'),
+                type: 'POST',
+                success: function(json) {
+                    if(json.status === "OK") {
+                        var elm = jQuery(subject).parent();
+                        elm.children().remove();
+                        // fix issue with html comment ...
+                        elm.html(jQuery(jQuery.parseHTML(json.content.replace(/<!--[\s\S]*?-->/g, "").replace(/[\r\n]+(?=[^\r\n])/g,""))).html());
+                        elm.effect("highlight", {'color' : '#57A957'}, 2000);
+                        rzadmin.setObjectFieldValue(elm);
+                    } else {
+                        jQuery(subject).parent().effect("highlight", {'color' : '#C43C35'}, 2000);
+                    }
+                }
+            });
+        });
+    },
+
+    setupCollectionButtons: function(subject) {
+
+        jQuery(subject).on('click', '.sonata-collection-add', function(event) {
+            rzadmin.stopEvent(event);
+
+            var container = jQuery(this).closest('[data-prototype]');
+            var proto = container.attr('data-prototype');
+            // Set field id
+            //var idRegexp = new RegExp(container.attr('id')+'___name__','g');
+            var idRegexp = new RegExp(container.attr('id')+'_'+protoName,'g');
+            proto = proto.replace(idRegexp, container.attr('id')+'_'+(container.children().length - 1));
+
+            // Set field name
+            var parts = container.attr('id').split('_');
+//            var nameRegexp = new RegExp(parts[parts.length-1]+'\\]\\[__name__','g');
+            var nameRegexp = new RegExp(parts[parts.length-1]+'\\]\\['+protoName,'g');
+            proto = proto.replace(nameRegexp, parts[parts.length-1]+']['+(container.children().length - 1));
+            jQuery(proto).insertBefore(jQuery(this).parent());
+
+            jQuery(this).trigger('sonata-collection-item-added');
+        });
+
+        jQuery(subject).on('click', '.sonata-collection-delete', function(event) {
+            rzadmin.stopEvent(event);
+
+            jQuery(this).closest('.sonata-collection-row').remove();
+
+            jQuery(this).trigger('sonata-collection-item-deleted');
+        });
+    },
+
+    setupPerPageSwitcher: function(subject) {
+        if(jQuery('select.per-page').length > 0) {
+            jQuery('select.per-page').change(function(event) {
+                jQuery('input[type=submit]').hide();
+
+                window.top.location.href=this.options[this.selectedIndex].value;
+            });
+        }
+    },
+
+    setupFormTabsForErrors: function(subject) {
+        // Switch to first tab with server side validation errors on page load
+        jQuery('form', subject).each(function() {
+            rzadmin.showFormFirstTabWithErrors(jQuery(this), '.sonata-ba-field-error');
+        });
+
+        // Switch to first tab with HTML5 errors on form submit
+        jQuery(subject)
+            .on('click', 'form [type="submit"]', function() {
+                rzadmin.showFormFirstTabWithErrors(jQuery(this).closest('form'), ':invalid');
+            })
+            .on('keypress', 'form [type="text"]', function(e) {
+                if (13 === e.which) {
+                    rzadmin.showFormFirstTabWithErrors(jQuery(this), ':invalid');
+                }
+            })
+        ;
+    },
+
+    showFormFirstTabWithErrors: function(form, errorSelector) {
+        var tabs = form.find('.nav-tabs a'),
+            firstTabWithErrors;
+
+        tabs.each(function() {
+            var id = jQuery(this).attr('href'),
+                tab = jQuery(this),
+                icon = tab.find('.has-errors');
+
+            if (jQuery(id).find(errorSelector).length > 0) {
+                // Only show first tab with errors
+                if (!firstTabWithErrors) {
+                    tab.tab('show');
+                    firstTabWithErrors = tab;
+                }
+
+                icon.removeClass('hide');
+            } else {
+                icon.addClass('hide');
+            }
+        });
+    },
+
+    loadingMessage: function(msg) {
+        msg = msg ? msg : 'Please wait while we process your request.';
+        return '<div id="gritter-notice-wrapper-blockui-loading"><div id="gritter-item-blockui-loading" class="gritter-item-wrapper gritter-primary" style=""><div class="gritter-top"></div><div class="gritter-item"><div class="gritter-close" style="display: none;"></div><div class="gritter-without-image"><span class="gritter-title"><i class="icon-spinner"></i> Processing...</span><p>'+msg+'</p></div><div style="clear:both"></div></div><div class="gritter-bottom"></div></div></div>';
     },
 
 

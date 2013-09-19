@@ -249,17 +249,9 @@ file that was distributed with this source code.
             {% if form.vars.tree_enabled is defined and form.vars.tree_enabled %}
                 {{ block('rz_tree_options') }}
             {% else %}
-                <ul {{ block('widget_container_attributes_choice_widget') }}>
-                    {% for child in form %}
-                        <li>
-                            {{ form_label(child, child.vars.label|default(null),
-                            { 'in_list_checkbox' : true,
-                              'widget' : form_widget(child)
-                            }
-                            )}}
-                        </li>
-                    {% endfor %}
-                </ul>
+                {% for child in form %}
+                    {{ form_label(child, child.vars.label|default(null), { 'icheck_endabled' : true, 'icheck_inline':true, 'widget' : form_widget(child)}) }}
+                {% endfor %}
             {% endif %}
         {% else %}
             <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
@@ -279,14 +271,6 @@ file that was distributed with this source code.
         {% endif %}
     {% endspaceless %}
 {% endblock choice_widget %}
-
-{% block widget_container_attributes_choice_widget %}
-    {% spaceless %}
-        id="{{ id }}"
-        {% for attrname,attrvalue in attr %}{{attrname}}="{% if attrname == 'class' %}unstyled {% endif%}{{attrvalue}}" {% endfor %}
-        {% if "class" not in attr %}class="unstyled"{%endif %}
-    {% endspaceless %}
-{% endblock %}
 
 {% block form_row %}
     {% if sonata_admin is not defined or not sonata_admin_enabled or not sonata_admin.field_description %}
@@ -339,7 +323,7 @@ file that was distributed with this source code.
 
 {% block rz_form_row %}
     {{ form_widget(form) }}
-    {{ block('block rz_form_row_error') }}
+    {{ block('rz_form_row_error') }}
 {% endblock %}
 
 {% block rz_form_row_error %}

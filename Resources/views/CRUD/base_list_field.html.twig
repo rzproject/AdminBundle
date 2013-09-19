@@ -8,6 +8,10 @@ For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 
 #}
+
+{% if field_description.name == 'batch' and app.request.isXmlHttpRequest %}
+    {# batch actions disabled in ajax view! #}
+{% else %}
 <td class="sonata-ba-list-field sonata-ba-list-field-{{ field_description.type }}
            {% if field_description.type == 'batch' %}row-selector{% endif %}
            {% block list_table_td_class %}{% endblock %}"
@@ -29,3 +33,4 @@ file that was distributed with this source code.
         {{ block('field') }}
     {% endif %}
 </td>
+{% endif %}

@@ -1,0 +1,8 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field %}
+    <a class="btn btn-success" href="#">
+        <i class="icon-arrow-right"></i>
+        <span class="hidden-phone hidden-tablet visible-desktop">{{ 'list_select'|trans({}, 'SonataAdminBundle') }}</span>
+    </a>
+{% endblock %}

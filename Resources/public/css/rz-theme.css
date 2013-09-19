@@ -28,6 +28,10 @@
     color: #393;
 }
 
+.theme-darkblue .rz-datagird-form table tr td > a.btn.btn-success:hover {
+    color: #fff;
+}
+
 
 .rz-datagird-settings-pane .tab-content.tab-content-inline.tab-content-bottom {
   border-top: 5px solid #eee;

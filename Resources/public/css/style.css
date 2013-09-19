@@ -3728,9 +3728,9 @@ input, textarea {
 }
 
 .modal {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+    -webkit-border-radius: 4px 4px 0px 0px;
+    -moz-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
 }
 .modal .modal-footer {
     -webkit-box-shadow: none;
@@ -3928,9 +3928,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 .popover {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -5284,7 +5284,7 @@ label, input, button, select, textarea {
     padding: 5px;
 }
 .box.box-color .box-title {
-    background: #4b6399;
+    background: #253454;
 }
 .box.box-color .box-title h3 {
     color: #fff;
@@ -5341,13 +5341,13 @@ label, input, button, select, textarea {
     border-bottom: 2px solid #ddd;
 }
 .box.box-bordered.box-color .slimScrollDiv {
-    border-bottom: 2px solid #4b6399;
+    border-bottom: 2px solid #253454;
 }
 .box.box-bordered.box-color .box-title {
-    border-color: #4b6399;
+    border-color: #253454;
 }
 .box.box-bordered.box-color .box-content {
-    border-color: #4b6399;
+    border-color: #253454;
 }
 .box.box-bordered .box-title {
     border: 2px solid #ddd;
@@ -5615,6 +5615,33 @@ label, input, button, select, textarea {
     padding: 20px 20px 0px 20px;
 }
 
+.rz-admin-list-main-data {
+    margin: 0px !important;
+    padding-top: 10px;
+}
+
+.rz-admin-list-main-data .rz-admin-list-main-data-toolbar {
+    margin: 0px 10px 10px 10px!important;
+
+}
+
+.rz-admin-list-main-data-toolbar span {
+    margin-left: 10px;
+}
+
+.rz-admin-form-batch-action {
+    min-width: 200px;
+}
+
+.rz-admin-form-download-action,
+.rz-admin-form-per-page-action{
+    min-width: 100px;
+}
+
+.rz-admin-form-download-action ul > li > a {
+    margin-bottom: 10px;
+}
+
 .rz-admin-list-pagetype {
   width: 80px !important;
   text-align: center !important;
@@ -5639,10 +5666,6 @@ label, input, button, select, textarea {
 
 .rz-form .rz-icheckme {
     margin: 0px 20px 10px;
-}
-
-.rz-form .check-line .inline {
-    top: 1px;
 }
 
 .rz-form .check-line .help-block {
@@ -5671,6 +5694,30 @@ label, input, button, select, textarea {
     margin: 0 auto !important;
 }
 
+.rz-form .rz-formatter-source {
+    margin-bottom: 10px;
+}
+
+.rz-form .btn span {
+    margin-left: 5px;
+}
+
+.rz-modal .box-title {
+    margin-top: 0px;
+}
+
+.rz-list-settings-main {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.rz-list-settings {
+    border-bottom: 10px solid #eee;
+}
+
+.rz-admin-list-no-result-container {
+    border-bottom: 1px solid #eee;
+}
 
 .form-striped .control-group:nth-child(odd) {
     background: #f6f6f6;
@@ -6737,6 +6784,7 @@ label, input, button, select, textarea {
 
 .table-pagination-container {
     border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 .table-pagination-alt-pager {
@@ -8836,9 +8884,15 @@ a:focus {
     .rz-form .rz-widget-container-one-to-many table tbody > tr > td > [class^='icheckbox_'] {
         margin: 0px !important;
     }
+}
 
 
-
+.qtip-bootstrap .qtip-content ul{
+    list-style: none !important;
+    margin-left: 0px;
 
 }
 
+.qtip-bootstrap .qtip-content ul li{
+
+}

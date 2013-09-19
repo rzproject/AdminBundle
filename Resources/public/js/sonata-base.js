@@ -253,9 +253,9 @@ var Admin = {
             jQuery('[class*="selectpicker"]', modal).selectpicker();
         }
 
-        if(jQuery('[class*="uni_style"]', modal).length > 0) {
-            jQuery('[class*="uni_style"]', modal).uniform();
-        }
+//        if(jQuery('[class*="uni_style"]', modal).length > 0) {
+//            jQuery('[class*="uni_style"]', modal).uniform();
+//        }
 
         if (jQuery('[class="footable"]', modal).length > 0) {
             jQuery('[class="footable"]', modal).footable();

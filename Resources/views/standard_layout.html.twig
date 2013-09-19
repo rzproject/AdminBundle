@@ -126,8 +126,12 @@ file that was distributed with this source code.
         <script src="{{ asset('bundles/rmzamorajquery/jquery-plugins/gritter/js/gritter.js') }}"  type="text/javascript"></script>
         {# qtip2 #}
         <script src="{{ asset('bundles/rmzamorajquery/jquery-plugins/qtip2/js/qtip.js')}}" type="text/javascript"></script>
+        {# wookmark #}
         <script src="{{ asset('bundles/rmzamorajquery/jquery-plugins/wookmark/wookmark.js') }}" type="text/javascript"></script>
+        {# imageloaded #}
         <script src="{{ asset('bundles/rmzamorajquery/jquery-plugins/imageloaded/imagesloaded.js') }}" type="text/javascript"></script>
+        {# form #}
+        <script src="{{ asset('bundles/rmzamorajquery/jquery-plugins/form/jquery.form.js') }}" type="text/javascript"></script>
         {###################################}
         {# ADDED for new Flat Theme        #}
         {###################################}
@@ -138,16 +142,19 @@ file that was distributed with this source code.
         {#  slimScroll #}
         <script src="{{ asset('bundles/rzadmin/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
         {#  icheck #}
-        <script src="{{ asset('bundles/rzadmin/js/plugins/icheck/jquery.icheck.min.js') }}"></script>
+        <script src="{{ asset('bundles/rzadmin/js/plugins/icheck/jquery.icheck.js') }}"></script>
 
        {% block sonata_javascript_block %}
+       {# lib #}
+       <script src="{{ asset('bundles/rzadmin/js/lib/sprintf.js') }}" type="text/javascript"></script>
        {# sonata #}
-        <script src="{{ asset('bundles/rzadmin/js/sonata-base.js') }}" type="text/javascript"></script>
+        {#<script src="{{ asset('bundles/rzadmin/js/sonata-base.js') }}" type="text/javascript"></script>#}
         {% endblock sonata_javascript_block %}
         {# theme #}
         <script src="{{ asset('bundles/rzadmin/js/rzadmin-base.js')}}"></script>
         {# rz bundles #}
         <script src="{{ asset('bundles/rzfieldtype/js/rzadmin-fieldtype.js')}}"></script>
+        <script src="{{ asset('bundles/rzdoctrineormadmin/js/rzadmin-many-assoc.js')}}"></script>
         {# additional javascript files #}
         {% block javascripts_files %}{% endblock javascripts_files %}
 

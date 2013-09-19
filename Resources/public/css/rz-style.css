@@ -37,28 +37,30 @@
 .sonata-ba-list-field-header-orm_many_to_many,
 .sonata-ba-list-field-header-orm_many_to_one,
 .sonata-ba-list-field-header-string,
+.sonata-ba-list-field-header-select,
 .sonata-ba-list-field-header-boolean,
 .sonata-ba-list-field-header-datetime,
 .sonata-ba-list-field-orm_many_to_one,
-.sonata-ba-list-field-impersonating,
+.sonata-ba-list-field-impersonating
  {
     text-align: center !important;
     text-overflow:ellipsis !important;
     white-space: nowrap;
     overflow: hidden;
     max-width: 100px;
-    width: 80px;
+    width: 100px;
 }
 
 .sonata-ba-list-field-string > a,
 .sonata-ba-list-field-datetime,
 .sonata-ba-list-field-text,
-.sonata-ba-list-field-string
+.sonata-ba-list-field-string,
+.sonata-ba-list-field-select
 {
     white-space: nowrap;
     text-overflow:ellipsis !important;
     overflow: hidden;
-    max-width: 100px;
+    max-width: 200px;
 }
 
 .sonata-ba-list-field-header-batch,
@@ -66,14 +68,18 @@
 .sonata-ba-list-field-boolean,
 .sonata-ba-list-field-impersonating,
 .sonata-one-to-many-delete-header,
-.sonata-ba-list-field-header-datetime,
 .sonata-one-to-many-table-boolean,
-.sonata-one-to-many-table-integer{
+.sonata-one-to-many-table-integer,
+.sonata-ba-list-field-select{
     max-width: 40px !important;
     text-align: center !important;
     text-overflow:ellipsis !important;
-    max-width: 100px;
     white-space: nowrap;
+}
+
+.sonata-ba-list-field-header-batch,
+.sonata-ba-list-field-batch{
+    width: 40px !important;
 }
 
 .sonata-ba-sortable-handler {
