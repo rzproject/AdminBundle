@@ -3727,15 +3727,21 @@ input, textarea {
     box-shadow: none !important;
 }
 
-.modal {
+.modal,
+.modal-header{
     -webkit-border-radius: 4px 4px 0px 0px;
     -moz-border-radius: 4px 4px 0px 0px;
     border-radius: 4px 4px 0px 0px;
 }
+
 .modal .modal-footer {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .tooltip .tooltip-inner {
@@ -3928,12 +3934,12 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 
 .popover {
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+    -webkit-border-radius: 4px 4px 0px 0px;
+    -moz-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+    /*-webkit-box-shadow: none;*/
+    /*-moz-box-shadow: none;*/
+    /*box-shadow: none;*/
     padding: 0;
 }
 
@@ -5611,6 +5617,34 @@ label, input, button, select, textarea {
     border-radius: 4px;
 }
 
+.rz-modal {
+    border: 0px !important;
+}
+
+.rz-modal .modal-body {
+    padding: 0px !important;
+}
+
+.rz-modal .modal-body .control-group {
+    border-bottom: 1px solid #eee;
+}
+
+.rz-modal .modal-body .control-group:last-child {
+    border-bottom: 0px;
+}
+
+.rz-modal .modal-header{
+    border-bottom: 0px !important;
+    -webkit-border-radius: 4px 4px 0px 0px;
+    -moz-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+    border: 0px !important;
+}
+
+.rz-modal .modal-body .box {
+    padding: 10px;
+}
+
 .rz-admin-list-no-result {
     padding: 20px 20px 0px 20px;
 }
@@ -5717,6 +5751,11 @@ label, input, button, select, textarea {
 
 .rz-admin-list-no-result-container {
     border-bottom: 1px solid #eee;
+}
+
+.rz-admin-box-show {
+    min-width: 300px;
+    overflow-x: auto;
 }
 
 .form-striped .control-group:nth-child(odd) {

@@ -35,14 +35,14 @@ file that was distributed with this source code.
 {% block content %}
     <div class="row-fluid">
         <div class="span5">
-            <div class="widget-box">
-                <div class="widget-title">
-                <span class="icon">
-                    <i class="icon-th-list"></i>
-                </span>
-                    <h5>Revision History</h5>
+            <div class="box box-color box-bordered">
+                <div class="box-title">
+                    <h3>
+                        <i class="icon-time"></i>
+                        {# TODO: set on configuration #}
+                    </h3>
                 </div>
-                <div class="widget-content rmz-list-widget-content">
+                <div class="box-content nopadding">
                     <table class="table table-bordered table-striped" id="revisions">
                         <thead>
                             <tr>
@@ -63,8 +63,8 @@ file that was distributed with this source code.
                             {% endfor %}
                         </tbody>
                     </table>
-                 </div>
-            </div>
+                    </div>
+                </div>
         </div>
         <div id="revision-detail" class="span7 revision-detail"></div>
     </div>

@@ -2957,13 +2957,16 @@ ul > li.darkblue, .label-darkblue {
 .theme-darkblue .gritter-primary .gritter-item{
     display:block;
     background: #253454 !important;
-    border-color: #fff !important;
+    border: 0px !important;
     color: #fff !important;
     text-shadow: none !important;
     border-radius: 4px;
     padding:7px 10px 10px;
     box-shadow: none !important;
     font-family: 'Open Sans', sans-serif !important;
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3) !important;
 }
 .theme-darkblue .gritter-primary .gritter-item p,
 .theme-darkblue .gritter-info .gritter-item p,
@@ -2973,9 +2976,28 @@ ul > li.darkblue, .label-darkblue {
     font-family: 'Open Sans', sans-serif !important;
 }
 
+.theme-darkblue .popover {
+    background: none;
+}
+
+.theme-darkblue .popover-content {
+    background-color: #fff;
+}
+
+
 .theme-darkblue .modal-backdrop{
     background: #000 !important;
 }
+
+.theme-darkblue .modal{
+    background: none !important;
+}
+
+.theme-darkblue .modal-body{
+    background-color: #fff;
+}
+
+
 
 .theme-darkblue .modal-header{
     background: #253454 !important;
