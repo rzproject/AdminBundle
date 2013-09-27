@@ -19,6 +19,11 @@
         <service id="rz_admin.twig.extension.string_helper" class="%rz_admin.twig.extension.string_helper.class%">
             <tag name="twig.extension" />
         </service>
+
+        <service id="rz_admin.twig.extension.admin" class="Rz\AdminBundle\Twig\Extension\RzAdminListExtension">
+            <tag name="twig.extension"/>
+            <argument type="service" id="sonata.admin.pool" />
+        </service>
     </services>
 
 </container>

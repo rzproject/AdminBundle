@@ -99,7 +99,16 @@ class Configuration implements ConfigurationInterface
                             /*********************************
                              * rzAdmin Added Templates
                              *********************************/
-                            //** table footer */
+                            //** table items */
+                            ->scalarNode('rz_base_list_inner_row_header')->defaultValue('RzAdminBundle:CRUD:base_list_inner_row_header.html.twig')->cannotBeEmpty()->end()
+                            ->scalarNode('rz_list_inner_row_header')->defaultValue('RzAdminBundle:CRUD:list_inner_row_header.html.twig')->cannotBeEmpty()->end()
+                            ->scalarNode('rz_base_list_field_header')->defaultValue('RzAdminBundle:CRUD:base_list_field_header.html.twig')->cannotBeEmpty()->end()
+                            ->scalarNode('rz_list_field_header')->defaultValue('RzAdminBundle:CRUD:list_field_header.html.twig')->cannotBeEmpty()->end()
+                            ->scalarNode('rz_base_list_batch_header')->defaultValue('RzAdminBundle:CRUD:base_list_batch_header.html.twig')->cannotBeEmpty()->end()
+                            ->scalarNode('rz_list_batch_header')->defaultValue('RzAdminBundle:CRUD:list_batch_header.html.twig')->cannotBeEmpty()->end()
+                            ->scalarNode('rz_base_list_select_header')->defaultValue('RzAdminBundle:CRUD:base_list_select_header.html.twig')->cannotBeEmpty()->end()
+                            ->scalarNode('rz_list_select_header')->defaultValue('RzAdminBundle:CRUD:list_select_header.html.twig')->cannotBeEmpty()->end()
+                            // table actions and other components
                             ->scalarNode('rz_list_table_footer')->defaultValue('RzAdminBundle:CRUD:list_table_footer.html.twig')->cannotBeEmpty()->end()
                             ->scalarNode('rz_list_table_batch')->defaultValue('RzAdminBundle:CRUD:list_table_batch.html.twig')->cannotBeEmpty()->end()
                             ->scalarNode('rz_list_table_download')->defaultValue('RzAdminBundle:CRUD:list_table_download.html.twig')->cannotBeEmpty()->end()

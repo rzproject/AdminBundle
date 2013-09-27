@@ -133,7 +133,7 @@ file that was distributed with this source code.
         </button>
         {% if not app.request.isxmlhttprequest %}
             {% if admin.hasroute('list') %}
-            <button type="submit" class="btn btn-primary" name="btn_update_and_list">
+            <button type="submit" class="btn btn-primary" name="btn_update_and_list" value="{{ 'btn_update_and_return_to_list'|trans({}, 'SonataAdminBundle') }}">
                 <i class="icon-reorder"></i>
                 <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'btn_update_and_return_to_list'|trans({}, 'SonataAdminBundle') }}</span>
             </button>
@@ -151,12 +151,12 @@ file that was distributed with this source code.
             </button>
         {% endif %}
     {% else %}
-        <button class="btn btn-primary" type="submit" name="btn_create_and_edit">
+        <button class="btn btn-primary" type="submit" name="btn_create_and_edit" value="{{ 'btn_create_and_edit_again'|trans({}, 'SonataAdminBundle') }}">
             <i class="icon-save"></i>
             <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'btn_create_and_edit_again'|trans({}, 'SonataAdminBundle') }}</span>
         </button>
         {% if not app.request.isxmlhttprequest %}
-        <button class="btn btn-primary" type="submit" name="btn_create_and_create">
+        <button class="btn btn-primary" type="submit" name="btn_create_and_create" value="{{ 'btn_create_and_create_a_new_one'|trans({}, 'SonataAdminBundle') }}">
             <i class="icon-edit"></i>
             <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'btn_create_and_create_a_new_one'|trans({}, 'SonataAdminBundle') }}</span>
         </button>
