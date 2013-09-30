@@ -31,7 +31,7 @@ class RzAdminBundle extends Bundle
      */
     public function build(ContainerBuilder $container)
     {
-        //$container->addCompilerPass(new TemplateCompilerPass());
+        $container->addCompilerPass(new TemplateCompilerPass());
         $container->addCompilerPass(new OverrideCompilerPass());
     }
 }

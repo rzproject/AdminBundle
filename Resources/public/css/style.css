@@ -8923,6 +8923,20 @@ a:focus {
     .rz-form .rz-widget-container-one-to-many table tbody > tr > td > [class^='icheckbox_'] {
         margin: 0px !important;
     }
+
+    .table-pagination-info, .table-pagination-info-alt {
+        text-align: center;
+    }
+
+    .table-pagination, .table-pagination-alt-pager {
+        float: none !important;
+        text-align: center;
+        margin: 0 auto !important;
+    }
+    .table-pagination-nav {
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
 
 
