@@ -92,6 +92,7 @@ var rzadmin = {
         rzadmin.initFootable();
         rzadmin.initTabDrop();
         rzadmin.dashboardCurrentDateTime();
+        rzadmin.initMasonry();
 
         //Sonata
         rzadmin.addPrettyErrors(document);
@@ -811,6 +812,19 @@ var rzadmin = {
         }
     },
 
+    initMasonry: function() {
+        if($(".rz-masonry-gallery").length > 0){
+            $(".rz-masonry-gallery").imagesLoaded(function(){
+                $(".rz-masonry-gallery").masonry({
+                    itemSelector: '.rz-gallery-item',
+                    isAnimated: true,
+                    isFitWidth: true,
+                    gutter: 10
+                });
+            });
+        }
+    },
+
     initElements: function(modal) {
 
         rzadmin.log('initElements initiated');
@@ -922,6 +936,17 @@ var rzadmin = {
                 $el.multiSelect({
                     selectionHeader : selectionHeader,
                     selectableHeader : selectableHeader
+                });
+            });
+        }
+
+        if(jQuery(".rz-masonry-gallery", modal).length > 0){
+            jQuery(".rz-masonry-gallery", modal).imagesLoaded(function(){
+                $(".rz-masonry-gallery", modal).masonry({
+                    itemSelector: '.rz-gallery-item',
+                    isAnimated: true,
+                    isFitWidth: true,
+                    gutter: 10
                 });
             });
         }
