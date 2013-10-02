@@ -33,7 +33,11 @@
     color: #fff;
 }
 
-
+.theme-darkblue .rz-gallery-container .rz-media-provider-selector .rz-tablinks > li.active > a{
+    background-color: #253454;
+    border-color: #253454;
+    color: #fff;
+}
 
 
 .rz-datagird-settings-pane .tab-content.tab-content-inline.tab-content-bottom {

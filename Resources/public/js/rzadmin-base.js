@@ -1230,9 +1230,10 @@ var rzadmin = {
     },
 
     showFormFirstTabWithErrors: function(form, errorSelector) {
-        var tabs = form.find('.nav-tabs a'),
+        var tabs = form.find('.rz-form-tabs a'),
             firstTabWithErrors;
 
+        console.log(tabs);
         tabs.each(function() {
             var id = jQuery(this).attr('href'),
                 tab = jQuery(this),

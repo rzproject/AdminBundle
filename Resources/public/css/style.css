@@ -5817,6 +5817,42 @@ label, input, button, select, textarea {
     clear: both;
 }
 
+.rz-gallery-container .rz-media-provider-selector .rz-tablinks {
+    margin-bottom: 0px;
+    border-bottom: 0px;
+}
+
+.rz-gallery-container .rz-media-provider-selector .rz-tablinks > li {
+    margin-bottom: 0px;
+}
+
+.rz-gallery-container .rz-media-provider-selector .rz-tablinks > li.active > a{
+    background-color: #eee;
+    border-color: #eee;
+}
+
+.rz-gallery-container .rz-media-provider-selector .rz-tablinks > li > a{
+    border: 1px solid #eee;
+}
+
+.rz-gallery-container-modal .rz-media-provider-selector-modal{
+    margin-bottom: 0px;
+}
+
+.rz-gallery-container-modal .box {
+    padding-top: 0px !important;
+}
+
+.rz-gallery-container .box-title {
+    margin-top: 0px;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+.dropdown.pull-right.tabdrop > a {
+    margin-right: 0px;
+}
+
 .rz-gallery-item {
     position: relative;
     cursor: pointer;
