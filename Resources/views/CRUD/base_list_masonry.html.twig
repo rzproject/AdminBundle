@@ -60,7 +60,7 @@ file that was distributed with this source code.
                 </a>
             </div>
         {% endif %}
-        <ul class="nav nav-tabs tabdrop rz-media-context-selector">
+        <ul class="nav nav-tabs tabdrop rz-media-context-selector{% if app.request.isxmlhttprequest %} rz-media-context-selector-modal{% endif %}">
             {% set providers = media_pool.getProviderNamesByContext(persistent_parameters.context) %}
 
             {% for name, context in media_pool.contexts %}
@@ -82,7 +82,7 @@ file that was distributed with this source code.
             {% endfor %}
         </ul>
         {% if admin.datagrid.results|length > 0 %}
-        <div class="rz-masonry-gallery-container">
+        <div class="rz-masonry-container">
             <div class="rz-masonry-gallery" data-masonry-options="{ 'isFitWidth': true }">
                 {% for object in admin.datagrid.results %}
                     {% include admin.getTemplate('inner_list_row') %}
@@ -90,8 +90,8 @@ file that was distributed with this source code.
             </div>
         </div>
         {% else %}
-            <div class="rz-admin-list-no-result {% if not app.request.isxmlhttprequest %}rz-admin-list-no-result-container{% endif %}">
-                <div class="alert alert-success">
+            <div class="rz-admin-list-no-result rz-masonry-container {% if not app.request.isxmlhttprequest %}rz-admin-list-no-result-container{% endif %}">
+                <div class="alert">
                     <strong>{{ 'no_result'|trans({}, 'SonataAdminBundle') }}</strong>
                 </div>
             </div>

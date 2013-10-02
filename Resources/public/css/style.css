@@ -5792,14 +5792,22 @@ label, input, button, select, textarea {
     margin-bottom: 10px;
 }
 
-.rz-masonry-gallery-container .masonry {
+.rz-masonry-container .masonry {
     margin: 0 auto !important;
 }
 
-.rz-masonry-gallery-container {
-    padding: 10px;
+.rz-masonry-container {
+    padding: 20px 10px;
+    background-color: #eee;
 }
-.rz-masonry-gallery-container .rz-gallery-item {
+
+.rz-masonry-container .alert {
+    margin-bottom: 0px;
+    background-color: #253454;
+    color: #fff;
+}
+
+.rz-masonry-container .rz-gallery-item {
     margin-bottom: 10px;
     margin-left: 10px;
 }
@@ -5866,6 +5874,38 @@ label, input, button, select, textarea {
 
 .rz-media-context-selector .rz-media-first-context {
     margin-left: 10px;
+}
+
+.rz-media-context-selector {
+    margin-bottom: 0px;
+    border-bottom-color: #eee;
+}
+
+.rz-media-context-selector .active a{
+    background-color: #eee !important;
+    border: 0px !important;
+}
+
+.rz-media-context-selector > li {
+    margin-bottom: -2px;
+}
+
+.rz-media-context-selector > li > a {
+    border: 1px solid #eee !important;
+    text-transform: capitalize;
+    margin-left: 3px;
+}
+
+.rz-media-context-selector-modal > li > a {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+.rz-media-context-selector-modal .rz-media-first-context,
+.rz-media-context-selector-modal li > a.rz-media-first-context,
+.rz-media-context-selector-modal > li > a{
+    margin-left: 1px;
 }
 
 
