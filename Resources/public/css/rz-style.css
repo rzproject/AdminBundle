@@ -123,6 +123,16 @@
     min-height: 30px !important;
 }
 
+.fileupload-preview {
+    min-width: 500px;
+    min-height: 380px;
+}
+
+.fileupload button.btn {
+    line-height: 20px;
+    margin-left: 2px;
+}
+
 @media
 (min-width: 768px) and (max-width: 979px),
 (max-width: 767px){
@@ -131,5 +141,10 @@
     .sonata-one-to-many-table-boolean,
     .sonata-one-to-many-table-integer{
         width: auto !important;
+    }
+
+    .fileupload-preview {
+        min-width: 300px;
+        min-height: 230px;
     }
 }

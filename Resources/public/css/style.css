@@ -3911,7 +3911,7 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
 }
 .btn.btn-success {
     background: #337e42;
-    border-color: #276133;
+    border-color: #337e42;
     text-shadow: none;
     color: #fff;
     filter: none;
@@ -5943,6 +5943,22 @@ label, input, button, select, textarea {
 .rz-media-context-selector-modal > li > a{
     margin-left: 1px;
 }
+
+.rz-delete-box .form-actions {
+    margin: 0px;
+}
+
+.rz-delete-box .form-actions form {
+    margin: 0px;
+}
+.rz-delete-box .control-group {
+    margin: 0px;
+    padding: 20px 20px 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
 
 
 .form-striped .control-group:nth-child(odd) {
@@ -8418,7 +8434,8 @@ div.DTS div.dataTables_scrollBody {
     overflow: hidden;
     vertical-align: middle;
     padding: 4px 8px;
-    border: 1px solid #ccc;
+    /*border: 1px solid #ccc;*/
+    border: none !important;
 }
 
 .btn-file > input {
