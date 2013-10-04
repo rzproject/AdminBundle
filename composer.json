@@ -17,6 +17,8 @@
         "rmzamora/admin-bundle": "2.3.*@dev",
         "rz/block-bundle": "2.3.1.*@dev",
         "rz/field-type-bundle": "2.3.1.*@dev",
+        "rmzamora/bootstrap-bundle": "2.3.1.*@dev",
+        "rmzamora/jquery-bundle": "1.10.1.*@dev",
         "rz/ckeditor-bundle": "2.3.*@dev",
         "rz/codemirror-bundle": "2.3.*@dev"
     },
