@@ -431,7 +431,6 @@ var rzadmin = {
 
     resizeChosen: function(){
         if (jQuery('.chosen-container').length > 0){
-
             jQuery('.chosen-container').each(function() {
                 var $el = jQuery(this);
                 $el.css('width', $el.parent().width()+'px');
@@ -865,10 +864,7 @@ var rzadmin = {
         if(jQuery(".chosen-select-multiple", modal).length > 0) {
             modal.find(".chosen-select-multiple").chosen().change(function(){
                 var ret = null;
-                $(this).find('.chosen-choices').each(function(){
-                    console.log(this);
-                    console.log('child');
-                })
+                $(this).find('.chosen-choices').each(function(){})
             });
         }
 
@@ -988,7 +984,6 @@ var rzadmin = {
         if (jQuery('.rz-alt-pager').length > 0) {
             jQuery('input[type=submit]').hide();
             jQuery('.rz-alt-pager').on('change', function() {
-                console.log('here'+ this.options[this.selectedIndex].value);
                 window.top.location.href=this.options[this.selectedIndex].value;
             });
         }
@@ -1232,8 +1227,6 @@ var rzadmin = {
     showFormFirstTabWithErrors: function(form, errorSelector) {
         var tabs = form.find('.rz-form-tabs a'),
             firstTabWithErrors;
-
-        console.log(tabs);
         tabs.each(function() {
             var id = jQuery(this).attr('href'),
                 tab = jQuery(this),
@@ -1299,7 +1292,6 @@ var rzadmin = {
 
         applyPositionValue: function() {
 
-            console.log('apply');
             var container = null;
             // update the input value position
             if (rzadmin.rz_orm_otm.type =='table') {
@@ -1335,7 +1327,6 @@ var rzadmin = {
         addElement: function() {
             if (jQuery('#sonata-ba-field-container-'+rzadmin.rz_orm_otm.id).length > 0 ) {
                 jQuery('#sonata-ba-field-container-'+rzadmin.rz_orm_otm.id).on('sonata.add_element', function() {
-                    console.log('heressss');
                     rzadmin.rz_orm_otm.applyPositionValue();
                     if (rzadmin.rz_orm_otm.type =='table') {
                         jQuery('div#field_container_'+rzadmin.rz_orm_otm.id+' tbody.sonata-ba-tbody').sortable('refresh');
