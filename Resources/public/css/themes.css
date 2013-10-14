@@ -3009,6 +3009,100 @@ ul > li.darkblue, .label-darkblue {
 }
 
 
+/* datetime picker */
+.theme-darkblue .datetimepicker table tr td.active:hover,
+.theme-darkblue .datetimepicker table tr td.active:hover:hover,
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover,
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover:hover,
+.theme-darkblue .datetimepicker table tr td.active:active,
+.theme-darkblue .datetimepicker table tr td.active:hover:active,
+.theme-darkblue .datetimepicker table tr td.active.disabled:active,
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover:active,
+.theme-darkblue .datetimepicker table tr td.active.active,
+.theme-darkblue .datetimepicker table tr td.active:hover.active,
+.theme-darkblue .datetimepicker table tr td.active.disabled.active,
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover.active,
+.theme-darkblue .datetimepicker table tr td.active.disabled,
+.theme-darkblue .datetimepicker table tr td.active:hover.disabled,
+.theme-darkblue .datetimepicker table tr td.active.disabled.disabled,
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover.disabled,
+.theme-darkblue .datetimepicker table tr td.active[disabled],
+.theme-darkblue .datetimepicker table tr td.active:hover[disabled],
+.theme-darkblue .datetimepicker table tr td.active.disabled[disabled],
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover[disabled] {
+    background: #163558;
+}
+.theme-darkblue .datetimepicker table tr td.active:active,
+.theme-darkblue.datetimepicker table tr td.active:hover:active,
+.theme-darkblue .datetimepicker table tr td.active.disabled:active,
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover:active,
+.theme-darkblue .datetimepicker table tr td.active.active,
+.theme-darkblue .datetimepicker table tr td.active:hover.active,
+.theme-darkblue .datetimepicker table tr td.active.disabled.active,
+.theme-darkblue .datetimepicker table tr td.active.disabled:hover.active {
+    background: #163558;
+}
+
+.theme-darkblue .datetimepicker table tr td.minute:hover {
+    background: #163558;
+    color: #fff;
+}
+.theme-darkblue .datetimepicker table tr td.hour:hover {
+    background: #163558;
+    color: #fff;
+}
+.theme-darkblue .datetimepicker table tr td.day:hover {
+    background: #163558;
+    color: #fff;
+}
+
+.theme-darkblue .datetimepicker table tr td span:hover {
+    background: #163558;
+}
+.theme-darkblue .datetimepicker table tr td span.disabled,
+.theme-darkblue .datetimepicker table tr td span.disabled:hover {
+    background: #163558;
+}
+.theme-darkblue .datetimepicker table tr td span.active,
+.theme-darkblue .datetimepicker table tr td span.active:hover,
+.theme-darkblue .datetimepicker table tr td span.active.disabled,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover {
+    background: #163558;
+}
+.theme-darkblue .datetimepicker table tr td span.active:hover,
+.theme-darkblue .datetimepicker table tr td span.active:hover:hover,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover:hover,
+.theme-darkblue .datetimepicker table tr td span.active:active,
+.theme-darkblue .datetimepicker table tr td span.active:hover:active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover:active,
+.theme-darkblue .datetimepicker table tr td span.active.active,
+.theme-darkblue .datetimepicker table tr td span.active:hover.active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled.active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover.active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled,
+.theme-darkblue .datetimepicker table tr td span.active:hover.disabled,
+.theme-darkblue .datetimepicker table tr td span.active.disabled.disabled,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover.disabled,
+.theme-darkblue .datetimepicker table tr td span.active[disabled],
+.theme-darkblue .datetimepicker table tr td span.active:hover[disabled],
+.theme-darkblue .datetimepicker table tr td span.active.disabled[disabled],
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover[disabled] {
+    background: #163558;
+}
+.theme-darkblue .datetimepicker table tr td span.active:active,
+.theme-darkblue .datetimepicker table tr td span.active:hover:active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover:active,
+.theme-darkblue .datetimepicker table tr td span.active.active,
+.theme-darkblue .datetimepicker table tr td span.active:hover.active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled.active,
+.theme-darkblue .datetimepicker table tr td span.active.disabled:hover.active {
+    background: #163558;
+}
+
+
 .accordion-widget .accordion-group.lightred {
     border: 2px solid #e63a3a;
 }
