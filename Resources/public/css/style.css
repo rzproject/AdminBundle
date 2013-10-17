@@ -4932,10 +4932,16 @@ label, input, button, select, textarea {
     color: #fff;
     padding: 7px 12px 6px 12px;
     text-decoration: none;
+    text-transform: capitalize;
 }
+
 #navigation .user .dropdown > a:hover {
     background: #1b67af;
 }
+#navigation .user .dropdown > a > i {
+    line-height: 27px;
+}
+
 #navigation .user .dropdown > a img {
     margin-left: 10px;
 }
@@ -5666,6 +5672,11 @@ label, input, button, select, textarea {
 .rz-admin-list-main {
     width: auto !important;
 
+}
+
+.rz-admin-search > .input-append {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .rz-form .rz-chosen .chosen-container-multi{
