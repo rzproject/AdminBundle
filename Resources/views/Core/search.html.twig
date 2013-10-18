@@ -30,7 +30,7 @@ file that was distributed with this source code.
 
     <div class="page-header">
         <div class="pull-left">
-            <h1>{{ 'title_search_results'|trans({'%query%': query}, 'SonataAdminBundle') }}</h1>
+            <h1>{{ 'title_search_results'|trans({'%query%': query}, 'SonataAdminBundle') }} </h1>
         </div>
         <div class="pull-right">
             <ul class="stats">
@@ -54,7 +54,7 @@ file that was distributed with this source code.
                     {# TODO: set on configuration #}
                 </h3>
             </div>
-            <div class="box-content">
+            <div class="box-content rz-admin-search-content">
                 <div class="row-fluid">
                 {% for group in groups %}
                     {% set display = (group.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
