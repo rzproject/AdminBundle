@@ -5604,6 +5604,14 @@ label, input, button, select, textarea {
     padding: 0px;
 }
 
+.rz-form.form-vertical.form-bordered .control-group .rz-media-type-label .control-label {
+    padding-left: 0px;
+}
+
+.rz-form.form-vertical.form-bordered .control-group .rz-media-input {
+    margin-top: 20px;
+}
+
 .rz-modal {
     border: 0px !important;
 }
@@ -5956,15 +5964,12 @@ label, input, button, select, textarea {
 .rz-delete-box .form-actions form {
     margin: 0px;
 }
+
 .rz-delete-box .control-group {
     margin: 0px;
     padding: 20px 20px 10px 20px;
     border-bottom: 1px solid #ddd;
 }
-
-
-
-
 
 .form-striped .control-group:nth-child(odd) {
     background: #f6f6f6;
@@ -8478,6 +8483,11 @@ div.DTS div.dataTables_scrollBody {
     -webkit-border-radius: 0 0 0 0;
     -moz-border-radius: 0 0 0 0;
     border-radius: 0 0 0 0;
+}
+
+.fileupload-exists .btn.btn-danger.fileupload-exists {
+    line-height: 22px;
+    border: 0px !important;
 }
 
 .thumbnail-borderless .thumbnail {
