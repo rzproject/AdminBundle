@@ -318,15 +318,15 @@ file that was distributed with this source code.
                                                 {% if not loop.last  %}
                                                     <li>
                                                         {% if menu.uri is not empty %}
-                                                            <a href="{{ menu.uri }}">{% if (menu.label|raw == '&#8962;' or menu.label == '⌂') %}Home{% else %}{{ menu.label }}{% endif %}</a>
+                                                            <a href="{{ menu.uri }}">{% if (menu.label|raw == '&#8962;' or menu.label == '⌂') %}Home{% else %}{{ menu.label|trans({}, admin.translationdomain)  }}{% endif %}</a>
                                                         {% else %}
-                                                            {{ menu.label }}
+                                                            {{ menu.label|trans({}, admin.translationdomain) }}
                                                         {% endif %}
                                                         <i class="icon-angle-right"></i>
                                                     </li>
                                                 {% else %}
                                                     <li>
-                                                        <a href="#">{{ menu.label }}</a>
+                                                        <a href="#">{{ menu.label|trans({}, admin.translationdomain) }}</a>
 
                                                     </li>
                                                 {% endif %}
