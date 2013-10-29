@@ -7,6 +7,7 @@
     <parameters>
         <parameter key="rz_admin.twig.extension.template_loader.class">Rz\AdminBundle\Twig\Extension\TemplateLoaderExtension</parameter>
         <parameter key="rz_admin.twig.extension.string_helper.class">Rz\AdminBundle\Twig\Extension\StringHelperExtention</parameter>
+        <parameter key="rz_admin.twig.controller.exception.class">Rz\AdminBundle\Controller\ExceptionController</parameter>
     </parameters>
 
 
@@ -23,6 +24,11 @@
         <service id="rz_admin.twig.extension.admin" class="Rz\AdminBundle\Twig\Extension\RzAdminListExtension">
             <tag name="twig.extension"/>
             <argument type="service" id="sonata.admin.pool" />
+        </service>
+
+        <service id="rz_admin.twig.controller.exception" class="%rz_admin.twig.controller.exception.class%">
+            <argument type="service" id="twig" />
+            <argument>%kernel.debug%</argument>
         </service>
     </services>
 

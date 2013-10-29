@@ -3103,6 +3103,11 @@ ul > li.darkblue, .label-darkblue {
 }
 
 
+body.theme-darkblue.error {
+    background: #253454 !important;
+}
+
+
 .accordion-widget .accordion-group.lightred {
     border: 2px solid #e63a3a;
 }
