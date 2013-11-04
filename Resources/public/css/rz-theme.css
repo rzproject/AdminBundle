@@ -1,56 +1,56 @@
-.box.box-bordered.box-color .slimScrollDiv {
+.rz-cms-admin .box.box-bordered.box-color .slimScrollDiv {
     border-bottom: 2px solid #253454;
 }
 
-.row-selector [class^="icheckbox_flat-"] {
+.rz-cms-admin .row-selector [class^="icheckbox_flat-"] {
     margin: auto !important;
 }
-.admin-sidebar-container .nav-list li > a {
+.rz-cms-admin .admin-sidebar-container .nav-list li > a {
     color: #333;
 }
-.admin-sidebar-container .nav-list .first {
+.rz-cms-admin .admin-sidebar-container .nav-list .first {
     padding-top: 5px;
 }
-.admin-sidebar-container .nav-list .active > a{
+.rz-cms-admin .admin-sidebar-container .nav-list .active > a{
     background: #e63a3a !important;
     color: #fff;
 }
 
-.rz-datagird-form {
+.rz-cms-admin .rz-datagird-form {
     margin-bottom: 0px !important;
 }
 
-.theme-darkblue .rz-datagird-form table tr td > a{
+.rz-cms-admin.theme-darkblue .rz-datagird-form table tr td > a{
     text-decoration: none;
 }
 
-.theme-darkblue .rz-datagird-form table tr td > a:hover {
+.rz-cms-admin.theme-darkblue .rz-datagird-form table tr td > a:hover {
     color: #393;
 }
 
-.theme-darkblue .rz-datagird-form table tr td > a.btn.btn-success:hover,
-.theme-darkblue .rz-datagird-form table tr td > a.btn:hover{
+.rz-cms-admin.theme-darkblue .rz-datagird-form table tr td > a.btn.btn-success:hover,
+.rz-cms-admin.theme-darkblue .rz-datagird-form table tr td > a.btn:hover{
     color: #fff;
 }
 
-.theme-darkblue .rz-gallery-container .rz-media-provider-selector .rz-tablinks > li.active > a{
+.rz-cms-admin.theme-darkblue .rz-gallery-container .rz-media-provider-selector .rz-tablinks > li.active > a{
     background-color: #253454;
     border-color: #253454;
     color: #fff;
 }
 
 
-.rz-datagird-settings-pane .tab-content.tab-content-inline.tab-content-bottom {
+.rz-cms-admin .rz-datagird-settings-pane .tab-content.tab-content-inline.tab-content-bottom {
   border-top: 5px solid #eee;
 }
 
-.rz-datagird-settings {
+.rz-cms-admin .rz-datagird-settings {
     padding: 10px;
 }
 
-.rz-datagird-settings-form {
+.rz-cms-admin .rz-datagird-settings-form {
     margin: 0px;
 }
-.rz-datagird-settings-form .form-batch-action {
+.rz-cms-admin .rz-datagird-settings-form .form-batch-action {
     padding-top: 15px;
 }

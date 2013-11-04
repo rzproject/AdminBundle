@@ -40,7 +40,7 @@ file that was distributed with this source code.
 {% endblock form_basic %}
 
 {% block form_ajax %}
-<form class="rz-form"
+<form class="rz-form form-vertical form-bordered"
       action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}" {{ form_enctype(form) }}
       method="POST"
       {% if not admin_pool.getOption('html5_validate') %}novalidate="novalidate"{% endif %}
@@ -57,16 +57,20 @@ file that was distributed with this source code.
         </h3>
     </div>
     <div class="modal-body">
-        {% if form.vars.errors|length > 0 %}
-            <div class="rz-form-alert-block">
-                <div class="alert alert-block alert-error sonata-ba-form-error">
-                    <a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>
-                    {{ form_errors(form) }}
-                </div>
+        <div class="row-fluid">
+            <div class="span12">
+                {% if form.vars.errors|length > 0 %}
+                    <div class="rz-form-alert-block">
+                        <div class="alert alert-block alert-error sonata-ba-form-error">
+                            <a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>
+                            {{ form_errors(form) }}
+                        </div>
+                    </div>
+                {% endif %}
+                {{ block('form_body') }}
+                {{ form_rest(form) }}
             </div>
-        {% endif %}
-        {{ block('form_body') }}
-        {{ form_rest(form) }}
+        </div>
     </div>
     <div class="modal-footer">
         {{ block('form_actions') }}

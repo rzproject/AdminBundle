@@ -28,11 +28,9 @@ file that was distributed with this source code.
 
     {% block stylesheets %}
 
-        {% stylesheets '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/css/docs.min.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap-responsive.css'
+        {% stylesheets '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap.min.css'
+                       '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap-responsive.min.css'
                        '@RmzamoraBootstrapBundle/Resources/public/plugins/modal/css/modal.css'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/chosen/chosen.css'
                        '@RmzamoraBootstrapBundle/Resources/public/plugins/tabdrop/css/tabdrop.css'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/multi-select/css/multiselect.css'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/gritter/css/gritter.css'
@@ -47,7 +45,9 @@ file that was distributed with this source code.
         {# icheck #}
         <link href="{{ asset('bundles/rmzamorajquery/jquery-plugins/icheck/skins/all.css') }}" rel="stylesheet">
         {% block sonata_stylesheet_block %}
-            {% stylesheets 'bundles/rzadmin/css/style.css'
+            {% stylesheets 'bundles/rmzamorajquery/jquery-plugins/chosen/chosen.css'
+                           'bundles/rzadmin/css/font.css'
+                           'bundles/rzadmin/css/style.css'
                            'bundles/rzadmin/css/rz-style.css'
                            'bundles/rzadmin/css/themes.css'
                            'bundles/rzadmin/css/rz-theme.css'
@@ -161,7 +161,7 @@ file that was distributed with this source code.
         {% endspaceless %}
     </title>
 </head>
-<body class="theme-darkblue" data-theme="theme-darkblue" data-layout-topbar="fixed">
+<body class="rz-cms-admin theme-darkblue" data-theme="theme-darkblue" data-layout-topbar="fixed">
 {##############################################
  #   header
  ##############################################}
@@ -267,7 +267,7 @@ file that was distributed with this source code.
                                     </div>
                                     <div class="pull-right">
                                         <ul class="stats">
-                                            <li class='lightred'>
+                                            <li class='red'>
                                                 <i class="icon-calendar"></i>
                                                 <div class="details">
                                                     <span class="big">February 22, 2013</span>
