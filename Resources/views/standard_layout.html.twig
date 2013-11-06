@@ -45,7 +45,8 @@ file that was distributed with this source code.
         {# icheck #}
         <link href="{{ asset('bundles/rmzamorajquery/jquery-plugins/icheck/skins/all.css') }}" rel="stylesheet">
         {% block sonata_stylesheet_block %}
-            {% stylesheets 'bundles/rmzamorajquery/jquery-plugins/chosen/chosen.css'
+            {% stylesheets 'bundles/rmzamorajquery/jquery-plugins/select2/select2.css'
+                           'bundles/rmzamorajquery/jquery-plugins/chosen/chosen.css'
                            'bundles/rzadmin/css/font.css'
                            'bundles/rzadmin/css/style.css'
                            'bundles/rzadmin/css/rz-style.css'
@@ -108,6 +109,7 @@ file that was distributed with this source code.
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/icheck/jquery.icheck.min.js'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/masonry/masonry.min.js'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/imagesloaded/imagesloaded.min.js'
+                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/select2/select2.js'
             filter='?closure' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
@@ -386,5 +388,7 @@ file that was distributed with this source code.
 {% endblock %}
 {# javascript code block #}
 {% block javascripts_bottom %}{% endblock javascripts_bottom %}
+{{ sonata_block_include_stylesheets('screen') }}
+{{ sonata_block_include_javascripts('screen') }}
 </body>
 </html>

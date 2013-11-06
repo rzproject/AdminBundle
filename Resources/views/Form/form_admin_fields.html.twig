@@ -292,9 +292,9 @@ file that was distributed with this source code.
                         {% endif %}
                 {% endblock %}
                 <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
-                    {% if (chosen_enabled is defined and chosen_enabled) or (multiselect_enabled is defined and multiselect_enabled)  %}
+                    {% if (select2 is defined and select2) or (multiselect_enabled is defined and multiselect_enabled)  %}
                         <div class="row-fluid
-                                    {% if chosen_enabled %} rz-chosen{% endif %}
+                                    {% if select2 %} rz-chosen{% endif %}
                                     {% if multiselect_enabled %} rz-multipleselect{% endif %}
                                     {% if multiple is defined and multiple == 'multiple' %} chosen-multi{% endif %}
                                    ">

@@ -1937,6 +1937,10 @@
     color: #fff;
 }
 
+.rz-cms-admin.theme-darkblue .select2-results .select2-highlighted {
+    background: #253454;
+}
+
 /* *
  * Twitter Bootstrap style.
  *

@@ -93,6 +93,7 @@ var rzadmin = {
         rzadmin.initTabDrop();
         rzadmin.dashboardCurrentDateTime();
         rzadmin.initMasonry();
+        //rzadmin.initChosen();
 
         //Sonata
         rzadmin.addPrettyErrors(document);
@@ -432,6 +433,7 @@ var rzadmin = {
     resizeChosen: function(){
         if (jQuery('.chosen-container').length > 0){
             jQuery('.chosen-container').each(function() {
+                console.log('heres');
                 var $el = jQuery(this);
                 $el.css('width', $el.parent().width()+'px');
                 $el.find(".chosen-drop").css('width', ($el.parent().width()-2)+'px');
@@ -768,6 +770,26 @@ var rzadmin = {
         }
     },
 
+    initChosen:function() {
+
+//        if(jQuery('.chosen-select').length>0) {
+//            console.log('chosen-select');
+//            jQuery(".chosen-select").chosen({
+//                allow_single_deselect: true
+//            });
+//
+//            rzadmin.resizeChosen();
+//        }
+//
+//        if(jQuery(".chosen-select-multiple").length > 0) {
+//            console.log('chosen-select-multiple');
+//            jQuery(".chosen-select-multiple").chosen().change(function(){
+//                var ret = null;
+//                $(this).find('.chosen-choices').each(function(){})
+//            });
+//        }
+    },
+
     initSpinners:function() {
 
         // spinner
@@ -854,19 +876,23 @@ var rzadmin = {
         }
 
         if(jQuery('.chosen-select', modal).length>0) {
-            modal.find(".chosen-select").chosen({
-                allow_single_deselect: true
-            });
-
-            rzadmin.resizeChosenModal(modal);
+            modal.find(".chosen-select").select2();
         }
 
-        if(jQuery(".chosen-select-multiple", modal).length > 0) {
-            modal.find(".chosen-select-multiple").chosen().change(function(){
-                var ret = null;
-                $(this).find('.chosen-choices').each(function(){})
-            });
-        }
+//        if(jQuery('.chosen-select', modal).length>0) {
+//            modal.find(".chosen-select").chosen({
+//                allow_single_deselect: true
+//            });
+//
+//            rzadmin.resizeChosenModal(modal);
+//        }
+//
+//        if(jQuery(".chosen-select-multiple", modal).length > 0) {
+//            modal.find(".chosen-select-multiple").chosen().change(function(){
+//                var ret = null;
+//                $(this).find('.chosen-choices').each(function(){})
+//            });
+//        }
 
         if(jQuery('.rz-datepicker', modal).length > 0) {
             modal.find('.rz-datepicker').datepicker({'autoclose': true});
