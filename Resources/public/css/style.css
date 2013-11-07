@@ -3232,3 +3232,87 @@ body.rz-cms-admin {
 .rz-cms-admin .stats > li .details span.big {
     font-size: 16px;
 }
+
+.rz-login {
+    background: #4b6399;
+}
+.rz-login .wrapper {
+    width: 400px;
+    height: 500px;
+    margin: -200px -200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.rz-login .wrapper h1 > a {
+    color: #fff;
+    display: block;
+    font-weight: 300;
+    font-size: 48px;
+    text-align: center;
+    padding: 2px 0;
+    text-decoration: none;
+}
+.rz-login .wrapper h1 > a img {
+    margin-right: 20px;
+    margin-top: -8px;
+}
+.rz-login .wrapper .login-body {
+    margin-top: 20px;
+    background: #fff;
+}
+.rz-login .wrapper .login-body form {
+    padding: 0 30px;
+}
+.rz-login .wrapper .login-body h2 {
+    font-weight: 300;
+    color: #333;
+    font-size: 24px;
+    padding: 20px 30px 5px 30px;
+}
+.rz-login .wrapper .login-body .email input, .rz-login .wrapper .login-body .pw input {
+    padding: 8px 12px;
+    height: 35px;
+}
+.rz-login .wrapper .login-body .submit {
+    margin-top: 15px;
+    *zoom: 1;
+}
+.rz-login .wrapper .login-body .submit:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.rz-login .wrapper .login-body .submit input {
+    float: right;
+}
+.rz-login .wrapper .login-body .submit .remember {
+    float: left;
+    margin-top: 5px;
+    margin-left: 1px;
+}
+.rz-login .wrapper .login-body .submit .remember [class*=icheckbox], .rz-login .wrapper .login-body .submit .remember label {
+    float: left;
+}
+.rz-login .wrapper .login-body .submit .remember label {
+    margin-left: 10px;
+}
+.rz-login .wrapper .login-body .forget {
+    margin-top: 50px;
+}
+.rz-login .wrapper .login-body .forget a {
+    background: #eee;
+    padding: 10px 0;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #555;
+}
+.rz-login .wrapper .login-body .forget a:hover {
+    background: #ddd;
+}
+.rz-login .wrapper .login-body .forget a span {
+    line-height: 30px;
+    margin-bottom: 10px;
+    position: relative;
+}

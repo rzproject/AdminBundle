@@ -2141,6 +2141,10 @@ body.rz-cms-admin.theme-darkblue.error {
     background: #253454 !important
 }
 
+.rz-cms-admin.theme-darkblue.rz-login {
+    background: #253454;
+}
+
 .rz-cms-admin .accordion-widget .accordion-group.lightgrey {
     border: 2px solid #666666
 }

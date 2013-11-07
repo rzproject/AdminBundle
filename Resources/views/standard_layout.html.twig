@@ -46,7 +46,6 @@ file that was distributed with this source code.
         <link href="{{ asset('bundles/rmzamorajquery/jquery-plugins/icheck/skins/all.css') }}" rel="stylesheet">
         {% block sonata_stylesheet_block %}
             {% stylesheets 'bundles/rmzamorajquery/jquery-plugins/select2/select2.css'
-                           'bundles/rmzamorajquery/jquery-plugins/chosen/chosen.css'
                            'bundles/rzadmin/css/font.css'
                            'bundles/rzadmin/css/style.css'
                            'bundles/rzadmin/css/rz-style.css'
@@ -95,7 +94,6 @@ file that was distributed with this source code.
                        '@RmzamoraBootstrapBundle/Resources/public/plugins/modal/js/modalmanager.js'
                        '@RmzamoraBootstrapBundle/Resources/public/plugins/modal/js/modal.js'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/uniform/uniform.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/chosen/chosen.jquery.min.js'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/foo-table/js/footable.js'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/multi-select/js/multiselect.js'
                        '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/multi-select/js/quicksearch.js'
@@ -163,7 +161,7 @@ file that was distributed with this source code.
         {% endspaceless %}
     </title>
 </head>
-<body class="rz-cms-admin theme-darkblue" data-theme="theme-darkblue" data-layout-topbar="fixed">
+<body class="rz-cms-admin{% block admin_theme %} theme-darkblue{% endblock %}{% block admin_body_class %}{% endblock %}" data-theme="theme-darkblue" data-layout-topbar="fixed">
 {##############################################
  #   header
  ##############################################}
@@ -232,6 +230,7 @@ file that was distributed with this source code.
  #   container
  ##############################################}
 {# container fluid #}
+{% block main_container %}
 <div class="container-fluid" id="content">
     <div id="main">
         <div class="container-fluid">
@@ -373,6 +372,7 @@ file that was distributed with this source code.
         </div>{#/container-fluid row #}
     </div>{#/main row #}
 </div>{#/container fluid #}
+{% endblock main_container %}
 {##############################################
  #   footer
  ##############################################}
@@ -390,5 +390,8 @@ file that was distributed with this source code.
 {% block javascripts_bottom %}{% endblock javascripts_bottom %}
 {{ sonata_block_include_stylesheets('screen') }}
 {{ sonata_block_include_javascripts('screen') }}
+
+
+
 </body>
 </html>
