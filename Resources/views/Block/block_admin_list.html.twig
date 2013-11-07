@@ -38,7 +38,7 @@ file that was distributed with this source code.
                                         {% if admin.subClasses is empty %}
                                             <a class="btn btn-primary" href="{{ admin.generateUrl('create')}}">
                                                 <i class="icon-plus-sign"></i>
-                                                {% trans from 'SonataAdminBundle' %}link_add{% endtrans %}
+                                                <span class="hidden-phone hidden-tablet visible-desktop"> {% trans from 'SonataAdminBundle' %}link_add{% endtrans %}</span>
                                             </a>
                                         {% else %}
                                             <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
@@ -58,7 +58,7 @@ file that was distributed with this source code.
                                     {% if admin.hasroute('list') and admin.isGranted('LIST') %}
                                         <a class="btn btn-primary" href="{{ admin.generateUrl('list')}}">
                                             <i class="icon-table"></i>
-                                            {% trans from 'SonataAdminBundle' %}link_list{% endtrans -%}
+                                            <span class="hidden-phone hidden-tablet visible-desktop"> {% trans from 'SonataAdminBundle' %}link_list{% endtrans -%}</span>
                                         </a>
                                     {% endif %}
                                 </div>

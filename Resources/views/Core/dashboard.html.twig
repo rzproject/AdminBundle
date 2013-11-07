@@ -35,14 +35,42 @@ file that was distributed with this source code.
 {% endblock %}
 {% block content %}
     <div class="row-fluid">
-        <div class="span6">
+        {% set has_center = false %}
+        {% for block in blocks %}
+            {% if block.position == 'center' %}
+                {% set has_center = true %}
+            {% endif %}
+        {% endfor %}
+
+        <div class="{% if has_center %}span4{% else %}span6{% endif %}">
             {% for block in blocks %}
                 {% if block.position == 'left' %}
                     {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
                 {% endif %}
             {% endfor %}
         </div>
-        <div class="span6">
+
+        {% if has_center %}
+            <div class="span4">
+                {% for block in blocks %}
+                    {% if block.position == 'center' %}
+                        <div class="box box-color box-bordered green">
+                            <div class="box-title">
+                                <h3>
+                                    <i class="icon-table"></i>
+                                    Widgets
+                                </h3>
+                            </div>
+                            <div class="box-content">
+                                {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="{% if has_center %}span4{% else %}span6{% endif %}">
             {% for block in blocks %}
                 {% if block.position == 'right' %}
                 <div class="box box-color box-bordered green">
