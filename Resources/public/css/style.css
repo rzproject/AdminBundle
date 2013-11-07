@@ -501,223 +501,216 @@
     border: 0;
 }
 
-@media (max-width: 1250px) {
-    .rz-cms-admin #main .page-header .minitiles {
+@media (max-width: 1250px) { 
+	.rz-cms-admin #main .page-header .minitiles {
 	    display: none
 	}
 }
 
-@media (max-width: 1200px) {
-    .rz-cms-admin .stats-overview > li {
+@media (max-width: 1200px) { 
+	.rz-cms-admin .stats-overview > li {
 	    padding: 5px 10px !important
 	}
 
-    .rz-cms-admin .form-horizontal.form-column [class*="span"] {
+	.rz-cms-admin .form-horizontal.form-column [class*="span"] {
 	    border-top: 1px solid #ddd;
 	    border-left: 0 !important;
 	    width: 100% !important;
 	}
 
-    .rz-cms-admin .form-horizontal.form-column [class*="span"]:first-child {
+	.rz-cms-admin .form-horizontal.form-column [class*="span"]:first-child {
 	    border-top: 0
 	}
 
-    .rz-cms-admin .form-horizontal.form-column .form-actions {
+	.rz-cms-admin .form-horizontal.form-column .form-actions {
 	    border-top: 0 !important
 	}
 }
 
-@media (max-width: 1100px) {
-    .rz-cms-admin .stats-overview > li {
+@media (max-width: 1100px) { 
+	.rz-cms-admin .stats-overview > li {
 	    padding: 5px 10px !important;
 	    border-right: 1px dotted #ddd !important;
 	}
 
-    .rz-cms-admin .stats-overview > li .name {
+	.rz-cms-admin .stats-overview > li .name {
 	    font-size: 11px !important
 	}
 
-    .rz-cms-admin .stats-overview > li .value {
+	.rz-cms-admin .stats-overview > li .value {
 	    font-size: 13px !important
 	}
 }
 
-@media (max-width: 1200px) {
-    .rz-cms-admin .icon-nav {
+@media (max-width: 1200px) { 
+	.rz-cms-admin .icon-nav {
 	    display: none !important
 	}
 }
 
-@media (max-width: 1024px) {
-    .rz-cms-admin #main .page-header .stats {
+@media (max-width: 1024px) { 
+	.rz-cms-admin #main .page-header .stats {
 	    display: none
 	}
 
-    .rz-cms-admin .search-form > .search-pane > input {
+	.rz-cms-admin .search-form > .search-pane > input {
 	    width: 135px !important
 	}
 
-    .rz-cms-admin .hidden-1024 {
+	.rz-cms-admin .hidden-1024 {
 	    display: none !important
 	}
 
-    .rz-cms-admin .form-wizard .single-step .title {
+	.rz-cms-admin .form-wizard .single-step .title {
 	    padding: 1px 5px !important
 	}
 
-    .rz-cms-admin .form-wizard .single-step .description {
+	.rz-cms-admin .form-wizard .single-step .description {
 	    font-size: 12px !important;
 	    margin-left: 0 !important;
 	}
 }
 
-@media (max-width: 976px) {
-    .rz-cms-admin #navigation .user .dropdown > a {
+@media (max-width: 976px) { 
+	.rz-cms-admin #navigation .user .dropdown > a {
 	    padding: 7px 6px 6px 6px !important
 	}
 
-    .rz-cms-admin #navigation .main-nav > li > a {
+	.rz-cms-admin #navigation .main-nav > li > a {
 	    font-size: 12px;
 	    padding: 10px 8px !important;
 	}
 }
 
-@media (max-width: 840px) {
-
-    .rz-cms-admin #navigation #brand {
+@media (max-width: 840px) { 
+	.rz-cms-admin #navigation #brand {
 	    padding-right: 0 !important
 	}
 
-    .rz-cms-admin #navigation .main-nav {
+	.rz-cms-admin #navigation .main-nav {
 	    display: none
 	}
 
-    .rz-cms-admin #navigation .toggle-nav {
+	.rz-cms-admin #navigation .toggle-nav {
 	    display: none !important
 	}
 }
 
-@media (max-width: 767px) {
-	body.rz-cms-admin  {
+@media (max-width: 767px) { 
+	body.rz-cms-admin {
 	    padding: 0 !important
 	}
 
-    .rz-cms-admin .hidden-768 {
+	.rz-cms-admin .hidden-768 {
 	    display: none !important
 	}
 
-    .rz-cms-admin .navbar-fixed-top,
-    .rz-cms-admin .navbar-fixed-bottom,
-    .rz-cms-admin .navbar-static-top {
+	.rz-cms-admin .navbar-fixed-top,
+	.rz-cms-admin .navbar-fixed-bottom,
+	.rz-cms-admin .navbar-static-top {
 	    margin: 0 !important
 	}
 
-    .rz-cms-admin .container-fluid,
-    .rz-cms-admin .container {
+	.rz-cms-admin .container-fluid,
+	.rz-cms-admin .container {
 	    padding: 0 20px
 	}
 
-    .rz-cms-admin .form-wizard.wizard-vertical .wizard-steps {
+	.rz-cms-admin .form-wizard.wizard-vertical .wizard-steps {
 	    width: 160px !important
 	}
 
-    .rz-cms-admin .form-wizard.wizard-vertical .form-content {
+	.rz-cms-admin .form-wizard.wizard-vertical .form-content {
 	    margin-left: 160px !important
 	}
 
-    .rz-cms-admin .form-wizard.wizard-vertical .form-actions {
+	.rz-cms-admin .form-wizard.wizard-vertical .form-actions {
 	    padding-left: 180px !important
 	}
 }
 
-@media (max-width: 480px) {
-    .rz-cms-admin .table-mail .table-fixed-medium {
+@media (max-width: 480px) { 
+	.rz-cms-admin .table-mail .table-fixed-medium {
 	    width: 120px !important
 	}
 
-    .rz-cms-admin .form-wizard.wizard-vertical .wizard-steps {
+	.rz-cms-admin .form-wizard.wizard-vertical .wizard-steps {
 	    width: 40px !important
 	}
 
-    .rz-cms-admin .form-wizard.wizard-vertical .form-content {
+	.rz-cms-admin .form-wizard.wizard-vertical .form-content {
 	    margin-left: 40px !important
 	}
 
-    .rz-cms-admin .form-wizard.wizard-vertical .form-actions {
+	.rz-cms-admin .form-wizard.wizard-vertical .form-actions {
 	    padding-left: 60px !important
 	}
 
-    .rz-cms-admin .form-wizard.wizard-vertical .wizard-steps .description {
+	.rz-cms-admin .form-wizard.wizard-vertical .wizard-steps .description {
 	    display: none !important
 	}
 
-    .rz-cms-admin .tabs.tabs-inline.tabs-top > li > a {
+	.rz-cms-admin .tabs.tabs-inline.tabs-top > li > a {
 	    padding: 8px 10px !important
 	}
 
-    .rz-cms-admin .tabs.tabs-inline.tabs-left {
+	.rz-cms-admin .tabs.tabs-inline.tabs-left {
 	    position: static !important;
 	    background: none !important;
 	    width: auto !important;
 	}
 
-    .rz-cms-admin .tabs.tabs-inline.tabs-left > li {
+	.rz-cms-admin .tabs.tabs-inline.tabs-left > li {
 	    float: left;
 	    margin-right: 1px;
 	}
 
-    .rz-cms-admin .tabs.tabs-inline.tabs-left > li > a {
+	.rz-cms-admin .tabs.tabs-inline.tabs-left > li > a {
 	    border-top: 0 !important;
 	    border-bottom: 0 !important;
 	    padding: 8px 10px !important;
 	}
 
-    .rz-cms-admin .tab-content.tab-content-inline {
+	.rz-cms-admin .tab-content.tab-content-inline {
 	    margin-left: 0 !important;
 	    border-left: 0 !important;
 	}
 
-    .rz-cms-admin .hidden-480 {
+	.rz-cms-admin .hidden-480 {
 	    display: none !important
 	}
 
-    .rz-cms-admin .visible-480 {
+	.rz-cms-admin .visible-480 {
 	    display: inline-block !important
 	}
 
-    .rz-cms-admin .form-horizontal .controls {
+	.rz-cms-admin .form-horizontal .controls {
 	    margin-left: 0 !important
 	}
 
-    .rz-cms-admin .user-list {
+	.rz-cms-admin .user-list {
 	    display: none !important
 	}
 
-    .rz-cms-admin .messages.withlist {
+	.rz-cms-admin .messages.withlist {
 	    margin-right: 0 !important
 	}
-
-    body.rz-login .wrapper {
-        width: 300px;
-        margin: 20px -150px !important;
-        top: 0;
-    }
 }
 
-@media (max-width: 350px) {
-    .rz-cms-admin .hidden-350 {
+@media (max-width: 350px) { 
+	.rz-cms-admin .hidden-350 {
 	    display: none !important
 	}
 
-    .rz-cms-admin #main .box .box-title h3 {
+	.rz-cms-admin #main .box .box-title h3 {
 	    font-size: 16px !important
 	}
 
-    .rz-cms-admin #main .box .box-title .actions .btn i {
+	.rz-cms-admin #main .box .box-title .actions .btn i {
 	    font-size: 12px !important
 	}
 
-    .rz-cms-admin .table .table-fixed-medium {
+	.rz-cms-admin .table .table-fixed-medium {
 	    width: 100px !important
 	}
 }
@@ -953,8 +946,8 @@
     min-width: 135px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    .rz-cms-admin  #navigation #brand {
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+	.rz-cms-admin  #navigation #brand {
 	    background: url("../img/logo@2x.png") no-repeat;
 	    background-size: 22px 22px;
 	}
@@ -974,11 +967,13 @@
 }
 
 .rz-cms-admin #navigation .mobile-nav {
-    display: none;
+    display: none
 }
+
 .rz-cms-admin #navigation .mobile-nav > li > ul {
-    display: none;
+    display: none
 }
+
 .rz-cms-admin #navigation .mobile-nav.open {
     display: block;
     list-style: none;
@@ -986,20 +981,25 @@
     margin: 0;
     background: #4b6399;
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li {
     display: block;
     margin-top: 1px;
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li:first-child {
-    margin-top: 0;
+    margin-top: 0
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li.active > a {
     background: #144d82;
     color: #fff;
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li.active > ul {
-    background: #144d82;
+    background: #144d82
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li > a {
     display: block;
     background: #1b67af;
@@ -1007,27 +1007,32 @@
     color: #fff;
     text-decoration: none;
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li > a i {
     float: right;
     margin-top: 3px;
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li > ul {
     background: #1b67af;
     list-style-type: none;
     margin: 0;
     padding: 0 0 10px 0;
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li > ul.open {
-    display: block;
+    display: block
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li > ul > li a {
     padding: 4px 35px;
     display: block;
     color: #fff;
     text-decoration: none;
 }
+
 .rz-cms-admin #navigation .mobile-nav.open > li > ul > li ul {
-    list-style-type: none;
+    list-style-type: none
 }
 
 .rz-cms-admin #navigation .user .icon-nav {
@@ -1603,7 +1608,7 @@
     padding: 10px 20px;
 }
 
-/* rz theme forms  */
+/* rz theme forms   */
 
 .rz-cms-admin .rz-main-message {
     margin-top: 15px
@@ -2514,16 +2519,16 @@ body.error .wrapper .input-append .btn:hover {
     margin-bottom: 0
 }
 
-@media print {
-    .rz-cms-admin #navigation,
-    .rz-cms-admin #left,
-    .rz-cms-admin .breadcrumbs,
-    .rz-cms-admin .page-header,
-    .rz-cms-admin .box-title {
+@media print { 
+	.rz-cms-admin #navigation,
+	.rz-cms-admin #left,
+	.rz-cms-admin .breadcrumbs,
+	.rz-cms-admin .page-header,
+	.rz-cms-admin .box-title {
 	    display: none !important
 	}
 
-    .rz-cms-admin #main {
+	.rz-cms-admin #main {
 	    margin-left: 0
 	}
 }
@@ -2709,7 +2714,7 @@ body.error .wrapper .input-append .btn:hover {
     border: 1px solid #ddd
 }
 
-/* chosen  */
+/* chosen   */
 
 .rz-cms-admin .chosen-container-single {
     margin: 0px 0px 10px 0px !important
@@ -2871,7 +2876,6 @@ body.error .wrapper .input-append .btn:hover {
     border-radius: 0 !important;
 }
 
-
 .rz-cms-admin .select2-container .select2-choice {
     -webkit-border-radius: 4px !important;
     -moz-border-radius: 4px !important;
@@ -2880,16 +2884,16 @@ body.error .wrapper .input-append .btn:hover {
 }
 
 .rz-cms-admin .control-group .select2-container .select2-choice {
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .rz-cms-admin .select2-container-active .select2-choice,
 .rz-cms-admin .select2-container-active .select2-choices {
-    border: 1px solid #aaa;
+    border: 1px solid #aaa
 }
 
 .rz-cms-admin .select2-container .select2-choice {
-    background: transparent none;
+    background: transparent none
 }
 
 .rz-cms-admin .select2-search input {
@@ -2903,7 +2907,6 @@ body.error .wrapper .input-append .btn:hover {
 .rz-cms-admin .select2-search input.select2-active {
 
 }
-
 
 .rz-cms-admin .select2-container .select2-choice .select2-arrow {
     border-left: 0px;
@@ -3112,10 +3115,11 @@ body.rz-cms-admin {
     box-shadow: none !important;
 }
 
-@media (min-width: 768px) and (max-width: 979px), (max-width: 767px) {
-	/* ===[ Force table to not be like tables anymore ]=== */
+@media (min-width: 768px) and (max-width: 979px), (max-width: 767px) { 
+	/* ===[ Force table to not be like tables anymore ]===
+	   ================================================== */
 
-    .rz-cms-admin table .rz-table-responsive,
+	.rz-cms-admin table .rz-table-responsive,
 	.rz-table-responsive thead,
 	.rz-table-responsive tbody,
 	.rz-table-responsive th,
@@ -3124,23 +3128,24 @@ body.rz-cms-admin {
 	    display: block
 	}
 
-	/* ===[ Hide table headers (but not display: none;, for accessibility) ]=== */
+	/* ===[ Hide table headers (but not display: none;, for accessibility) ]===
+	   ================================================== */
 
-    .rz-cms-admin .rz-table-responsive thead tr {
+	.rz-cms-admin .rz-table-responsive thead tr {
 	    position: absolute;
 	    top: -9999px;
 	    left: -9999px;
 	}
 
-    .rz-cms-admin .rz-table-responsive tr {
+	.rz-cms-admin .rz-table-responsive tr {
 	    border-bottom: 2px solid #337e42
 	}
 
-    .rz-cms-admin .rz-table-responsive tr:last-child {
+	.rz-cms-admin .rz-table-responsive tr:last-child {
 	    border: 0px
 	}
 
-    .rz-cms-admin .rz-table-responsive td {
+	.rz-cms-admin .rz-table-responsive td {
 	    /* Behave  like a "row" */
 	    border: none;
 	    /*border-bottom: 0px solid #eee;*/
@@ -3149,7 +3154,7 @@ body.rz-cms-admin {
 	    text-align: left !important;
 	}
 
-    .rz-cms-admin .rz-table-responsive td:before {
+	.rz-cms-admin .rz-table-responsive td:before {
 	    /* Now like a table header */
 	    position: absolute;
 	    /* Top/left values mimic padding */
@@ -3160,23 +3165,23 @@ body.rz-cms-admin {
 	    white-space: nowrap;
 	}
 
-    .rz-cms-admin .rz-form .rz-widget-container-one-to-many table tbody > tr > td > [class^='icheckbox_'] {
+	.rz-cms-admin .rz-form .rz-widget-container-one-to-many table tbody > tr > td > [class^='icheckbox_'] {
 	    margin: 0px !important
 	}
 
-    .rz-cms-admin .table-pagination-info,
-    .rz-cms-admin .table-pagination-info-alt {
+	.rz-cms-admin .table-pagination-info,
+	.rz-cms-admin .table-pagination-info-alt {
 	    text-align: center
 	}
 
-    .rz-cms-admin .table-pagination,
-    .rz-cms-admin .table-pagination-alt-pager {
+	.rz-cms-admin .table-pagination,
+	.rz-cms-admin .table-pagination-alt-pager {
 	    float: none !important;
 	    text-align: center;
 	    margin: 0 auto !important;
 	}
 
-    .rz-cms-admin .table-pagination-nav {
+	.rz-cms-admin .table-pagination-nav {
 	    text-align: center;
 	    margin-bottom: 10px;
 	}
@@ -3188,7 +3193,7 @@ body.rz-cms-admin {
 }
 
 .rz-cms-admin .stats {
-    float: left;
+    float: left
 }
 
 .rz-cms-admin .stats > li {
@@ -3208,7 +3213,7 @@ body.rz-cms-admin {
 }
 
 .rz-cms-admin .stats > li:last-child {
-    margin-right: 0;
+    margin-right: 0
 }
 
 .rz-cms-admin .stats > li i {
@@ -3236,12 +3241,13 @@ body.rz-cms-admin {
 }
 
 .rz-cms-admin .stats > li .details span.big {
-    font-size: 16px;
+    font-size: 16px
 }
 
 .rz-login {
-    background: #4b6399;
+    background: #4b6399
 }
+
 .rz-login .wrapper {
     width: 400px;
     height: 500px;
@@ -3250,7 +3256,8 @@ body.rz-cms-admin {
     left: 50%;
     top: 50%;
 }
-.rz-login .wrapper h1 > a {
+
+.rz-login .wrapper h1 {
     color: #fff;
     display: block;
     font-weight: 300;
@@ -3259,53 +3266,68 @@ body.rz-cms-admin {
     padding: 2px 0;
     text-decoration: none;
 }
+
 .rz-login .wrapper h1 > a img {
     margin-right: 20px;
     margin-top: -8px;
 }
+
 .rz-login .wrapper .login-body {
     margin-top: 20px;
     background: #fff;
 }
+
 .rz-login .wrapper .login-body form {
-    padding: 0 30px;
+    padding: 0 30px
 }
+
 .rz-login .wrapper .login-body h2 {
     font-weight: 300;
     color: #333;
     font-size: 24px;
     padding: 20px 30px 5px 30px;
 }
-.rz-login .wrapper .login-body .email input, .rz-login .wrapper .login-body .pw input {
+
+.rz-login .wrapper .login-body .email input,
+.rz-login .wrapper .login-body .pw input {
     padding: 8px 12px;
     height: 35px;
 }
+
 .rz-login .wrapper .login-body .submit {
     margin-top: 15px;
     *zoom: 1;
 }
+
 .rz-login .wrapper .login-body .submit:after {
     content: "";
     display: table;
     clear: both;
 }
+
 .rz-login .wrapper .login-body .submit input {
-    float: right;
+    float: right
 }
+
 .rz-login .wrapper .login-body .submit .remember {
     float: left;
     margin-top: 5px;
     margin-left: 1px;
 }
-.rz-login .wrapper .login-body .submit .remember [class*=icheckbox], .rz-login .wrapper .login-body .submit .remember label {
-    float: left;
-}
+
+.rz-login .wrapper .login-body .submit .remember [class*=icheckbox],
 .rz-login .wrapper .login-body .submit .remember label {
-    margin-left: 10px;
+    float: left
 }
+
+.rz-login .wrapper .login-body .submit .remember label {
+    margin-left: 10px
+}
+
 .rz-login .wrapper .login-body .forget {
-    margin-top: 50px;
+    margin-top: 50px
 }
+
 .rz-login .wrapper .login-body .forget a {
     background: #eee;
     padding: 10px 0;
@@ -3314,9 +3336,11 @@ body.rz-cms-admin {
     text-decoration: none;
     color: #555;
 }
+
 .rz-login .wrapper .login-body .forget a:hover {
-    background: #ddd;
+    background: #ddd
 }
+
 .rz-login .wrapper .login-body .forget a span {
     line-height: 30px;
     margin-bottom: 10px;
