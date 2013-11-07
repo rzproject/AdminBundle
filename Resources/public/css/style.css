@@ -696,6 +696,12 @@
     .rz-cms-admin .messages.withlist {
 	    margin-right: 0 !important
 	}
+
+    body.rz-login .wrapper {
+        width: 300px;
+        margin: 20px -150px !important;
+        top: 0;
+    }
 }
 
 @media (max-width: 350px) {
