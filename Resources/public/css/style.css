@@ -3250,6 +3250,10 @@ body.rz-cms-admin {
     left: 50%;
     top: 50%;
 }
+.rz-login .wrapper h1 {
+    color: #fff;
+    text-align: center;
+}
 .rz-login .wrapper h1 > a {
     color: #fff;
     display: block;
