@@ -488,6 +488,10 @@
     border-top: 1px dotted #ddd;
 }
 
+.rz-cms-admin .table tr:last-child td {
+    border-bottom: 0px dotted #ddd;
+}
+
 .rz-cms-admin label,
 .rz-cms-admin input,
 .rz-cms-admin button,
@@ -1686,8 +1690,12 @@
     border: 0px !important
 }
 
-.rz-cms-admin .rz-modal .modal-body {
+.rz-cms-admin .modal .modal-body {
     padding: 0px !important
+}
+
+.rz-cms-admin .modal .modal-body.modal-list {
+    padding: 0px 20px 20px 20px !important
 }
 
 .rz-cms-admin .rz-modal .modal-body .control-group {
@@ -2646,7 +2654,7 @@ body.error .wrapper .input-append .btn:hover {
 }
 
 .rz-cms-admin .fileupload {
-    margin-bottom: 0px
+    margin-bottom: 10px
 }
 
 .rz-cms-admin .fileupload .uneditable-input {
