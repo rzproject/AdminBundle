@@ -1646,6 +1646,11 @@
     margin: 0px 25px
 }
 
+.rz-cms-admin .rz-form .control-group .controls > [class^='icheckbox_'] {
+
+    margin-bottom: 10px;
+}
+
 .rz-cms-admin .rz-form .rz-widget-container-one-to-many .control-group .controls {
     margin: 0px 25px 10px 25px
 }
@@ -2979,6 +2984,10 @@ body.error .wrapper .input-append .btn:hover {
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;
+}
+
+.rz-cms-admin .select2-highlighted {
+    background: #253454;
 }
 
 .rz-cms-admin .ui-spinner {

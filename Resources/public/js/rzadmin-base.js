@@ -875,8 +875,8 @@ var rzadmin = {
             jQuery('.footable', modal).footable();
         }
 
-        if(jQuery('.chosen-select', modal).length>0) {
-            modal.find(".chosen-select").select2();
+        if(jQuery('select.chosen-select', modal).length>0) {
+            modal.find("select.chosen-select").select2();
         }
 
 //        if(jQuery('.chosen-select', modal).length>0) {
