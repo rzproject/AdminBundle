@@ -14,13 +14,13 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "rmzamora/admin-bundle": "2.3.*@dev",
-        "rz/block-bundle": "2.3.1.*@dev",
-        "rz/field-type-bundle": "2.3.1.*@dev",
-        "rmzamora/bootstrap-bundle": "2.3.1.*@dev",
-        "rmzamora/jquery-bundle": "1.10.1.*@dev",
-        "rz/ckeditor-bundle": "2.3.*@dev",
-        "rz/codemirror-bundle": "2.3.*@dev"
+        "rmzamora/admin-bundle": "~1.0",
+        "rz/block-bundle": "~1.0",
+        "rz/field-type-bundle": "~1.0",
+        "rmzamora/bootstrap-bundle": "~2.3.1",
+        "rmzamora/jquery-bundle": "~1.10.1",
+        "rz/ckeditor-bundle": "~1.0",
+        "rz/codemirror-bundle": "~1.0"
     },
     "autoload": {
         "psr-0": { "Rz\\AdminBundle": "" }
@@ -28,7 +28,7 @@
     "target-dir": "Rz/AdminBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "2.3.x-dev"
+            "dev-master": "1.0.x-dev"
         }
     }
 }
