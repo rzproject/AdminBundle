@@ -1,0 +1,13 @@
+<div id='rz-admin-list-settings-per-page-action-container' class='admin-table-footer-per-page rz-admin-form-per-page-action row-fluid'>
+    <div class=span12>
+        <div class='controls'>
+            <select class='span12 selectpicker show-tick per-page' id='{{ admin.uniqid }}_per_page'>
+                {% for per_page in admin.getperpageoptions %}
+                    <option {% if per_page == admin.datagrid.pager.maxperpage %}selected='selected'{% endif %} value='{{ admin.generateUrl('list', {'filter': admin.datagrid.values | merge({'_per_page': per_page})}) }}'>
+                        {{ per_page }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>

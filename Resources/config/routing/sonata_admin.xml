@@ -24,10 +24,15 @@
 
     <route id="sonata_admin_short_object_information" path="/core/get-short-object-description">
         <default key="_controller">sonata.admin.controller.admin:getShortObjectDescriptionAction</default>
+        <default key="_format">html</default>
+        <requirement key="_format">html|json</requirement>
     </route>
 
     <route id="sonata_admin_set_object_field_value" path="/core/set-object-field-value">
         <default key="_controller">sonata.admin.controller.admin:setObjectFieldValueAction</default>
     </route>
 
+    <route id="sonata_admin_search" pattern="/search">
+        <default key="_controller">SonataAdminBundle:Core:search</default>
+    </route>
 </routes>

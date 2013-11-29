@@ -1,0 +1,167 @@
+/* Admin General */
+.rz-cms-admin .page-header h1 {
+   text-transform: capitalize;
+}
+
+.rz-cms-admin .form-actions .btn {
+    margin-right: 5px;
+}
+
+/* Admin Form */
+.rz-cms-admin .form-container {
+    /*padding: 30px 20px 0px 20px;*/
+    padding: 0px;
+}
+
+.rz-cms-admin .form-container ul.tabs-inline > li > a {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+
+/* Admin List Filter */.form-container
+.rz-cms-admin .sonata-ba-filter  form {
+    margin: 0px;
+    padding-top: 15px;
+}
+
+/* Admin List*/
+.rz-cms-admin .admin-action-buttons {
+    margin-top: 20px;
+}
+
+.rz-cms-admin .sonata-ba-list-field-boolean,
+.rz-cms-admin .row-selector,
+.rz-cms-admin .sonata-ba-list-field-header-text,
+.rz-cms-admin .sonata-ba-list-field-header-orm_many_to_many,
+.rz-cms-admin .sonata-ba-list-field-header-orm_many_to_one,
+.rz-cms-admin .sonata-ba-list-field-header-string,
+.rz-cms-admin .sonata-ba-list-field-header-select,
+.rz-cms-admin .sonata-ba-list-field-header-boolean,
+.rz-cms-admin .sonata-ba-list-field-header-datetime,
+.rz-cms-admin .sonata-ba-list-field-orm_many_to_one,
+.rz-cms-admin .sonata-ba-list-field-impersonating
+ {
+    text-align: center !important;
+    text-overflow:ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100px;
+    width: 100px;
+}
+
+.rz-cms-admin .sonata-ba-list-field-string > a,
+.rz-cms-admin .sonata-ba-list-field-datetime,
+.rz-cms-admin .sonata-ba-list-field-text,
+.rz-cms-admin .sonata-ba-list-field-string,
+.rz-cms-admin .sonata-ba-list-field-select
+{
+    white-space: nowrap;
+    text-overflow:ellipsis !important;
+    overflow: hidden;
+    max-width: 200px;
+}
+
+.rz-cms-admin .sonata-ba-list-field-header-batch,
+.rz-cms-admin .sonata-ba-list-field-batch,
+.rz-cms-admin .sonata-ba-list-field-boolean,
+.rz-cms-admin .sonata-ba-list-field-impersonating,
+.rz-cms-admin .sonata-one-to-many-delete-header,
+.rz-cms-admin .sonata-one-to-many-table-boolean,
+.rz-cms-admin .sonata-one-to-many-table-integer,
+.rz-cms-admin .sonata-ba-list-field-select{
+    max-width: 40px !important;
+    text-align: center !important;
+    text-overflow:ellipsis !important;
+    white-space: nowrap;
+}
+
+.rz-cms-admin .sonata-ba-list-field-header-batch,
+.rz-cms-admin .sonata-ba-list-field-batch{
+    width: 40px !important;
+}
+
+.rz-cms-admin .sonata-ba-sortable-handler {
+    cursor: move;
+}
+
+.rz-cms-admin .box-content.nopadding .sonata-filter-form {
+  padding-top: 15px;
+}
+
+.rz-cms-admin .box-content.nopadding .sonata-filter-form .form-actions {
+    padding: 9px 10px 10px !important;
+    margin: 10px 0px !important;
+}
+
+.rz-cms-admin .sonata-ba-box-settings {
+    margin-bottom: 20px;
+}
+
+.rz-cms-admin .sonata-ba-box-settings .control-group:first-child {
+    padding-top: 10px !important;
+}
+
+.rz-cms-admin .sonata-ba-box-settings .control-group:last-child {
+    border-bottom: 0px;
+}
+
+.rz-cms-admin .dummy-text-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 4px 4px 4px 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #cccccc;
+    white-space: nowrap;
+    display: inline-block;
+    /* For IE 7 */
+    zoom: 1;
+    *display: inline;
+    line-height: 20px;
+    -webkit-border-radius: 4px;-moz-border-radius: 4px;-ms-border-radius: 4px;border-radius: 4px;
+    min-height: 30px !important;
+}
+
+.rz-cms-admin .fileupload-preview {
+    min-width: 500px;
+    min-height: 380px;
+}
+
+.rz-cms-admin .fileupload button.btn {
+    line-height: 20px;
+    margin-left: 2px;
+}
+
+.rz-cms-admin .select2-container .select2-choice abbr {
+    display: none;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    right: 24px;
+    top: 8px;
+
+    font-size: 1px;
+    text-decoration: none;
+
+    border: 0;
+    background: url('/bundles/rmzamorajquery/jquery-plugins/select2/select2.png') right top no-repeat;
+    cursor: pointer;
+    outline: 0;
+}
+
+@media
+(min-width: 768px) and (max-width: 979px),
+(max-width: 767px){
+    .rz-cms-admin .sonata-ba-list-field-header-batch,
+    .rz-cms-admin .sonata-one-to-many-delete-header,
+    .rz-cms-admin .sonata-one-to-many-table-boolean,
+    .rz-cms-admin .sonata-one-to-many-table-integer{
+        width: auto !important;
+    }
+
+    .rz-cms-admin .fileupload-preview {
+        min-width: 300px;
+        min-height: 230px;
+    }
+}

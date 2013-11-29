@@ -37,7 +37,7 @@ file that was distributed with this source code.
             </span>
         </label>
     {% else %}
-        {% if (expanded_custom_checkbox is defined and expanded_custom_checkbox) or (uniform_custom_label is defined and uniform_custom_label) and widget is defined %}
+        {% if (expanded_custom_checkbox is defined and expanded_custom_checkbox) and widget is defined %}
             <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
             {{ widget|raw }}
             {% if not sonata_admin.admin%}
@@ -47,6 +47,15 @@ file that was distributed with this source code.
             {% endif%}
             {{ required ? '*' : '' }}
             </label>
+        {% elseif (icheck_endabled is defined and icheck_endabled) and widget is defined %}
+            <div class="check-line rz-icheckme">
+                {{ widget|raw }} <label {% if icheck_inline %}class='inline'{% endif %}>{% if not sonata_admin.admin%}{{ label|trans({}, translation_domain) }}{% else %}{{ label|trans({}, sonata_admin.admin.translationDomain) }}{% endif%}</label>
+                {% if help is defined and help %}
+                    <span class="help-block sonata-ba-field-help">
+                    {{ help }}
+                </span>
+                {% endif %}
+            </div>
         {% else %}
             <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
                 {% if not sonata_admin.admin%}
@@ -240,17 +249,9 @@ file that was distributed with this source code.
             {% if form.vars.tree_enabled is defined and form.vars.tree_enabled %}
                 {{ block('rz_tree_options') }}
             {% else %}
-                <ul {{ block('widget_container_attributes_choice_widget') }}>
-                    {% for child in form %}
-                        <li>
-                            {{ form_label(child, child.vars.label|default(null),
-                            { 'in_list_checkbox' : true,
-                              'widget' : form_widget(child)
-                            }
-                            )}}
-                        </li>
-                    {% endfor %}
-                </ul>
+                {% for child in form %}
+                    {{ form_label(child, child.vars.label|default(null), { 'icheck_endabled' : true, 'icheck_inline':true, 'widget' : form_widget(child)}) }}
+                {% endfor %}
             {% endif %}
         {% else %}
             <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
@@ -271,14 +272,6 @@ file that was distributed with this source code.
     {% endspaceless %}
 {% endblock choice_widget %}
 
-{% block widget_container_attributes_choice_widget %}
-    {% spaceless %}
-        id="{{ id }}"
-        {% for attrname,attrvalue in attr %}{{attrname}}="{% if attrname == 'class' %}unstyled {% endif%}{{attrvalue}}" {% endfor %}
-        {% if "class" not in attr %}class="unstyled"{%endif %}
-    {% endspaceless %}
-{% endblock %}
-
 {% block form_row %}
     {% if sonata_admin is not defined or not sonata_admin_enabled or not sonata_admin.field_description %}
         {{ form_label(form, label|default(null)) }}
@@ -286,8 +279,8 @@ file that was distributed with this source code.
         {{ form_widget(form) }}
     {% else %}
         <div class="control-group{% if errors|length > 0%} error{%endif%}" id="sonata-ba-field-container-{{ id }}">
-            {% if uniform_custom_label is defined and  uniform_custom_label %}
-                {{ form_label(form, null, { 'uniform_custom_label' : true, 'widget' : form_widget(form) } ) }}
+            {% if icheck_endabled is defined and  icheck_endabled %}
+                {{ form_label(form, null, { 'icheck_endabled' : true, 'icheck_inline':icheck_inline, 'widget' : form_widget(form), 'help': sonata_admin.field_description.help } ) }}
             {% elseif switch_enabled is defined and  switch_enabled %}
                 {{ block('checkbox_switch_widget') }}
             {% else %}
@@ -298,27 +291,54 @@ file that was distributed with this source code.
                             {{ form_label(form, label|default(null), { 'attr' : {'class' : 'control-label'} }) }}
                         {% endif %}
                 {% endblock %}
-
                 <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
-                    {{ form_widget(form) }}
-
-                    {% if errors|length > 0 %}
-                        <div class="help-inline sonata-ba-field-error-messages">
-                            {{ form_errors(form) }}
-                        </div>
-                    {% endif %}
-                    {% if sonata_admin.field_description.help %}
-                        <div class="row-fluid">
+                    {% if (select2 is defined and select2) or (multiselect_enabled is defined and multiselect_enabled)  %}
+                        <div class="row-fluid
+                                    {% if select2 %} rz-chosen{% endif %}
+                                    {% if multiselect_enabled %} rz-multipleselect{% endif %}
+                                    {% if multiple is defined and multiple == 'multiple' %} chosen-multi{% endif %}
+                                   ">
                             <div class="span12">
-                                <em><span class="help-block sonata-ba-field-help">{{ sonata_admin.field_description.help }}</span></em>
+                                {{ block('rz_form_row') }}
                             </div>
                         </div>
+                        {% if sonata_admin.field_description.help %}
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    {{ block('rz_form_row_help') }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        {{ block('rz_form_row') }}
+                        {% if sonata_admin.field_description.help %}
+                            {{ block('rz_form_row_help') }}
+                        {% endif %}
                     {% endif %}
                 </div>
             {% endif %}
         </div>
     {% endif %}
 {% endblock form_row %}
+
+{% block rz_form_row %}
+    {{ form_widget(form) }}
+    {{ block('rz_form_row_error') }}
+{% endblock %}
+
+{% block rz_form_row_error %}
+    {% if errors|length > 0 %}
+    <div class="help-inline sonata-ba-field-error-messages">
+        {{ form_errors(form) }}
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block rz_form_row_help %}
+    <span class="help-block sonata-ba-field-help">
+        {{ sonata_admin.field_description.help }}
+    </span>
+{% endblock %}
 
 {% block collection_widget_row %}
 {% spaceless %}
@@ -352,7 +372,11 @@ file that was distributed with this source code.
 
 {% block sonata_type_immutable_array_widget %}
     {% spaceless %}
-        <div class="well-subform">
+    <div class="box box-color green box-small box-bordered sonata-ba-box-settings">
+        <div class="box-title">
+            <h3><i class="icon-file-alt"></i></h3>
+        </div>
+        <div class="box-content nopadding">
             <div {{ block('widget_container_attributes') }}>
                 {{ form_errors(form) }}
 
@@ -363,6 +387,7 @@ file that was distributed with this source code.
                 {{ form_rest(form) }}
             </div>
         </div>
+    </div>
     {% endspaceless %}
 {% endblock sonata_type_immutable_array_widget %}
 

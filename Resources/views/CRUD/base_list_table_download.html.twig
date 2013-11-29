@@ -1,0 +1,23 @@
+<div id='rz-admin-list-settings-download-action-container' class='rz-admin-form-download-action row-fluid'>
+    <div class='span12'>
+        <ul class='unstyled'>
+        {% for format in admin.getExportFormats() %}
+            <li>
+            <a class='btn btn-primary span12' href='{{ admin.generateUrl('export', admin.modelmanager.paginationparameters(admin.datagrid, 0) + {'format' : format}) }}'>
+                {# TODO create dynamic class for insterting icons #}
+                {% if format == 'json' %}
+                    <i class='icon-bar-chart'></i>&nbsp;
+                {% elseif format == 'xml' %}
+                    <i class='icon-signal'></i>&nbsp;
+                {% elseif format == 'csv' %}
+                    <i class='icon-reorder'></i>&nbsp;
+                {% else %}
+                    <i class='icon-tasks'></i>&nbsp;
+                {% endif %}
+                {{ format }}
+            </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>

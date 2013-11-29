@@ -13,41 +13,77 @@ file that was distributed with this source code.
 
 {% block title %}{{ 'title_dashboard'|trans({}, 'SonataAdminBundle') }}{% endblock%}
 {% block admin_module_title %}
-<div id="content-header">
-    <h1><i class="icon-dashboard"></i> My Dashboard</h1>
-    <div class="row-fluid">
-        {#<div class="span12 sub-title">#}
-            {#<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non elit tellus, eleifend varius erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum laoreet ante sodales elementum. Nullam varius interdum est, at ornare quam aliquam eu. Nulla ultricies commodo leo sit amet vulputate.</p>#}
-        {#</div>#}
+    <div class="page-header">
+        <div class="pull-left">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="pull-right">
+            <ul class="stats">
+                <li class='red'>
+                    <i class="icon-calendar"></i>
+                    <div class="details">
+                        <span class="big">February 22, 2013</span>
+                        <span>Wednesday, 13:56</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 {% endblock admin_module_title %}
 {% block breadcrumb %}
-    <li><i class="icon-home"></i></li>
+    <li>Home</li>
 {% endblock %}
 {% block content %}
     <div class="row-fluid">
-        <div class="span6">
+        {% set has_center = false %}
+        {% for block in blocks %}
+            {% if block.position == 'center' %}
+                {% set has_center = true %}
+            {% endif %}
+        {% endfor %}
+
+        <div class="{% if has_center %}span4{% else %}span6{% endif %}">
             {% for block in blocks %}
                 {% if block.position == 'left' %}
                     {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
                 {% endif %}
             {% endfor %}
         </div>
-        <div class="span6">
+
+        {% if has_center %}
+            <div class="span4">
+                {% for block in blocks %}
+                    {% if block.position == 'center' %}
+                        <div class="box box-color box-bordered green">
+                            <div class="box-title">
+                                <h3>
+                                    <i class="icon-table"></i>
+                                    Widgets
+                                </h3>
+                            </div>
+                            <div class="box-content">
+                                {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="{% if has_center %}span4{% else %}span6{% endif %}">
             {% for block in blocks %}
                 {% if block.position == 'right' %}
-                    <div class="widget-box">
-                        <div class="widget-title">
-                            <span class="icon">
-                                <i class="micon-dashboard"></i>
-                            </span>
-                            <h5>Widgets</h5>
-                        </div>
-                        <div class="widget-content sonata-dashboard-widget-content">
-                            {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
-                        </div>
+                <div class="box box-color box-bordered green">
+                    <div class="box-title">
+                        <h3>
+                            <i class="icon-table"></i>
+                            Widgets
+                        </h3>
                     </div>
+                    <div class="box-content">
+                        {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
+                    </div>
+                </div>
                 {% endif %}
             {% endfor %}
         </div>

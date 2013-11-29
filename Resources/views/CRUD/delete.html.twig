@@ -33,14 +33,14 @@ file that was distributed with this source code.
 {% block side_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active'}, 'list') }}{% endblock %}
 
 {% block basic_content %}
-<div class="widget-box sonata-ba-delete">
-    <div class="widget-title">
-        <span class="icon">
+<div class="box box-color box-bordered box-small red rz-delete-box">
+    <div class="box-title">
+        <h3>
             <i class="icon-trash"></i>
-        </span>
-        <h5>{{ 'title_delete'|trans({}, 'SonataAdminBundle') }}</h5>
+            {{ 'title_delete'|trans({}, 'SonataAdminBundle') }}
+        </h3>
     </div>
-    <div class="widget-content nopadding">
+    <div class="box-content nopadding">
         <div class="control-group">
             <p>{{ 'message_delete_confirmation'|trans({'%object%': admin.toString(object)}, 'SonataAdminBundle') }}</p>
         </div>
@@ -54,21 +54,33 @@ file that was distributed with this source code.
 {% block ajax_delete_actions %}
     <form method="POST" action="{{ admin.generateObjectUrl('delete', object) }}">
         <input type="hidden" value="DELETE" name="_method" />
-        <button type="submit" class="btn btn-danger sepH_a sepV_a">{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}</button>
-        <button class="btn btn-primary sepH_a sepV_a" type="button" data-dismiss="modal"><i class="micon-undo"></i> Cancel</button>
+        <input type="hidden" name="_sonata_csrf_token" value="{{ csrf_token }}" />
+        <button type="submit" class="btn btn-delete">
+            <i class="icon-trash"></i>
+            <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}</span>
+        </button>
+        <button class="btn btn-delete" type="button" data-dismiss="modal">
+            <i class="icon-remove"></i>
+            <span class="hidden-phone hidden-tablet visible-desktop"> Cancel</span>
+        </button>
     </form>
 {% endblock %}
 
 {% block delete_actions %}
-    <div class="well form-actions">
+    <div class="form-actions">
         <form method="POST" action="{{ admin.generateObjectUrl('delete', object) }}">
             <input type="hidden" value="DELETE" name="_method" />
-            <input type="submit" class="btn btn-danger" value="{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}" />
+            <input type="hidden" name="_sonata_csrf_token" value="{{ csrf_token }}" />
+            <button type="submit" class="btn" value="{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}" />
+                <i class="icon-trash"></i>
+                <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}</span>
+            </button>
 
             {% if admin.hasRoute('edit') and admin.isGranted('EDIT', object) %}
-                <a class="btn btn-success" href="{{ admin.generateObjectUrl('edit', object) }}">
+                <a class="btn" href="{{ admin.generateObjectUrl('edit', object) }}">
                     <i class="icon-edit"></i>
-                    {{ 'link_action_edit'|trans({}, 'SonataAdminBundle') }}</a>
+                    <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'link_action_edit'|trans({}, 'SonataAdminBundle') }}</span>
+                </a>
             {% endif %}
         </form>
     </div>
@@ -86,7 +98,9 @@ file that was distributed with this source code.
         </h3>
     </div>
     <div class="modal-body">
+        <div class="modal-delete">
         {{ block('basic_content') }}
+        </div>
     </div>
     <div class="modal-footer">
         {{ block('ajax_delete_actions') }}

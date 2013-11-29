@@ -56,7 +56,10 @@ class TemplateCompilerPass implements CompilerPassInterface
             $methods[$pos] = $method;
             $pos++;
         }
+
         $definition->setMethodCalls($methods);
         $definition->addMethodCall('setTemplates', array($definedTemplates));
     }
+
+
 }

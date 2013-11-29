@@ -9,7 +9,7 @@ file that was distributed with this source code.
 
 #}
 
-<td class="span5 rmz-show-label">
+<td class="span3 rmz-show-label">
     {% block name %}
         {% if field_description.label %}
             {{ admin.trans(field_description.label) }}
@@ -18,7 +18,7 @@ file that was distributed with this source code.
         {% endif %}
     {% endblock %}
 </td>
-<td class="span7">
+<td class="span9">
     {% block field %}
         {% if value %}
             {{ value|nl2br }}
