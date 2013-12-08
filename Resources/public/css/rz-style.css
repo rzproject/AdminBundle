@@ -71,7 +71,8 @@
 .rz-cms-admin .sonata-one-to-many-table-boolean,
 .rz-cms-admin .sonata-one-to-many-table-integer,
 .rz-cms-admin .sonata-ba-list-field-select{
-    max-width: 40px !important;
+    /*max-width: 40px !important;*/
+    /*width: auto !important;*/
     text-align: center !important;
     text-overflow:ellipsis !important;
     white-space: nowrap;
@@ -153,10 +154,10 @@
 @media
 (min-width: 768px) and (max-width: 979px),
 (max-width: 767px){
-    .rz-cms-admin .sonata-ba-list-field-header-batch,
-    .rz-cms-admin .sonata-one-to-many-delete-header,
-    .rz-cms-admin .sonata-one-to-many-table-boolean,
-    .rz-cms-admin .sonata-one-to-many-table-integer{
+    .rz-cms-admin .rz-table-responsive .sonata-ba-list-field-header-batch,
+    .rz-cms-admin .rz-table-responsive .sonata-one-to-many-delete-header,
+    .rz-cms-admin .rz-table-responsive .sonata-one-to-many-table-boolean,
+    .rz-cms-admin .rz-table-responsive .sonata-one-to-many-table-integer{
         width: auto !important;
     }
 
