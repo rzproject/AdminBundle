@@ -3129,6 +3129,14 @@ body.rz-cms-admin {
     box-shadow: none !important;
 }
 
+
+.rz-cms-admin .rz-one-to-many-table .select2-container {
+    padding-right: 10px;
+}
+.rz-cms-admin .rz-one-to-many-table .select2-container .select2-choice {
+    margin-bottom: 0px !important;
+}
+
 @media (min-width: 768px) and (max-width: 979px), (max-width: 767px) {
 	/* ===[ Force table to not be like tables anymore ]=== */
 
@@ -3162,7 +3170,7 @@ body.rz-cms-admin {
 	    border: none;
 	    /*border-bottom: 0px solid #eee;*/
 	    position: relative;
-	    padding-left: 50%;
+	    /*padding-left: 50%;*/
 	    text-align: left !important;
 	}
 
@@ -3172,7 +3180,7 @@ body.rz-cms-admin {
 	    /* Top/left values mimic padding */
 	    top: 6px;
 	    left: 6px;
-	    width: 45%;
+	    /*width: 45%;*/
 	    padding-right: 10px;
 	    white-space: nowrap;
 	}
@@ -3197,6 +3205,12 @@ body.rz-cms-admin {
 	    text-align: center;
 	    margin-bottom: 10px;
 	}
+}
+
+@media (max-width: 480px) {
+    .rz-cms-admin .rz-table-responsive td:before {
+        width: 100%;
+    }
 }
 
 .rz-cms-admin .qtip-bootstrap .qtip-content ul {
