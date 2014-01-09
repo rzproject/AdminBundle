@@ -36,6 +36,7 @@ class HelperController extends BaseHelperController
         $code     = $request->get('code');
         $objectId = $request->get('objectId');
         $uniqid   = $request->get('uniqid');
+        $linkParameters = $request->get('linkParameters', array());
 
         $admin = $this->pool->getInstance($code);
 
@@ -65,6 +66,7 @@ class HelperController extends BaseHelperController
                 'admin'       => $admin,
                 'description' => $admin->toString($object),
                 'object'      => $object,
+                'link_parameters' => $linkParameters
             )));
         } else {
             throw new \RuntimeException('Invalid format');
