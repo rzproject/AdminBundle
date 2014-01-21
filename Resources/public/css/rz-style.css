@@ -96,15 +96,18 @@
     margin: 10px 0px !important;
 }
 
-.rz-cms-admin .sonata-ba-box-settings {
+.rz-cms-admin .sonata-ba-box-settings,
+.rz-cms-admin .sonata-ba-box-one-to-one{
     margin-bottom: 20px;
 }
 
-.rz-cms-admin .sonata-ba-box-settings .control-group:first-child {
+.rz-cms-admin .sonata-ba-box-settings .control-group:first-child,
+.rz-cms-admin .sonata-ba-box-one-to-one .control-group:first-child{
     padding-top: 10px !important;
 }
 
-.rz-cms-admin .sonata-ba-box-settings .control-group:last-child {
+.rz-cms-admin .sonata-ba-box-settings .control-group:last-child,
+.rz-cms-admin .sonata-ba-box-one-to-one .control-group:last-child{
     border-bottom: 0px;
 }
 

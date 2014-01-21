@@ -30,6 +30,14 @@ file that was distributed with this source code.
                     method="POST"
                     {% if not admin_pool.getOption('html5_validate') %}novalidate="novalidate"{% endif %}
                     >
+                    {% if form.vars.errors|length > 0 %}
+                        <div class="rz-form-alert-block">
+                            <div class="alert alert-block alert-error sonata-ba-form-error">
+                                <a class="close" data-dismiss="alert"><i class="icon-remove-sign"></i></a>
+                                {{ form_errors(form) }}
+                            </div>
+                        </div>
+                    {% endif %}
                     {{ block('form_body') }}
                     {{ form_rest(form) }}
                     {{ block('form_actions') }}

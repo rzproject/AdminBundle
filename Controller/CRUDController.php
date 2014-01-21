@@ -140,7 +140,7 @@ class CRUDController extends BaseCRUDController
                     ));
                 }
 
-                $this->addFlash('sonata_flash_success','flash_create_success');
+                $this->addFlash('sonata_flash_success', $this->admin->trans('flash_create_success', array('%name%' => $this->admin->toString($object)), 'SonataAdminBundle'));
                 // redirect to edit mode
                 return $this->redirectTo($object);
             }
@@ -148,7 +148,7 @@ class CRUDController extends BaseCRUDController
             // show an error message if the form failed validation
             if (!$isFormValid) {
                 if (!$this->isXmlHttpRequest()) {
-                    $this->addFlash('sonata_flash_error', 'flash_create_error');
+                    $this->addFlash('sonata_flash_error', $this->admin->trans('flash_create_error', array('%name%' => $this->admin->toString($object)), 'SonataAdminBundle'));
                 }
             } elseif ($this->isPreviewRequested()) {
                 // pick the preview template if the form was valid and preview was requested

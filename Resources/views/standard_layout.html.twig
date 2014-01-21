@@ -245,17 +245,15 @@ file that was distributed with this source code.
                         {% block main_content %}
                             {# notices & flash messages #}
                             {% block notice %}
-                                {% for notice_level in ['success','error','info', 'warning'] %}
-                                    {% set session_var = 'sonata_flash_' ~ notice_level %}
-                                    {% if app.session.flashbag.get(session_var) is defined %}
+                                {% for type in sonata_flashmessages_types() %}
+                                    {% set domain = domain is defined ? domain : null %}
+                                    {% for message in sonata_flashmessages_get(type, domain) %}
                                         <div class="rz-main-message">
-                                        {% for flash in app.session.flashbag.get(session_var) %}
-                                            <div class="alert {{ 'alert-' ~ notice_level }}">
-                                                {{ flash|trans([], 'SonataAdminBundle') }}
+                                            <div class="alert alert-{{ type|sonata_status_class }}">
+                                                {{ message|raw }}
                                             </div>
-                                        {% endfor %}
                                         </div>
-                                    {% endif %}
+                                    {% endfor %}
                                 {% endfor %}
                             {% endblock %}
                             {#/ notices & flash messages #}
