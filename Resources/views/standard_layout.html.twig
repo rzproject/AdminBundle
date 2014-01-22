@@ -262,7 +262,7 @@ file that was distributed with this source code.
                             {% block admin_module_title %}
                                 <div class="page-header">
                                     <div class="pull-left">
-                                        <h1>{{ admin.label|trans({}, admin.translationdomain) }}</h1>
+                                        <h1>{{ admin.label|trans({}, admin.translationdomain)|raw }}</h1>
                                     </div>
                                     <div class="pull-right">
                                         <ul class="stats">
