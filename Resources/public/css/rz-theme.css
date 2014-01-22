@@ -54,3 +54,7 @@
 .rz-cms-admin .rz-datagird-settings-form .form-batch-action {
     padding-top: 15px;
 }
+
+.rz-cms-admin .rz-form-alert-block {
+    padding: 10px;
+}
