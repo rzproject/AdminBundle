@@ -193,7 +193,7 @@ file that was distributed with this source code.
                             <ul class="dropdown-menu">
                                 {% for admin in group.items %}
                                     {% if admin.hasroute('list') and admin.isGranted('LIST') %}
-                                        <li><a href="{{ admin.generateUrl('list')}}">{{ admin.label|trans({}, admin.translationdomain) }}</a></li>
+                                        <li><a href="{{ admin.generateUrl('list')}}">{{ admin.label|trans({}, admin.translationdomain)|raw }}</a></li>
                                     {% endif %}
                                 {% endfor %}
                             </ul>
