@@ -260,6 +260,7 @@ file that was distributed with this source code.
                             {# page tite #}
                             {# TODO: add settings for page title and description #}
                             {% block admin_module_title %}
+                                {% if admin is defined %}
                                 <div class="page-header">
                                     <div class="pull-left">
                                         <h1>{{ admin.label|trans({}, admin.translationdomain)|raw }}</h1>
@@ -276,6 +277,7 @@ file that was distributed with this source code.
                                         </ul>
                                     </div>
                                 </div>
+                                {% endif %}
                             {% endblock admin_module_title %}
                             {#/ page tite #}
                             {# breadcrumbs #}
