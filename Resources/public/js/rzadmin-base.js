@@ -848,9 +848,13 @@ var rzadmin = {
 
     initElements: function(modal) {
 
-        rzadmin.log('initElements initiated');
+        rzadmin.log('FUNCTION CALL [rzadmin-base.js] initElements');
+        //rzadmin.log(sprintf('VARIABLE: modal => %s', modal));
+
+        console.log(modal);
 
         if(jQuery(".icheck-me", modal).length > 0){
+            rzadmin.log('PROCESSING initElements [%s]', 'icheck-me');
             jQuery(".icheck-me", modal).each(function(){
                 var $el = jQuery(this);
                 var skin = ($el.attr('data-skin') !== undefined) ? "_"+$el.attr('data-skin') : "",
@@ -868,14 +872,17 @@ var rzadmin = {
 
         //TODO: change to selector
         if (jQuery('[class*="selectpicker"]', modal).length > 0) {
+            rzadmin.log('PROCESSING initElements => selectpicker');
             jQuery('[class*="selectpicker"]', modal).selectpicker();
         }
 
         if (jQuery('.footable', modal).length > 0) {
+            rzadmin.log('PROCESSING initElements [%s]', 'footable');
             jQuery('.footable', modal).footable();
         }
 
         if(jQuery('select.chosen-select', modal).length>0) {
+            rzadmin.log('PROCESSING initElements [%s]', 'select.chosen-select');
             modal.find("select.chosen-select").select2();
         }
 
@@ -895,14 +902,17 @@ var rzadmin = {
 //        }
 
         if(jQuery('.rz-datepicker', modal).length > 0) {
+            rzadmin.log('PROCESSING initElements [%s]', 'rz-datepicker');
             modal.find('.rz-datepicker').datepicker({'autoclose': true});
         }
 
         if(jQuery('.rz-timepicker', modal).length > 0) {
+            rzadmin.log('PROCESSING initElements [%s]', 'rz-timepicker');
             modal.find('.rz-timepicker').timepicker({'defaultTime': false, 'showMeridian': false});
         }
 
         if(jQuery('.rz-datetimepicker', modal).length > 0) {
+            rzadmin.log('PROCESSING initElements [%s]', 'rz-datetimepicker');
             modal.find('.rz-datetimepicker').datetimepicker({
                 autoclose: true,
                 todayBtn: true,
@@ -912,11 +922,13 @@ var rzadmin = {
         }
 
         if(jQuery('.datepicker.dropdown-menu', modal).length > 0) {
+            rzadmin.log('PROCESSING initElements [%s]', 'datepicker.dropdown-menu');
             jQuery('.datepicker.dropdown-menu').css('z-index', 9999);
         }
 
 
         if(jQuery('.rz_grid ul', modal).length > 0) {
+            rzadmin.log('PROCESSING initElements [%s]', 'rz_grid ul');
             jQuery('.rz_grid ul', modal).imagesLoaded(jQuery.proxy(function() {
                 // Prepare layout options.
                 var options = {
@@ -943,6 +955,7 @@ var rzadmin = {
 
         if(jQuery('.multiselect', modal).length > 0)
         {
+            rzadmin.log('PROCESSING initElements [%s]', 'multiselect');
             jQuery(".multiselect", modal).each(function(){
                 var $el = jQuery(this);
                 var selectableHeader = $el.attr('data-selectableheader'),
@@ -963,6 +976,7 @@ var rzadmin = {
         }
 
         if(jQuery(".rz-masonry-gallery", modal).length > 0){
+            rzadmin.log('PROCESSING initElements [%s]', 'rz-masonry-gallery');
             jQuery(".rz-masonry-gallery", modal).imagesLoaded(function(){
                 $(".rz-masonry-gallery", modal).masonry({
                     itemSelector: '.rz-gallery-item',
