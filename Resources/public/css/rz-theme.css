@@ -58,3 +58,16 @@
 .rz-cms-admin .rz-form-alert-block {
     padding: 10px;
 }
+
+.rz-cms-admin .rz-form-alert-block ul {
+    list-style: none !important;
+    margin-left: 5px !important;
+}
+
+.rz-cms-admin .rz-field-error-messages ul {
+    list-style: none !important;
+    text-align: left !important;
+    margin-left: 0px !important;
+    font-style:italic;
+    color: #b94a48;
+}

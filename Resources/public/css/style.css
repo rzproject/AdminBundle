@@ -3220,6 +3220,7 @@ body.rz-cms-admin {
 
 .rz-cms-admin .stats {
     float: left;
+    list-style: none !important;
 }
 
 .rz-cms-admin .stats > li {

@@ -328,7 +328,7 @@ file that was distributed with this source code.
 
 {% block rz_form_row_error %}
     {% if errors|length > 0 %}
-    <div class="help-inline sonata-ba-field-error-messages">
+    <div class="help-inline sonata-ba-field-error-messages rz-field-error-messages">
         {{ form_errors(form) }}
     </div>
     {% endif %}
@@ -400,7 +400,7 @@ file that was distributed with this source code.
                 {{ form_widget(child) }}
             </div>
             {% if errors|length > 0 %}
-                <div class="help-inline sonata-ba-field-error-messages">
+                <div class="help-inline sonata-ba-field-error-messages rz-field-error-messages">
                     {{ form_errors(child) }}
                 </div>
             {% endif %}
