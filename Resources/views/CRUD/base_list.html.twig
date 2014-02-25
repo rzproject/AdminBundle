@@ -17,6 +17,11 @@ file that was distributed with this source code.
     {#<script src="{{ asset('bundles/rzadmin/js/rz/admin-list.js') }}" type="text/javascript"></script>#}
 {#{% endblock sonata_javascript_block %}#}
 
+{% block javascripts_document_ready %}
+    {{ parent() }}
+    rzadmin_fieldtype.initSelect2();
+{% endblock javascripts_document_ready %}
+
 {% block actions %}
 <div class="row-fluid admin-action-buttons">
     <div class="span12">

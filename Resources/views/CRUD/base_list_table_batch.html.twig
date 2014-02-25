@@ -7,7 +7,7 @@
                     {{ 'all_elements'|trans({}, 'SonataAdminBundle') }}
                 </label>
             </div>
-            <select class='selectpicker show-tick span12' title='Choose one..' name='action'>
+            <select class='chosen-select show-tick span12' title='Choose one..' name='action'>
                 <option></option>
                 {% for action, options in batchactions %}
                     <option value='{{ action }}'>{{ options.label }}</option>
