@@ -23,7 +23,7 @@
         "rz/codemirror-bundle": "~1.0"
     },
     "autoload": {
-        "psr-0": { "Rz\\AdminBundle": "" }
+        "psr-4": { "Rz\\AdminBundle\\": "" }
     },
     "target-dir": "Rz/AdminBundle",
     "extra": {
