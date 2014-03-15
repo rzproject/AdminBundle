@@ -25,7 +25,6 @@
     "autoload": {
         "psr-4": { "Rz\\AdminBundle\\": "" }
     },
-    "target-dir": "Rz/AdminBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
