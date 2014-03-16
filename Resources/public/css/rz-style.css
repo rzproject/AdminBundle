@@ -154,6 +154,25 @@
     outline: 0;
 }
 
+/*.rz-cms-admin.modal .modal-body .box .box-title {*/
+    /*margin-top: 0px;*/
+/*}*/
+
+.rz-cms-admin .modal .modal-body {
+    padding: 10px 20px 20px 20px !important;
+}
+
+.rz-cms-admin .modal .modal-body .rz-media-provider-selector {
+    margin-top: 0px !important;
+    padding-top: 10px !important;
+}
+
+
+
+/*.rz-cms-admin.modal .modal-body {*/
+    /*padding: 0px;*/
+/*}*/
+
 @media (min-width: 768px) and (max-width: 979px), (max-width: 767px){
     .rz-cms-admin .rz-table-responsive .sonata-ba-list-field-header-batch,
     .rz-cms-admin .rz-table-responsive .sonata-one-to-many-delete-header,
