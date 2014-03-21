@@ -1618,6 +1618,7 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+    text-transform: capitalize;
 }
 
 .rz-cms-admin .rz-form .nav-tabs.tabs-inline>li>a,
