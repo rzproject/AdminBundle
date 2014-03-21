@@ -1660,7 +1660,8 @@
     padding-top: 10px !important
 }
 
-.rz-cms-admin .rz-form .rz-widget-container-one-to-many .control-group:last-child {
+.rz-cms-admin .rz-form .rz-widget-container-one-to-many .control-group:last-child,
+.rz-cms-admin .form-vertical.form-bordered .control-group:last-child {
     border-bottom: 0px
 }
 
