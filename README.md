@@ -5,5 +5,5 @@ Symfony2 Bundle - An extension of [SonataAdminBundle](https://github.com/sonata-
 
 Uses a forked version of SonataAdminBundle
 
-**STILL IN HEAVY DEVELOPMENT**
+STABLE VERSION - using old bootstrap 2.*
 
