@@ -17,6 +17,8 @@ file that was distributed with this source code.
 {% set _content      = block('content') %}
 {% set _title        = block('title') %}
 {% set _breadcrumb   = block('breadcrumb') %}
+
+
 <!DOCTYPE html>
 <html class="no-js {% block html_class %}{% endblock html_class%}">
 <head>
@@ -312,6 +314,26 @@ file that was distributed with this source code.
                             {#/ breadcrumbs #}
                             {# action buttons #}
                             {%block actions %}{% endblock %}
+
+                            {% if _side_menu is not empty %}
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <div class="navbar rz-admin-navbar">
+                                            <div class="navbar-inner">
+                                                <div class="container">
+                                                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                                                        <i class="icon-reorder"></i>
+                                                    </a>
+                                                    <div class="nav-collapse collapse">
+                                                        {{ _side_menu|raw }}
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
                             {#/ action buttons #}
                             {# list filter #}
                             {% if _list_filters is not empty %}
@@ -319,7 +341,7 @@ file that was distributed with this source code.
                             {% endif %}
                             {#/ list filter #}
                             <div class="row-fluid">
-                                <div class="content {{ _side_menu is not empty ? ' span9' : 'span12' }}">
+                                <div class="content span12">
                                     {% block sonata_admin_content %}
                                         {% if _preview is not empty %}
                                             <div class="sonata-ba-preview">{{ _preview|raw }}</div>
@@ -349,19 +371,6 @@ file that was distributed with this source code.
 
                                     {% endblock %}
                                 </div>
-                                {% if _side_menu is not empty %}
-                                <div class="admin-sidebar-container span3">
-                                    <div class="box box-color box-bordered red">
-                                        <div class="box-title">
-                                            <h3>
-                                                <i class="icon-list-ul"></i>
-                                            </h3>
-                                        </div>
-                                        <div class="box-content nopadding">
-                                            {{ _side_menu|raw }}
-                                        </div>
-                                    </div>
-                                {% endif %}
                             </div>
                         {% endblock main_content %}
                         </div>{#/main content #}

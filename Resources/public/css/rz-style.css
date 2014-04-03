@@ -170,6 +170,33 @@
     padding-top: 10px !important;
 }
 
+.rz-cms-admin .rz-admin-navbar {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.rz-cms-admin .rz-admin-navbar .navbar-inner {
+
+    border: 0px !important;
+    background-image: none !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.rz-cms-admin .navbar .nav>.active>a,
+.rz-cms-admin .navbar .nav>.active>a:hover,
+.rz-cms-admin .navbar .nav>.active>a:focus {
+    color: #ffffff;
+    background-color: #192338;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
 
 
 /*.rz-cms-admin.modal .modal-body {*/
@@ -200,6 +227,16 @@
         height: auto;
         width: auto;
     }
+    .rz-cms-admin .rz-admin-navbar .container {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .rz-cms-admin .rz-admin-navbar .navbar-inner {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
 }
 
 @media  (max-width: 530px){
