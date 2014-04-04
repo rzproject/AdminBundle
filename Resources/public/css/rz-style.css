@@ -185,13 +185,25 @@
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     box-shadow: none !important;
+    background-color: #253454;
+    text-shadow: none !important;
+}
+
+.rz-cms-admin .navbar .nav>li>a{
+    color: #ffffff;
+    text-shadow: none !important;
+}
+
+.rz-cms-admin .navbar .nav>li>a:hover{
+    color: #192338;
+    text-shadow: none !important;
 }
 
 .rz-cms-admin .navbar .nav>.active>a,
 .rz-cms-admin .navbar .nav>.active>a:hover,
 .rz-cms-admin .navbar .nav>.active>a:focus {
-    color: #ffffff;
-    background-color: #192338;
+    color: #192338;
+    background-color: #fafafa;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     box-shadow: none !important;
@@ -235,6 +247,15 @@
     .rz-cms-admin .rz-admin-navbar .navbar-inner {
         padding-left: 2px;
         padding-right: 2px;
+    }
+
+    .rz-cms-admin .rz-admin-navbar  .btn-navbar {
+        background-color: #253454;
+        color: #ffffff;
+    }
+
+    .rz-cms-admin .rz-admin-navbar .icon-reorder {
+        color: #ffffff;
     }
 
 }
