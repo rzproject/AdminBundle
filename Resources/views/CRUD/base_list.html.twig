@@ -256,4 +256,8 @@ file that was distributed with this source code.
 {% block list_filters %}{% endblock %}
 
 
-{% block list_filter_persistent_parameters %}{% endblock %}
+{% block list_filter_persistent_parameters %}
+    {% for paramKey, paramValue in admin.persistentParameters %}
+        <input type="hidden" name="{{ paramKey }}" value="{{ paramValue }}">
+    {% endfor %}
+{% endblock %}
