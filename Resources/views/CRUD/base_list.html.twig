@@ -90,6 +90,7 @@ file that was distributed with this source code.
                     {% endif %}
                     {% if not app.request.isxmlhttprequest %}
                         <div class="rz-admin-list-main-data-toolbar">
+                                {% if admin.hasRoute('batch') %}
                                 <a href="#"
                                    class="btn"
                                    id="rz-admin-list-settings-batch-action-trigger"
@@ -103,6 +104,8 @@ file that was distributed with this source code.
                                     {% endif %}>
                                     <i class="icon-wrench"></i><span class="hidden-phone hidden-tablet visible-desktop">Action</span>
                                 </a>
+                                {% endif %}
+                                {% if admin.hasRoute('export') %}
                                 <a href="#"
                                    class="btn"
                                    id="rz-admin-list-settings-download-action-trigger"
@@ -116,6 +119,7 @@ file that was distributed with this source code.
                                         {% endif %}>
                                     <i class="icon-download-alt"></i><span class="hidden-phone hidden-tablet visible-desktop">Export</span>
                                 </a>
+                                {% endif %}
                                 <a href="#"
                                    class="btn"
                                    id="rz-admin-list-settings-per-page-action-trigger"
