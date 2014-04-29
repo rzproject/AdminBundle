@@ -340,7 +340,7 @@ file that was distributed with this source code.
 
 {% block rz_form_row_help %}
     <span class="help-block sonata-ba-field-help">
-        {{ sonata_admin.field_description.help }}
+        {{ sonata_admin.admin.trans(sonata_admin.field_description.help, {}, sonata_admin.field_description.translationDomain)|raw }}
     </span>
 {% endblock %}
 
