@@ -132,6 +132,7 @@
 .rz-cms-admin .fileupload-preview {
     min-width: 500px;
     min-height: 380px;
+    padding-left: 2px;
 }
 
 .rz-cms-admin .fileupload button.btn {
