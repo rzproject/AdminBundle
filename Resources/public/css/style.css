@@ -505,6 +505,10 @@
     border: 0;
 }
 
+.rz-cms-admin .box-content .page-tree-selector {
+    padding: 20px;
+}
+
 @media (max-width: 1250px) {
     .rz-cms-admin #main .page-header .minitiles {
 	    display: none
