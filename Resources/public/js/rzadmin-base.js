@@ -1099,12 +1099,13 @@ var rzadmin = {
                 var target;
 
                 /* Hack to handle qTip on select */
-                if(jQuery(input).is('select')) {
-                    input.wrap('<span></span>');
-                    target = input.parent();
+                if(jQuery(input).is('text')) {
+                    target = input;
                 }
                 else {
-                    target = input;
+                    //input.wrap('<span></span>');
+                    //target = input.parent();
+                    target =input.closest('.control-group').find('label');
                 }
 
                 var shared = {
@@ -1126,8 +1127,12 @@ var rzadmin = {
                 if(target.length) {
                     target.qtip( jQuery.extend({}, shared, {
                         position: {
-                            my		: 'top center',
-                            at		: 'bottom right',
+                            my		: 'right bottom',
+                            at		: 'top left',
+                            adjust : {
+                                method: 'shift'
+
+                            },
                             viewport: jQuery(window)
                         },
                         style: {
