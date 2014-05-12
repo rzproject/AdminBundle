@@ -1681,6 +1681,12 @@
     color: #448a37
 }
 
+.rz-cms-admin .rz-form .help-block.error {
+    margin-top: 5px;
+    color: #b94a48;
+    font-style: italic;
+}
+
 .rz-cms-admin .rz-form .field-container {
     margin-bottom: 10px
 }
