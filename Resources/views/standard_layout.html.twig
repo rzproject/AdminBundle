@@ -53,7 +53,7 @@ file that was distributed with this source code.
 
     {% block javascripts %}
         {% for javascript in admin_pool.getOption('javascripts', []) %}
-            <script src="{{ asset(javascript) }}" type="text/javascript"></script>
+            <script src="{{ asset(javascript) }}" type="text/javascript" async></script>
         {% endfor %}
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
