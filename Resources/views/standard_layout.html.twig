@@ -29,28 +29,9 @@ file that was distributed with this source code.
     <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     {% block stylesheets %}
-
-        {% stylesheets '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap.min.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap-responsive.min.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/modal/css/modal.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/tabdrop/css/tabdrop.css'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/multi-select/css/multiselect.css'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/gritter/css/gritter.css'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/qtip2/css/qtip.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/select/css/select.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/datepicker/css/datepicker.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/timepicker/css/timepicker.css'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/datetimepicker/css/datetimepicker.css'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/icheck/skins/all.css'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/select2/select2.css'
-                       '@RzAdminBundle/Resources/public/css/font.css'
-                       '@RzAdminBundle/Resources/public/css/style.css'
-                       '@RzAdminBundle/Resources/public/css/rz-style.css'
-                       '@RzAdminBundle/Resources/public/css/themes.css'
-                       '@RzAdminBundle/Resources/public/css/rz-themes.css'
-            filter='?yui_css' %}
-            <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
-        {% endstylesheets %}
+        {% for stylesheet in admin_pool.getOption('stylesheets', []) %}
+            <link rel="stylesheet" type="text/css"  href="{{ asset(stylesheet) }}"  />
+        {% endfor %}
         {% block sonata_stylesheet_block %}{% endblock sonata_stylesheet_block %}
         {# Le HTML5 shim, for IE6-8 support of HTML5 elements #}
         <!--[if lt IE 9]>
@@ -71,45 +52,9 @@ file that was distributed with this source code.
     {% block jquery_block %}{% endblock jquery_block %}
 
     {% block javascripts %}
-        {#############################################################################
-           placed at the end of the document so the pages load faster
-         #############################################################################}
-        {% javascripts '@RzAdminBundle/Resources/public/js/modernizr.custom.42016.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery/jquery.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jqueryui/js/jqueryui.custom.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/browser-detect/jquery.browser.detect.js'
-                       '@FOSJsRoutingBundle/Resources/public/js/router.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/js/bootstrap.min.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/select/js/select.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/tabdrop/js/tabdrop.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/datepicker/js/bootstrap-datepicker.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/timepicker/js/timepicker.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/datetimepicker/js/datetimepicker.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/modal/js/modalmanager.js'
-                       '@RmzamoraBootstrapBundle/Resources/public/plugins/modal/js/modal.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/uniform/uniform.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/foo-table/js/footable.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/multi-select/js/multiselect.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/multi-select/js/quicksearch.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/blockui/jquery.blockui.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/gritter/js/gritter.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/qtip2/js/qtip.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/form/jquery.form.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/nicescroll/jquery.nicescroll.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/touch-punch/jquery.touch-punch.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/slimscroll/jquery.slimscroll.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/icheck/jquery.icheck.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/masonry/masonry.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/imagesloaded/imagesloaded.min.js'
-                       '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/select2/select2.js'
-                       '@RzAdminBundle/Resources/public/js/lib/sprintf.js'
-                       '@RzAdminBundle/Resources/public/js/rzadmin-base.js'
-                       '@RzFieldTypeBundle/Resources/public/js/rzadmin-fieldtype.js'
-                       '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-many-assoc.js'
-                       '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-one-assoc.js'
-            filter='?closure' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        {% for javascript in admin_pool.getOption('javascripts', []) %}
+            <script src="{{ asset(javascript) }}" type="text/javascript"></script>
+        {% endfor %}
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
        {% block sonata_javascript_block %}
