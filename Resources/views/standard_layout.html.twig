@@ -27,11 +27,23 @@ file that was distributed with this source code.
     <meta name="apple-mobile-web-app-capable" content="yes" />
     {# Apple devices fullscreen #}
     <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
     {% block stylesheets %}
-        {% for stylesheet in admin_pool.getOption('stylesheets', []) %}
-            <link rel="stylesheet" type="text/css"  href="{{ asset(stylesheet) }}"  />
-        {% endfor %}
+        <link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300">
+        <!--[if IE]>
+        <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Open+Sans">
+        <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Open+Sans:400">
+        <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Open+Sans:300">
+        <![endif]-->
+        {% stylesheets
+            'assetic/sonata_admin_css.css'
+            'bundles/rzadmin/css/style.css'
+            'bundles/rzadmin/css/rz-style.css'
+            'bundles/rzadmin/css/themes.css'
+            'bundles/rzadmin/css/rz-theme.css'
+            filter='?yui_css'
+        %}
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset_url }}" />
+        {% endstylesheets %}
         {% block sonata_stylesheet_block %}{% endblock sonata_stylesheet_block %}
         {# Le HTML5 shim, for IE6-8 support of HTML5 elements #}
         <!--[if lt IE 9]>
@@ -52,9 +64,16 @@ file that was distributed with this source code.
     {% block jquery_block %}{% endblock jquery_block %}
 
     {% block javascripts %}
-        {% for javascript in admin_pool.getOption('javascripts', []) %}
-            <script src="{{ asset(javascript) }}" type="text/javascript" async></script>
-        {% endfor %}
+        {% javascripts
+            '@sonata_admin_js'
+            '@RzAdminBundle/Resources/public/js/rzadmin-base.js'
+            '@RzFieldTypeBundle/Resources/public/js/rzadmin-fieldtype.js'
+            '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-many-assoc.js'
+            '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-one-assoc.js'
+            filter='?closure'
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
        {% block sonata_javascript_block %}
