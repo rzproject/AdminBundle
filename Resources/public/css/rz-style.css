@@ -41,10 +41,12 @@
 .rz-cms-admin .sonata-ba-list-field-header-boolean,
 .rz-cms-admin .sonata-ba-list-field-header-datetime,
 .rz-cms-admin .sonata-ba-list-field-header-actions,
+.rz-cms-admin .sonata-ba-list-field-header-action,
 .rz-cms-admin .sonata-ba-list-field-orm_many_to_one,
 .rz-cms-admin .sonata-ba-list-field-impersonating,
 .rz-cms-admin .sonata-ba-list-field-header-action,
-.rz-cms-admin .sonata-ba-list-field-actions
+.rz-cms-admin .sonata-ba-list-field-actions,
+.rz-cms-admin .sonata-ba-list-field-action
  {
     text-align: center !important;
     text-overflow:ellipsis !important;
