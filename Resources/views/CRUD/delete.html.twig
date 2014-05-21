@@ -71,13 +71,13 @@ file that was distributed with this source code.
         <form method="POST" action="{{ admin.generateObjectUrl('delete', object) }}">
             <input type="hidden" value="DELETE" name="_method" />
             <input type="hidden" name="_sonata_csrf_token" value="{{ csrf_token }}" />
-            <button type="submit" class="btn" value="{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}" />
+            <button type="submit" class="btn btn-primary" value="{{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}" />
                 <i class="icon-trash"></i>
                 <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'btn_delete'|trans({}, 'SonataAdminBundle') }}</span>
             </button>
 
             {% if admin.hasRoute('edit') and admin.isGranted('EDIT', object) %}
-                <a class="btn" href="{{ admin.generateObjectUrl('edit', object) }}">
+                <a class="btn btn-primary" href="{{ admin.generateObjectUrl('edit', object) }}">
                     <i class="icon-edit"></i>
                     <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'link_action_edit'|trans({}, 'SonataAdminBundle') }}</span>
                 </a>
