@@ -71,3 +71,14 @@
     font-style:italic;
     color: #b94a48;
 }
+
+
+.rz-cms-admin a.page-tree__item__edit {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    word-break:break-all;
+}
+

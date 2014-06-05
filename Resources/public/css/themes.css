@@ -1655,6 +1655,11 @@
     border: 1px solid #1e334d !important;
 }
 
+.rz-cms-admin.theme-darkblue .btn.btn-primary.active {
+    background: #192338;
+    border: 1px solid #192338 !important;
+}
+
 .rz-cms-admin.theme-darkblue .form-container ul.tabs-inline > li > a:hover {
     background: #253454;
     color: #fff;
