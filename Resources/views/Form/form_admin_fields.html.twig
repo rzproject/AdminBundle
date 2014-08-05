@@ -11,59 +11,62 @@ file that was distributed with this source code.
 {# Labels #}
 {% block form_label %}
 {% spaceless %}
+
     {% set label_attr = label_attr|merge({'class': label_attr.class|default('') ~ " control-label" }) %}
 
-    {% if not compound %}
-        {% set label_attr = label_attr|merge({'for': id}) %}
-    {% endif %}
-    {% if required %}
-        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
-    {% endif %}
+    {% if label is not sameas(false) %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
 
-    {% if label is empty and label != false %}
-        {% set label = name|humanize %}
-    {% endif %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
 
-    {% if in_list_checkbox is defined and in_list_checkbox and widget is defined %}
-        <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
-            {{ widget|raw }}
-            <span>
-                {% if not sonata_admin.admin%}
-                    {{- label|trans({}, translation_domain) -}}
-                {% else %}
-                    {{- label|trans({}, sonata_admin.admin.translationDomain) -}}
-                {% endif%}
-            </span>
-        </label>
-    {% else %}
-        {% if (expanded_custom_checkbox is defined and expanded_custom_checkbox) and widget is defined %}
+        {% if in_list_checkbox is defined and in_list_checkbox and widget is defined %}
             <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
-            {{ widget|raw }}
-            {% if not sonata_admin.admin%}
-                {{- label|trans({}, translation_domain) -}}
-            {% else %}
-                {{- label|trans({}, sonata_admin.admin.translationDomain) -}}
-            {% endif%}
-            {{ required ? '*' : '' }}
+                {{ widget|raw }}
+                <span>
+                    {% if not sonata_admin.admin%}
+                        {{- label|trans({}, translation_domain) -}}
+                    {% else %}
+                        {{- label|trans({}, sonata_admin.admin.translationDomain) -}}
+                    {% endif%}
+                </span>
             </label>
-        {% elseif (icheck_endabled is defined and icheck_endabled) and widget is defined %}
-            <div class="check-line rz-icheckme">
-                {{ widget|raw }} <label {% if icheck_inline %}class='inline'{% endif %}>{% if not sonata_admin.admin%}{{ label|trans({}, translation_domain) }}{% else %}{{ label|trans({}, sonata_admin.admin.translationDomain) }}{% endif%}</label>
-                {% if help is defined and help %}
-                    <span class="help-block sonata-ba-field-help">
-                        {{ sonata_admin.admin.trans(sonata_admin.field_description.help, {}, sonata_admin.field_description.translationDomain)|raw }}
-                    </span>
-                {% endif %}
-            </div>
         {% else %}
-            <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            {% if (expanded_custom_checkbox is defined and expanded_custom_checkbox) and widget is defined %}
+                <label{% for attrname,attrvalue in attr %} {{attrname}}="{{attrvalue}}"{% endfor %}>
+                {{ widget|raw }}
                 {% if not sonata_admin.admin%}
                     {{- label|trans({}, translation_domain) -}}
                 {% else %}
                     {{- label|trans({}, sonata_admin.admin.translationDomain) -}}
                 {% endif%}
                 {{ required ? '*' : '' }}
-            </label>
+                </label>
+            {% elseif (icheck_endabled is defined and icheck_endabled) and widget is defined %}
+                <div class="check-line rz-icheckme">
+                    {{ widget|raw }} <label {% if icheck_inline %}class='inline'{% endif %}>{% if not sonata_admin.admin%}{{ label|trans({}, translation_domain) }}{% else %}{{ label|trans({}, sonata_admin.admin.translationDomain) }}{% endif%}</label>
+                    {% if help is defined and help %}
+                        <span class="help-block sonata-ba-field-help">
+                            {{ sonata_admin.admin.trans(sonata_admin.field_description.help, {}, sonata_admin.field_description.translationDomain)|raw }}
+                        </span>
+                    {% endif %}
+                </div>
+            {% else %}
+                <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                    {% if not sonata_admin.admin%}
+                        {{- label|trans({}, translation_domain) -}}
+                    {% else %}
+                        {{ sonata_admin.admin.trans(label, {}, sonata_admin.field_description.translationDomain) }}
+                    {% endif%}
+                    {{ required ? '*' : '' }}
+                </label>
+            {% endif %}
         {% endif %}
     {% endif %}
 {% endspaceless %}
