@@ -721,7 +721,10 @@ var rzadmin = {
         {
             if(!rzadmin.mobile)
             {
-                jQuery('[rel=tooltip]').tooltip();
+                if(jQuery('[rel=tooltip]').length > 0){
+                    jQuery('[rel=tooltip]').tooltip();
+                }
+
             }
         }
     },
@@ -799,7 +802,9 @@ var rzadmin = {
     },
 
     initRetina: function() {
-        jQuery(".retina-ready").retina("@2x");
+        if(jQuery('.retina-ready').length > 0){
+            jQuery(".retina-ready").retina("@2x");
+        }
     },
 
     initProgressBar: function() {
