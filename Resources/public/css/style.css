@@ -961,7 +961,7 @@
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .rz-cms-admin  #navigation #brand {
-	    background: url("../img/logo@2x.png") no-repeat;
+	    /*background: url("../img/logo@2x.png") no-repeat;*/
 	    background-size: 22px 22px;
 	}
 }

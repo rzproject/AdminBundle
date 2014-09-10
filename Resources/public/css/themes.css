@@ -1902,7 +1902,8 @@
 }
 
 .rz-cms-admin.theme-darkblue  .table-pagination-container .dropdown-menu>.active>a {
-    background: #253454
+    background: #253454;
+    color: #fff;
 }
 
 .rz-cms-admin.theme-darkblue .table-pagination > span > a {
