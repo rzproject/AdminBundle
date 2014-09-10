@@ -3368,3 +3368,11 @@ body.rz-cms-admin {
     margin-bottom: 10px;
     position: relative;
 }
+
+.rz-cms-admin .modal-body .box .box-title {
+    margin-top: 0px;
+}
+
+.rz-cms-admin .modal-body .box {
+    padding: 10px;
+}
