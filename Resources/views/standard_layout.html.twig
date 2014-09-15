@@ -287,6 +287,7 @@ file that was distributed with this source code.
                                 {% endif %}
                             {% endblock admin_module_title %}
                             {#/ page tite #}
+                            {% block admin_module_breadcrumbs %}
                             {# breadcrumbs #}
                             {% if _breadcrumb is not empty or action is defined %}
                             <div class="breadcrumbs">
@@ -317,6 +318,7 @@ file that was distributed with this source code.
                             </div>
                             {% endif %}
                             {#/ breadcrumbs #}
+                            {% endblock admin_module_breadcrumbs %}
                             {%block admin_information %}{% endblock %}
                             {# action buttons #}
                             {%block actions %}{% endblock %}
