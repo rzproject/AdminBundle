@@ -507,6 +507,10 @@
     padding: 20px;
 }
 
+.rz-cms-admin .cke {
+    margin-bottom: 10px !important;
+}
+
 @media (max-width: 1250px) {
     .rz-cms-admin #main .page-header .minitiles {
 	    display: none
@@ -3142,7 +3146,9 @@ body.rz-cms-admin {
 
 .rz-cms-admin .rz-one-to-many-table .select2-container {
     padding-right: 10px;
+    width: 95% !important;
 }
+
 .rz-cms-admin .rz-one-to-many-table .select2-container .select2-choice {
     margin-bottom: 0px !important;
 }
