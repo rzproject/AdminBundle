@@ -22,11 +22,13 @@ file that was distributed with this source code.
 <!DOCTYPE html>
 <html class="no-js {% block html_class %}{% endblock html_class%}">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    {# Apple devices fullscreen #}
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    {# Apple devices fullscreen #}
-    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    {% block meta_tags %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        {# Apple devices fullscreen #}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        {# Apple devices fullscreen #}
+        <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    {% endblock %}
     {% block stylesheets %}
         <link rel="stylesheet" type="text/css" media="all" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300">
         <!--[if IE]>
@@ -35,6 +37,10 @@ file that was distributed with this source code.
         <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Open+Sans:300">
         <![endif]-->
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rzadmin/css/font.css') }}"/>
+        {#{% for stylesheet in admin_pool.getOption('stylesheets', []) %}#}
+            {#<link rel="stylesheet" href="{{ asset(stylesheet) }}">#}
+        {#{% endfor %}#}
+
         {% stylesheets
             'bundles/rmzamorabootstrap/css/bootstrap.min.css'
             'bundles/rmzamorabootstrap/css/bootstrap-responsive.min.css'
@@ -46,7 +52,6 @@ file that was distributed with this source code.
             'bundles/rmzamorabootstrap/plugins/timepicker/css/timepicker.css'
             'bundles/rmzamorabootstrap/plugins/datetimepicker/css/datetimepicker.css'
             'bundles/rmzamorajquery/jquery-plugins/multi-select/css/multiselect.css'
-            'bundles/rmzamorajquery/jquery-plugins/gritter/css/gritter.css'
             'bundles/rmzamorajquery/jquery-plugins/qtip2/css/qtip.css'
             'bundles/rmzamorajquery/jquery-plugins/select2/select2.css'
             'bundles/rzadmin/css/style.css'
@@ -57,6 +62,7 @@ file that was distributed with this source code.
         %}
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset_url }}" />
         {% endstylesheets %}
+        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rmzamorajquery/jquery-plugins/gritter/css/gritter.css') }}" />
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rzadmin/css/font.css') }}" />
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rmzamorajquery/jquery-plugins/icheck/skins/all.css') }}" />
         {% block sonata_stylesheet_block %}{% endblock sonata_stylesheet_block %}
@@ -79,6 +85,9 @@ file that was distributed with this source code.
     {% block jquery_block %}{% endblock jquery_block %}
 
     {% block javascripts %}
+        {#{% for javascript in admin_pool.getOption('javascripts', []) %}#}
+            {#<script src="{{ asset(javascript) }}"></script>#}
+        {#{% endfor %}#}
         {% javascripts
             '@RzAdminBundle/Resources/public/js/modernizr.custom.42016.js'
             '@RmzamoraJqueryBundle/Resources/public/jquery/jquery.min.js'

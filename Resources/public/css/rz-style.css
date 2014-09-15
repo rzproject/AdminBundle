@@ -214,6 +214,10 @@
     text-shadow: none !important;
 }
 
+.dropdown-submenu:focus > a > [class*=" icon-"] {
+    background-image: none !important;
+}
+
 
 /*.rz-cms-admin.modal .modal-body {*/
     /*padding: 0px;*/
