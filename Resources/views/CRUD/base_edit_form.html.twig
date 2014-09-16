@@ -126,7 +126,9 @@ file that was distributed with this source code.
                 {{ block('form_actions_buttons') }}
             </div>
         {% else %}
-            {{ block('form_actions_buttons') }}
+            <div class="form-actions-ajax">
+                {{ block('form_actions_buttons') }}
+            </div>
         {% endif %}
     {% endblock formactions %}
 {% endblock form_actions%}

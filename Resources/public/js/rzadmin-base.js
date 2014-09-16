@@ -105,6 +105,51 @@ var rzadmin = {
         rzadmin.setupFormTabsForErrors(document);
     },
 
+    shared_setup: function(subject) {
+        rzadmin.log("[Admin] apply shared_setup");
+//functions should be called
+        rzadmin.resizeContent();
+        rzadmin.initGoToTopActions();
+        rzadmin.initNavi();
+        rzadmin.initBoxActions();
+        rzadmin.initScrollable();
+        rzadmin.initPopOver();
+        rzadmin.resizeHandlerHeight();
+        rzadmin.initTopBar();
+        rzadmin.checkLeftNav();
+        rzadmin.checkLayout();
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+            rzadmin.mobile = true;
+        }
+        rzadmin.icheck();
+        rzadmin.initToolTip();
+        rzadmin.initNotify();
+        rzadmin.initPickers();
+        rzadmin.initSpinners();
+        rzadmin.initPickers();
+        rzadmin.initRetina();
+        rzadmin.initProgressBar();
+        rzadmin.initBatchAction();
+        rzadmin.initAltPager();
+        rzadmin.initBlockUI();
+        rzadmin.mediaGrid();
+        rzadmin.mediaGirdMixed();
+        rzadmin.initFootable();
+        rzadmin.initTabDrop();
+        rzadmin.dashboardCurrentDateTime();
+        rzadmin.initMasonry();
+        //rzadmin.initChosen();
+
+        //Sonata
+        rzadmin.addPrettyErrors(subject);
+        rzadmin.addFilters(subject);
+        rzadmin.initListPopovers();
+        rzadmin.setObjectFieldValue(subject);
+        rzadmin.setupCollectionButtons(subject);
+        rzadmin.setupPerPageSwitcher(subject);
+        rzadmin.setupFormTabsForErrors(subject);
+    },
+
     /**
      * render log message
      */
