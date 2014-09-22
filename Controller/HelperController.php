@@ -33,9 +33,9 @@ class HelperController extends BaseHelperController
      */
     public function getShortObjectDescriptionAction(Request $request)
     {
-        $code     = $request->get('code');
-        $objectId = $request->get('objectId');
-        $uniqid   = $request->get('uniqid');
+        $code           = $request->get('code');
+        $objectId       = $request->get('objectId');
+        $uniqid         = $request->get('uniqid');
         $linkParameters = $request->get('linkParameters', array());
 
         $admin = $this->pool->getInstance($code);
@@ -50,10 +50,14 @@ class HelperController extends BaseHelperController
             $admin->setUniqid($uniqid);
         }
 
+        if (!$objectId){
+            $objectId = null;
+        }
+
         $object = $admin->getObject($objectId);
 
-        if (!$object) {
-            throw new NotFoundHttpException();
+        if (!$object && 'html' == $request->get('_format')) {
+            return new Response();
         }
 
         if ('json' == $request->get('_format')) {
@@ -63,9 +67,9 @@ class HelperController extends BaseHelperController
             )));
         } elseif ('html' == $request->get('_format')) {
             return new Response($this->twig->render($admin->getTemplate('short_object_description'), array(
-                'admin'       => $admin,
-                'description' => $admin->toString($object),
-                'object'      => $object,
+                'admin'           => $admin,
+                'description'     => $admin->toString($object),
+                'object'          => $object,
                 'link_parameters' => $linkParameters
             )));
         } else {
