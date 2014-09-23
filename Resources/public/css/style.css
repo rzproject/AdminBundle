@@ -3382,3 +3382,10 @@ body.rz-cms-admin {
 .rz-cms-admin .modal-body .box {
     padding: 10px;
 }
+
+.rz-cms-admin .bootstrap-select.btn-group, .rz-cms-admin .bootstrap-select.btn-group[class*="span"] {
+    float:none;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left:0;
+}
