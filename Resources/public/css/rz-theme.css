@@ -82,3 +82,7 @@
     word-break:break-all;
 }
 
+
+.rz-cms-admin .tooltip {
+    z-index: 9999;
+}

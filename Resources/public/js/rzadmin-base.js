@@ -103,6 +103,7 @@ var rzadmin = {
         rzadmin.setupCollectionButtons(document);
         rzadmin.setupPerPageSwitcher(document);
         rzadmin.setupFormTabsForErrors(document);
+        rzadmin.initQtips(document);
     },
 
     shared_setup: function(subject) {
@@ -1317,6 +1318,58 @@ var rzadmin = {
                 }
             })
         ;
+    },
+
+    initQtips: function(subject) {
+
+            var shared = {
+                style		: {
+                    classes: 'qtip-youtube'
+                },
+                show		: {
+                    delay: 100
+                },
+                hide		: {
+                    delay: 0
+                }
+            };
+            if(jQuery('.ttip_b').length > 0) {
+                jQuery('.ttip_b').qtip( jQuery.extend({}, shared, {
+                    position	: {
+                        my		: 'top center',
+                        at		: 'bottom center',
+                        viewport: jQuery(window)
+                    }
+                }));
+            }
+            if(jQuery('.ttip_t').length > 0) {
+                jQuery('.ttip_t').qtip( jQuery.extend({}, shared, {
+                    position: {
+                        my		: 'bottom center',
+                        at		: 'top center',
+                        viewport: jQuery(window)
+                    }
+                }));
+            }
+            if(jQuery('.ttip_l').length > 0) {
+                jQuery('.ttip_l').qtip( jQuery.extend({}, shared, {
+                    position: {
+                        my		: 'right center',
+                        at		: 'left center',
+                        viewport: jQuery(window)
+                    }
+                }));
+            }
+            if(jQuery('.ttip_r').length > 0) {
+                jQuery('.ttip_r').qtip( jQuery.extend({}, shared, {
+                    position: {
+                        my		: 'left center',
+                        at		: 'right center',
+                        viewport: jQuery(window)
+                    }
+                }));
+            };
+
     },
 
     showFormFirstTabWithErrors: function(form, errorSelector) {

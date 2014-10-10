@@ -168,6 +168,7 @@ $(document).ready(function() {
 //		});
 //	}
 
+
 	if($(".colorbox-image").length > 0){
 		$(".colorbox-image").colorbox({
 			maxWidth: "90%",
