@@ -218,6 +218,12 @@
     background-image: none !important;
 }
 
+.rz-cms-admin .modal .modal-body ul.page-tree li {
+    list-style: none !important;
+    margin-right: 20px !important;
+    margin-bottom: 20px !important;
+}
+
 
 /*.rz-cms-admin.modal .modal-body {*/
     /*padding: 0px;*/
