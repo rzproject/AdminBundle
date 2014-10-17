@@ -86,3 +86,7 @@
 .rz-cms-admin .tooltip {
     z-index: 9999;
 }
+
+.cke_top, .cke_bottom, .cke_toolgroup, .cke_combo_button  {
+    background: #F5F5F5 !important;
+}
