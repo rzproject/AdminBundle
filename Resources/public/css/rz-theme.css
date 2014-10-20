@@ -90,3 +90,13 @@
 .cke_top, .cke_bottom, .cke_toolgroup, .cke_combo_button  {
     background: #F5F5F5 !important;
 }
+
+.rz-field-error-messages-relations {
+    text-align: left !important;
+}
+
+.rz-field-error-messages-relations .help-inline {
+    padding-left: 0px !important;
+    color: #B94A48 !important;
+}
+
