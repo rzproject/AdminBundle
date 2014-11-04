@@ -174,10 +174,10 @@ file that was distributed with this source code.
             <i class="icon-edit"></i>
             <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'btn_create_and_create_a_new_one'|trans({}, 'SonataAdminBundle') }}</span>
         </button>
-        <button class="btn btn-primary" type="button">
+        <a class="btn btn-primary" href="{{ admin.generateUrl(url) }}">
             <i class="icon-refresh"></i>
             <span class="hidden-phone hidden-tablet visible-desktop"> Reset Form</span>
-        </button>
+        </a>
         {% else %}
         <button class="btn btn-primary" type="button" data-dismiss="modal">
             <i class="icon-remove-sign"></i>
