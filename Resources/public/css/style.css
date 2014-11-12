@@ -2903,7 +2903,8 @@ body.error .wrapper .input-append .btn:hover {
     -webkit-border-radius: 4px !important;
     -moz-border-radius: 4px !important;
     border-radius: 4px !important;
-    background: #fff none;
+    background: #eee none !important;
+    border-color: #eee !important;
 }
 
 .rz-cms-admin .control-group .select2-container .select2-choice {
