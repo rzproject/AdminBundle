@@ -108,7 +108,7 @@ var rzadmin = {
 
     shared_setup: function(subject) {
         rzadmin.log("[Admin] apply shared_setup");
-//functions should be called
+        //functions should be called
         rzadmin.resizeContent();
         rzadmin.initGoToTopActions();
         rzadmin.initNavi();
@@ -816,6 +816,10 @@ var rzadmin = {
 
         if(jQuery(".select2-me").length > 0){
             jQuery(".select2-me").select2();
+        }
+
+        if(jQuery(".selectpicker").length > 0){
+            jQuery(".selectpicker").selectpicker();
         }
     },
 
