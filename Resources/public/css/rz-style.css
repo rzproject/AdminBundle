@@ -224,6 +224,10 @@
     margin-bottom: 20px !important;
 }
 
+.rz-cms-admin .rz-one-to-many-table .select2-container {
+    text-align: left;
+}
+
 
 /*.rz-cms-admin.modal .modal-body {*/
     /*padding: 0px;*/
