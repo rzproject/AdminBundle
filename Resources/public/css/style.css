@@ -2586,7 +2586,15 @@ body.error .wrapper .input-append .btn:hover {
     margin-bottom: 10px
 }
 
-.rz-cms-admin .datepicker.datepicker-dropdown {
+.rz-cms-admin .datetimepicker {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.rz-cms-admin .datetimepicker th.switch {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.rz-cms-admin .datepicker.datepicker-dropdown{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
