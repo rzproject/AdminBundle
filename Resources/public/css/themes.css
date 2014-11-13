@@ -666,7 +666,8 @@
 }
 
 .rz-cms-admin .box.box-color.red .btn.btn-primary {
-    background: #e63a3a
+    background: #e63a3a;
+    border: 1px solid #e63a3a !important;
 }
 
 .rz-cms-admin .box.box-bordered.box-color.red .box-title {
