@@ -149,6 +149,11 @@ var rzadmin = {
         rzadmin.setupCollectionButtons(subject);
         rzadmin.setupPerPageSwitcher(subject);
         rzadmin.setupFormTabsForErrors(subject);
+
+        if (typeof rzadmin_fieldtype !== 'undefined') {
+            rzadmin_fieldtype.init();
+        }
+
     },
 
     /**
