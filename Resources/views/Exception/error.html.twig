@@ -30,9 +30,17 @@
 
      {% block javascripts %}
          {# modernizr  #}
-         <script src="{{ asset('bundles/rzadmin/js/modernizr.custom.42016.js') }}" type="text/javascript"></script>
+         {% javascripts 
+             'bundles/rzadmin/js/modernizr.custom.42016.js'
+             filter='?closure' %}
+             <script type="text/javascript" src="{{ asset_url }}"></script>
+         {% endjavascript %}
          {# jquery  #}
-         <script src="{{ asset('bundles/rmzamorajquery/jquery/jquery.min.js') }}" type="text/javascript"></script>
+         {% javascripts 
+             'bundles/rmzamorajquery/jquery/jquery.min.js'
+             filter='?closure' %}
+             <script type="text/javascript" src="{{ asset_url }}"></script>
+         {% endjavascript %}
 
         {% javascripts '@RmzamoraBootstrapBundle/Resources/public/js/bootstrap.min.js'
             filter='?closure' %}
@@ -40,7 +48,11 @@
         {% endjavascripts %}
 
         <!--[if lte IE 9]>
-        <script src="{{ asset('bundles/rzadmin/js/plugins/placeholder/jquery.placeholder.min.js')}}"></script>
+         {% javascripts 
+             'bundles/rzadmin/js/plugins/placeholder/jquery.placeholder.min.js'
+             filter='?closure' %}
+             <script type="text/javascript" src="{{ asset_url }}"></script>
+         {% endjavascript %}
         <script>
             $(document).ready(function() {
                 $('input, textarea').placeholder();
@@ -52,7 +64,9 @@
     <!-- Favicon -->
     <link href="{{ asset('bundles/rmzamorabootstrap/ico/favicon.ico') }}" rel="shortcut icon">
     <!-- Apple devices Homescreen icon -->
+    {# Removed for now
     <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/rzadmin/img/apple-touch-icon-precomposed.png') }}" />
+    #}
 
 </head>
 
