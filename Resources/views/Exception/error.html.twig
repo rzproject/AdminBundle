@@ -12,8 +12,8 @@
 
     {% block stylesheets %}
         {% stylesheets '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap.css'
-                        '@RmzamoraBootstrapBundle/Resources/public/css/docs.min.css'
-                        '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap-responsive.css'
+                       '@RmzamoraBootstrapBundle/Resources/public/css/docs.min.css'
+                       '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap-responsive.css'
             filter='?yui_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -51,9 +51,6 @@
 
     <!-- Favicon -->
     <link href="{{ asset('bundles/rmzamorabootstrap/ico/favicon.ico') }}" rel="shortcut icon">
-    <!-- Apple devices Homescreen icon -->
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/rzadmin/img/apple-touch-icon-precomposed.png') }}" />
-
 </head>
 
 <body class="theme-darkblue error">
