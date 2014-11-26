@@ -85,7 +85,7 @@ file that was distributed with this source code.
     {% endblock %}
 
     {% block jquery_block %}{% endblock jquery_block %}
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT1P7vJvkpGP5VWCWTpMEqTIBBjZ0FA0E"></script>
     {% block javascripts %}
         {#{% for javascript in admin_pool.getOption('javascripts', []) %}#}
             {#<script src="{{ asset(javascript) }}"></script>#}
@@ -121,6 +121,7 @@ file that was distributed with this source code.
             '@RzAdminBundle/Resources/public/js/lib/sprintf.js'
             '@RzAdminBundle/Resources/public/js/rzadmin-base.js'
             '@RzFieldTypeBundle/Resources/public/js/rzadmin-fieldtype.js'
+            '@RzFieldTypeBundle/Resources/public/js/rzadmin-googlemaptype.js'
             '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-many-assoc.js'
             '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-one-assoc.js'
             filter='?closure'

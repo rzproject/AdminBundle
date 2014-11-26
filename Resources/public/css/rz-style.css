@@ -301,3 +301,11 @@
         width: auto !important
     }
 }
+
+.gmnoprint img {
+    max-width: none;
+}
+
+.rz-cms-admin .gmap {
+    padding-bottom: 10px;
+}
