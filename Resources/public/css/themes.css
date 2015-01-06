@@ -642,6 +642,24 @@
     background: #e2620d;
 }
 
+.rz-cms-admin.theme-orange .modal-header {
+    background: #e2620d !important;
+    color: #fff !important;
+}
+
+.rz-cms-admin.theme-orange .modal {
+    border: 1px solid transparent !important;
+}
+
+.rz-cms-admin.theme-orange .box.box-bordered.box-color .box-title {
+    background: #e2620d;
+    border-color: #e2620d;
+}
+
+.rz-cms-admin.theme-orange .box.box-bordered.box-color .box-content {
+    border-color: #e2620d;
+}
+
 .rz-cms-admin.theme-orange.rz-login .wrapper .login-body h2,
 .rz-cms-admin.theme-orange.rz-login .wrapper .login-body .submit .remember label{
     color: #fff;
