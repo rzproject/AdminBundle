@@ -454,7 +454,7 @@
 }
 
 .rz-cms-admin.theme-orange ul > li.red, .rz-cms-admin.theme-orange .label-red {
-    background: #e28500;
+    background: #337e42;
 }
 
 .rz-cms-admin.theme-orange .btn.btn-inverse,
@@ -639,7 +639,12 @@
 }
 
 .rz-cms-admin.theme-orange.rz-login .login-body {
+    background: #eee;
+}
+
+.rz-cms-admin.theme-orange.rz-login .wrapper .login-body .forget a {
     background: #e2620d;
+    color: #fff !important;
 }
 
 .rz-cms-admin.theme-orange .modal-header {
@@ -662,7 +667,7 @@
 
 .rz-cms-admin.theme-orange.rz-login .wrapper .login-body h2,
 .rz-cms-admin.theme-orange.rz-login .wrapper .login-body .submit .remember label{
-    color: #fff;
+    color: #242424;
 }
 
 .rz-cms-admin.theme-orange.rz-login .login-body .btn.btn-primary {
