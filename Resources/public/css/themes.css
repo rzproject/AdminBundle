@@ -307,7 +307,7 @@
 }
 
 .rz-cms-admin .accordion-widget .accordion-group.orange {
-    border: 2px solid #f8a31f
+    border: 2px solid #e2620d
 }
 
 .rz-cms-admin .accordion-widget .accordion-group.orange:hover {
@@ -315,7 +315,7 @@
 }
 
 .rz-cms-admin .accordion-widget .accordion-group.orange .accordion-toggle {
-    background: #f8a31f !important;
+    background: #e2620d !important;
     color: #fff;
 }
 
@@ -324,20 +324,20 @@
 }
 
 .rz-cms-admin .font-orange {
-    color: #f8a31f
+    color: #e2620d
 }
 
 .rz-cms-admin ul > li.orange,
 .rz-cms-admin .label-orange {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin .progress .bar.bar-orange {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin .btn.btn-orange {
-    background: #f8a31f;
+    background: #e2620d;
     color: #fff !important;
 }
 
@@ -346,39 +346,39 @@
 }
 
 .rz-cms-admin .box.box-color.orange .box-title {
-    background: #f8a31f !important
+    background: #e2620d !important
 }
 
 .rz-cms-admin .box.box-color.orange .box-title .actions > a:hover {
-    color: #f8a31f
+    color: #e2620d
 }
 
 .rz-cms-admin .box.box-color.orange .form-wizard .wizard-steps li.active .single-step .title {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin .box.box-color.orange .btn.btn-primary {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin .box.box-bordered.box-color.orange .box-title {
-    border-color: #f8a31f !important
+    border-color: #e2620d !important
 }
 
 .rz-cms-admin .box.box-bordered.box-color.orange .box-content {
-    border-color: #f8a31f !important
+    border-color: #e2620d !important
 }
 
 .rz-cms-admin .box.box-bordered.box-color.orange .slimScrollDiv {
-    border-bottom: 2px solid #f8a31f
+    border-bottom: 2px solid #e2620d
 }
 
 .rz-cms-admin .timeline > li .timeline-content .left .icon.orange {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .daterangepicker .active {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .mobile-sidebar-toggle {
@@ -386,26 +386,26 @@
 }
 
 .rz-cms-admin.theme-orange #navigation .dropdown-menu {
-    border-color: #f8a31f
+    border-color: #e2620d
 }
 
 .rz-cms-admin.theme-orange #navigation .dropdown-menu > li.dropdown-submenu .dropdown-menu {
-    border-top: 2px solid #f8a31f
+    border-top: 2px solid #e2620d
 }
 
 .rz-cms-admin.theme-orange #navigation .dropdown-menu > li.dropdown-submenu:hover > a,
 .rz-cms-admin.theme-orange #navigation .dropdown-menu > li.dropdown-submenu:focus > a {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange #navigation .dropdown-menu > li > a:hover {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .datepicker.datepicker-dropdown .datepicker-days .active,
 .rz-cms-admin.theme-orange .datepicker.datepicker-dropdown .datepicker-years .active,
 .rz-cms-admin.theme-orange .datepicker.datepicker-dropdown .datepicker-months .active {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .datepicker.datepicker-dropdown .datepicker-days .active:hover,
@@ -415,19 +415,19 @@
 }
 
 .rz-cms-admin.theme-orange .form-wizard .wizard-steps li.active .single-step .title {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .btn.btn-primary {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange.login {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange a {
-    color: #f8a31f
+    color: #333333
 }
 
 .rz-cms-admin.theme-orange .btn {
@@ -435,8 +435,26 @@
 }
 
 .rz-cms-admin.theme-orange .btn.btn-primary {
-    background: #f8a31f;
+    background: #e2620d;
     color: #fff;
+}
+
+.rz-cms-admin.theme-orange .btn.btn-danger {
+    background: #e2620d;
+    border-color: #e24811;
+}
+
+.rz-cms-admin.theme-orange .btn.btn-danger:hover {
+    background: #e23600;
+    border-color: #e23600;
+}
+
+.rz-cms-admin.theme-orange .text-info {
+    color: #e24811;
+}
+
+.rz-cms-admin.theme-orange ul > li.red, .rz-cms-admin.theme-orange .label-red {
+    background: #e28500;
 }
 
 .rz-cms-admin.theme-orange .btn.btn-inverse,
@@ -446,7 +464,7 @@
 }
 
 .rz-cms-admin.theme-orange.locked {
-    background: #f8a31f !important
+    background: #e2620d !important
 }
 
 .rz-cms-admin.theme-orange.locked .pull-left a {
@@ -458,7 +476,7 @@
 }
 
 .rz-cms-admin.theme-orange #navigation {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange #navigation .toggle-mobile {
@@ -466,7 +484,7 @@
 }
 
 .rz-cms-admin.theme-orange #navigation .mobile-nav.open {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange #navigation .mobile-nav.open > li.active > a {
@@ -514,19 +532,19 @@
 }
 
 .rz-cms-admin.theme-orange #navigation .dropdown-menu {
-    border-color: #f8a31f
+    border-color: #e2620d
 }
 
 .rz-cms-admin.theme-orange #navigation .dropdown-menu > li > a:hover {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .search-form .search-pane button[type="submit"] {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .messages > li.insert .submit button {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .messages > li.right .name {
@@ -550,23 +568,23 @@
 }
 
 .rz-cms-admin.theme-orange .letterbox .letter > li.active {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .calendar .fc-content .fc-event .fc-event-inner {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .calendar .fc-button.fc-state-active {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .calendar .fc-button.fc-state-active:hover {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .table.table-user tr.alpha td.alpha-val span {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .tagsinput#textfield_tagsinput .tag,
@@ -582,41 +600,68 @@
 .rz-cms-admin.theme-orange .elfinder-navbar .ui-state-active,
 .rz-cms-admin.theme-orange .pagination.pagination-custom li.active a:hover,
 .rz-cms-admin.theme-orange .pagination.pagination-custom li.active a {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange .elfinder-navbar .ui-state-active {
-    border-color: #f8a31f
+    border-color: #e2620d
 }
 
 .rz-cms-admin.theme-orange #main .box .box-title .tabs > li.active > a {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange #main .box.box-color .box-title {
-    background: #f8a31f
+    background: #e2620d
 }
 
 .rz-cms-admin.theme-orange #main .box.box-color .box-title .tabs > li.active > a {
     background: #fff;
-    color: #f8a31f;
+    color: #e2620d;
 }
 
 .rz-cms-admin.theme-orange #main .box.box-color .box-title .tabs > li > a:hover {
-    color: #f8a31f
+    color: #e2620d
 }
 
 .rz-cms-admin.theme-orange #main .box.box-bordered.box-color .box-title {
-    border-color: #f8a31f
+    border-color: #e2620d
 }
 
 .rz-cms-admin.theme-orange #main .box.box-bordered.box-color .box-content {
-    border-color: #f8a31f
+    border-color: #e2620d
+}
+
+
+
+.rz-cms-admin.theme-orange.rz-login {
+    background: #fff;
+}
+
+.rz-cms-admin.theme-orange.rz-login .login-body {
+    background: #e2620d;
+}
+
+.rz-cms-admin.theme-orange.rz-login .wrapper .login-body h2,
+.rz-cms-admin.theme-orange.rz-login .wrapper .login-body .submit .remember label{
+    color: #fff;
+}
+
+.rz-cms-admin.theme-orange.rz-login .login-body .btn.btn-primary {
+    background: #fff;
+    color: #333;
+}
+
+.rz-cms-admin.theme-orange.rz-login .login-body .btn.btn-primary:hover {
+    background: #dedede;
+    color: #333;
 }
 
 .rz-cms-admin .accordion-widget .accordion-group.red {
     border: 2px solid #e63a3a
 }
+
+
 
 .rz-cms-admin .accordion-widget .accordion-group.red:hover {
     border-color: #700f0f !important
