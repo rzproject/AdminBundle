@@ -278,7 +278,7 @@ file that was distributed with this source code.
     {% if sonata_admin is not defined or not sonata_admin_enabled or not sonata_admin.field_description %}
         <div class="control-group{% if errors|length > 0%} error{%endif%}" id="sonata-ba-field-container-{{ id }}">
         {{ form_label(form, label|default(null)) }}
-            <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
+            <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %} row-fluid">
                 {{ form_widget(form) }}
             </div>
         {{ form_errors(form) }}
@@ -297,7 +297,7 @@ file that was distributed with this source code.
                             {{ form_label(form, label|default(null), { 'attr' : {'class' : 'control-label'} }) }}
                         {% endif %}
                 {% endblock %}
-                <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
+                <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}" row-fluid>
                     {% if (select2 is defined and select2) or (multiselect_enabled is defined and multiselect_enabled)  %}
                         <div class="row-fluid
                                     {% if select2 %} rz-chosen{% endif %}
@@ -402,7 +402,7 @@ file that was distributed with this source code.
     {% spaceless %}
         <div class="control-group{% if errors|length > 0%} error{%endif%}" id="sonata-ba-field-container-{{ id }}-{{ key }}">
             {{ form_label(child) }}
-            <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
+            <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %} row-fluid">
                 {{ form_widget(child) }}
             </div>
             {% if errors|length > 0 %}
