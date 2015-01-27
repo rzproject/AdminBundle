@@ -278,9 +278,9 @@ file that was distributed with this source code.
     {% if sonata_admin is not defined or not sonata_admin_enabled or not sonata_admin.field_description %}
         <div class="control-group{% if errors|length > 0%} error{%endif%}" id="sonata-ba-field-container-{{ id }}">
         {{ form_label(form, label|default(null)) }}
-            <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %} row-fluid">
-                {{ form_widget(form) }}
-            </div>
+        <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
+        {{ form_widget(form) }}
+        </div>
         {{ form_errors(form) }}
         </div>
     {% else %}
@@ -401,9 +401,17 @@ file that was distributed with this source code.
 {% block sonata_type_immutable_array_widget_row %}
     {% spaceless %}
         <div class="control-group{% if errors|length > 0%} error{%endif%}" id="sonata-ba-field-container-{{ id }}-{{ key }}">
-            {{ form_label(child) }}
-            <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %} row-fluid">
-                {{ form_widget(child) }}
+            <div class="row-fluid">
+                <div class="span12">
+                {{ form_label(child) }}
+                </div>
+            </div>
+            <div class="controls sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
+                <div class="row-fluid">
+                    <div class="span12">
+                        {{ form_widget(child) }}
+                    </div>
+                </div>
             </div>
             {% if errors|length > 0 %}
                 <div class="help-inline sonata-ba-field-error-messages rz-field-error-messages">
