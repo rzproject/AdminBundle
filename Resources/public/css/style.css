@@ -2910,8 +2910,9 @@ body.error .wrapper .input-append .btn:hover {
     -webkit-border-radius: 4px !important;
     -moz-border-radius: 4px !important;
     border-radius: 4px !important;
-    background: #eee none !important;
-    border-color: #eee !important;
+    background:  #f9f9f9 none !important;
+    border-color: #cccccc !important;
+    height: 30px;
 }
 
 .rz-cms-admin .control-group .select2-container .select2-choice {
@@ -2921,10 +2922,6 @@ body.error .wrapper .input-append .btn:hover {
 .rz-cms-admin .select2-container-active .select2-choice,
 .rz-cms-admin .select2-container-active .select2-choices {
     border: 1px solid #aaa;
-}
-
-.rz-cms-admin .select2-container .select2-choice {
-    background: transparent none;
 }
 
 .rz-cms-admin .select2-search input {
@@ -2944,6 +2941,15 @@ body.error .wrapper .input-append .btn:hover {
     border-left: 0px;
     background-clip: padding-box;
     background: transparent none;
+    top: 3px;
+    height: 25px;
+    margin-right: 3px;
+}
+
+.rz-cms-admin  .select2-container .select2-choice > .select2-chosen {
+    height: 31px;
+    line-height: 30px;
+    margin-left: 5px;
 }
 
 .rz-cms-admin .select2-container .select2-choice div {
@@ -2960,14 +2966,6 @@ body.error .wrapper .input-append .btn:hover {
 
 .rz-cms-admin .select2-container .select2-search-choice-close {
     top: 3px
-}
-
-.rz-cms-admin .select2-container .select2-choices {
-    -webkit-border-radius: 4px !important;
-    -moz-border-radius: 4px !important;
-    border-radius: 4px !important;
-    background: #f9f9f9 none;
-    padding: 2px 0px;
 }
 
 .rz-cms-admin .select2-drop-active {
