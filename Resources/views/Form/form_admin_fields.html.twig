@@ -385,11 +385,9 @@ file that was distributed with this source code.
         <div class="box-content nopadding">
             <div {{ block('widget_container_attributes') }}>
                 {{ form_errors(form) }}
-
                 {% for key, child in form %}
                     {{ block('sonata_type_immutable_array_widget_row') }}
                 {% endfor %}
-
                 {{ form_rest(form) }}
             </div>
         </div>
