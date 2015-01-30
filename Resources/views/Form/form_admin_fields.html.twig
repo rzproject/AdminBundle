@@ -346,41 +346,11 @@ file that was distributed with this source code.
     </span>
 {% endblock %}
 
-{#{% block collection_widget_row %}#}
-{#{% spaceless %}#}
-    {#<div class="sonata-collection-row">#}
-        {#{% if allow_delete %}#}
-            {#<a href="#" class="sonata-collection-delete"></a>#}
-        {#{% endif %}#}
-        {#{{ form_row(child) }}#}
-    {#</div>#}
-{#{% endspaceless %}#}
-{#{% endblock %}#}
-
-{#{% block collection_widget %}#}
-{#{% spaceless %}#}
-    {#{% if prototype is defined %}#}
-        {#{% set child = prototype %}#}
-        {#{% set attr = attr|merge({'data-prototype': block('collection_widget_row'), 'data-prototype-name': prototype.vars.name, 'class': attr.class|default('') ~ ' controls' }) %}#}
-    {#{% endif %}#}
-    {#<div {{ block('widget_container_attributes') }}>#}
-        {#{{ form_errors(form) }}#}
-        {#{% for child in form %}#}
-            {#{{ block('collection_widget_row') }}#}
-        {#{% endfor %}#}
-        {#{{ form_rest(form) }}#}
-        {#{% if allow_add %}#}
-            {#<div><a href="#" class="sonata-collection-add"></a></div>#}
-        {#{% endif %}#}
-    {#</div>#}
-{#{% endspaceless %}#}
-{#{% endblock collection_widget %}#}
-
 {% block sonata_type_immutable_array_widget %}
     {% spaceless %}
     <div class="box box-color green box-small box-bordered sonata-ba-box-settings">
         <div class="box-title">
-            <h3><i class="icon-file-alt"></i></h3>
+            <h3><i class="icon-cog"></i></h3>
         </div>
         <div class="box-content nopadding">
             <div {{ block('widget_container_attributes') }}>
@@ -424,9 +394,8 @@ file that was distributed with this source code.
 
 {% block sonata_type_native_collection_widget_row %}
     {% spaceless %}
-    <div class="control-group{% if errors|length > 0%} error{%endif%} sonata-collection-row" id="sonata-ba-field-container-{{ id }}">
-
-        <div id="field_container_{{ id }}" class="field-container">
+    <div class="control-group{% if errors|length > 0%} error{%endif%} sonata-collection-row">
+        <div class="field-container">
             <div class="row-fluid">
                 {{ form_label(child) }}
                 <div class="controls sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
@@ -467,39 +436,40 @@ file that was distributed with this source code.
     {% spaceless %}
         {% if prototype is defined %}
             {% set child = prototype %}
+            {% set attr = attr|merge({'class':'prototype-container'}) %}
             {% set attr = attr|merge({'data-prototype': block('sonata_type_native_collection_widget_row'), 'data-prototype-name': prototype.vars.name, 'class': attr.class|default('') }) %}
         {% endif %}
 
         <div {{ block('widget_container_attributes') }}>
-        <div class="box box-color green box-small box-bordered sonata-ba-box-settings">
-            <div class="box-title">
-                <h3><i class="icon-tasks"></i></h3>
-            </div>
-            <div class="box-content nopadding">
-                <div class="sonata-collection-container-{{ id }}">
-                    {{ form_errors(form) }}
-                    {% for child in form %}
-                        {{ block('sonata_type_native_collection_widget_row') }}
-                    {% endfor %}
-                    {{ form_rest(form) }}
+            <div class="box box-color green box-small box-bordered sonata-ba-box-settings" id="sonata-collection-main-container-{{ id }}">
+                <div class="box-title">
+                    <h3><i class="icon-tasks"></i></h3>
+                </div>
+                <div class="box-content nopadding">
+                    <div class="sonata-collection-container-{{ id }}" data-count="{{ form.count() }}">
+                        {{ form_errors(form) }}
+                        {% for child in form %}
+                            {{ block('sonata_type_native_collection_widget_row') }}
+                        {% endfor %}
+                        {{ form_rest(form) }}
+                    </div>
                 </div>
             </div>
-        </div>
-        {% if allow_add %}
-        <div class="row-fluid">
-            <div class="span12">
-                <span id="field_actions_{{ id }}" class="field-actions">
-                    <span class="btn-group">
-                        <a href="#" class="btn btn-success btn-sm btn-outline sonata-ba-action sonata-collection-add">
-                            <i class="icon-plus"></i>
-                            <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'link_add'|trans({}, 'SonataAdminBundle') }}</span>
-                        </a>
+            {% if allow_add %}
+            <div class="row-fluid" style="padding-bottom:15px">
+                <div class="span12">
+                    <span id="field_actions_{{ id }}" class="field-actions">
+                        <span class="btn-group">
+                            <a href="#" class="btn btn-success btn-sm btn-outline sonata-ba-action sonata-collection-add">
+                                <i class="icon-plus"></i>
+                                <span class="hidden-phone hidden-tablet visible-desktop"> {{ 'link_add'|trans({}, 'SonataAdminBundle') }}</span>
+                            </a>
+                        </span>
                     </span>
-                </span>
+                </div>
             </div>
+            {% endif %}
         </div>
-        </div>
-        {% endif %}
     {% endspaceless %}
 {% endblock sonata_type_native_collection_widget %}
 

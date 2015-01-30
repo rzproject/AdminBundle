@@ -1272,29 +1272,44 @@ var rzadmin = {
 
     setupCollectionButtons: function(subject) {
 
+        rzadmin.hideCollectionButtonsForm(subject);
+
+
         jQuery(subject).on('click', '.sonata-collection-add', function(event) {
             rzadmin.stopEvent(event);
 
-            var container = jQuery(this).closest('[data-prototype]');
-            var proto = container.attr('data-prototype');
-            var protoName = container.attr('data-prototype-name') || '__name__';
+            //var container = jQuery(this).closest('[data-prototype]');
+            var mainContainer = jQuery(this).closest('[data-prototype]');
+
+            if(jQuery("#sonata-collection-main-container-"+mainContainer.attr('id')).is(":hidden")) {
+                jQuery("#sonata-collection-main-container-"+mainContainer.attr('id')).show();
+            }
+
+            var container = jQuery('.sonata-collection-container-'+mainContainer.attr('id'));
+            var proto = mainContainer.attr('data-prototype');
+            var protoName = mainContainer.attr('data-prototype-name') || '__name__';
+
+            var len = parseInt(container.attr('data-count'));
+
             // Set field id
             //var idRegexp = new RegExp(container.attr('id')+'___name__','g');
-            var idRegexp = new RegExp(container.attr('id')+'_'+protoName,'g');
-            proto = proto.replace(idRegexp, container.attr('id')+'_'+(container.children().length - 1));
+            var idRegexp = new RegExp(mainContainer.attr('id')+'_'+protoName,'g');
+            proto = proto.replace(idRegexp, mainContainer.attr('id')+'_'+len);
 
             // Set field name
-
-            var parts = container.attr('id').split('_');
+            var parts = mainContainer.attr('id').split('_');
             var nameRegexp = new RegExp(parts[parts.length-1]+'\\]\\['+protoName,'g');
-            proto = proto.replace(nameRegexp, parts[parts.length-1]+']['+(container.children().length - 1));
+            proto = proto.replace(nameRegexp, parts[parts.length-1]+']['+len);
 
-            jQuery(proto)
-                .insertAfter(jQuery('.sonata-collection-container-'+container.attr('id')))
+
+            jQuery('.sonata-collection-container-'+mainContainer.attr('id'))
+                .append(jQuery(proto))
                 .trigger('sonata-admin-append-form-element')
             ;
 
             jQuery(this).trigger('sonata-collection-item-added');
+
+            container.attr('data-count', parseInt(len)+1);
 
         });
 
@@ -1302,8 +1317,20 @@ var rzadmin = {
             rzadmin.stopEvent(event);
 
             jQuery(this).closest('.sonata-collection-row').remove();
-
             jQuery(this).trigger('sonata-collection-item-deleted');
+
+            rzadmin.hideCollectionButtonsForm(subject);
+        });
+    },
+
+    hideCollectionButtonsForm: function(subject) {
+
+        jQuery(subject).find('.prototype-container').each(function( index ) {
+
+            var container = jQuery('.sonata-collection-container-'+jQuery(this).attr('id'));
+            if(container.children().length <= 0) {
+                jQuery("#sonata-collection-main-container-"+jQuery(this).attr('id')).hide();
+            }
         });
     },
 
