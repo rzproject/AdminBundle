@@ -27,17 +27,15 @@ class CRUDController extends BaseCRUDController
      *
      * @param mixed $id
      *
-     * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
-     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-     *
+     * @param Request $request
      * @return Response
      */
-    public function editAction($id = null)
+    public function editAction($id = null, Request $request = null)
     {
         // the key used to lookup the template
         $templateKey = 'edit';
 
-        $id = $this->get('request')->get($this->admin->getIdParameter());
+        $id = $request->get($this->admin->getIdParameter());
 
         $object = $this->admin->getObject($id);
 
@@ -57,7 +55,7 @@ class CRUDController extends BaseCRUDController
 
         if ($this->getRestMethod() == 'POST') {
 
-            $form->handleRequest($this->get('request'));
+            $form->handleRequest($request);
 
             $isFormValid = $form->isValid();
 
@@ -103,10 +101,10 @@ class CRUDController extends BaseCRUDController
     /**
      * return the Response object associated to the create action
      *
-     * @throws \Symfony\Component\Security\Core\Exception\AccessDeniedException
+     * @param Request $request
      * @return Response
      */
-    public function createAction()
+    public function createAction(Request $request = null)
     {
         // the key used to lookup the template
         $templateKey = 'edit';
@@ -125,7 +123,7 @@ class CRUDController extends BaseCRUDController
 
         if ($this->getRestMethod()== 'POST') {
             //$form->bind($this->get('request'));
-            $form->handleRequest($this->get('request'));
+            $form->handleRequest($request);
 
             $isFormValid = $form->isValid();
 
