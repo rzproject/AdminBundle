@@ -1,33 +1,33 @@
 {
-    "name": "rz/admin-bundle",
-    "type": "symfony-bundle",
-    "description": "Symfony2 Bundle SonataAdminBundle Extension",
-    "keywords": ["symfony2", "Sonata Project", "RZProject"],
-    "homepage": "https://github.com/rzproject/AdminBundle",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "mell zamora",
-            "email": "mell@rzproject.org",
-            "homepage": "http://www.rzproject.org"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "rmzamora/admin-bundle": "~2.3",
-        "rmzamora/bootstrap-bundle": "~2.3.1",
-        "rmzamora/jquery-bundle": ">=1.11.0,<2.0",
-        "rz/block-bundle": "~1.0",
-        "rz/field-type-bundle": "~1.0",
-        "egeloen/ckeditor-bundle": "~2.5",
-        "rz/codemirror-bundle": "~1.0"
-    },
-    "autoload": {
-        "psr-4": { "Rz\\AdminBundle\\": "" }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-1.0": "1.0-dev"
-        }
+  "name": "rz/admin-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony2 Bundle SonataAdminBundle Extension",
+  "keywords": ["symfony2", "Sonata Project", "RZProject"],
+  "homepage": "https://github.com/rzproject/AdminBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "mell zamora",
+      "email": "mell@rzproject.org",
+      "homepage": "http://www.rzproject.org"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "rmzamora/admin-bundle": "2.3.*",
+    "rmzamora/bootstrap-bundle": "~2.3.1",
+    "rmzamora/jquery-bundle": ">=1.11.0,<2.0",
+    "rz/block-bundle": "1.1.*",
+    "rz/field-type-bundle": "1.0.*",
+    "egeloen/ckeditor-bundle": "~2.5",
+    "rz/codemirror-bundle": "1.0.*"
+  },
+  "autoload": {
+    "psr-4": { "Rz\\AdminBundle\\": "" }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-1.0": "1.0.x-dev"
+    }
+  }
 }
