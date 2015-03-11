@@ -14,20 +14,20 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "rmzamora/admin-bundle": "2.3.*",
+    "rmzamora/admin-bundle": "2.4.*",
     "rmzamora/bootstrap-bundle": "~2.3.1",
     "rmzamora/jquery-bundle": ">=1.11.0,<2.0",
-    "rz/block-bundle": "1.1.*",
-    "rz/field-type-bundle": "1.0.*",
+    "rz/block-bundle": "1.2.*",
+    "rz/field-type-bundle": "1.1.*",
     "egeloen/ckeditor-bundle": "~2.5",
-    "rz/codemirror-bundle": "1.0.*"
+    "rz/codemirror-bundle": "1.1.*"
   },
   "autoload": {
     "psr-4": { "Rz\\AdminBundle\\": "" }
   },
   "extra": {
     "branch-alias": {
-      "dev-1.0": "1.0.x-dev"
+      "dev-1.1": "1.1.x-dev"
     }
   }
 }
