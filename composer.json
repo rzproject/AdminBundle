@@ -19,7 +19,7 @@
     "rmzamora/jquery-bundle": ">=1.11.0,<2.0",
     "rz/block-bundle": "1.1.*",
     "rz/field-type-bundle": "1.0.*",
-    "egeloen/ckeditor-bundle": "~2.5",
+    "egeloen/ckeditor-bundle": "~3.0",
     "rz/codemirror-bundle": "1.0.*"
   },
   "autoload": {
