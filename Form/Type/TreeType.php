@@ -13,7 +13,7 @@ namespace Rz\AdminBundle\Form\Type;
 
 use Symfony\Component\Form\Extension\Core\ChoiceList\SimpleChoiceList;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Sonata\NewsBundle\Model\CategoryManagerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -40,36 +40,26 @@ class TreeType extends AbstractType
 
     /**
      * {@inheritdoc}
+     *
+     * @todo Remove it when bumping requirements to SF 2.7+
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-//        $that = $this;
+        $this->configureOptions($resolver);
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults(
             array(
                 'expanded' => true,
                 'current' => null,
                 'tree_enabled' => true,
-//                'choice_list' => function (Options $opts, $previousValue) use ($that) {
-//                    return new SimpleChoiceList($that->getChoices($opts));
-//                },
             ));
     }
-
-    /**
-     * @param Options $options
-     *
-     * @return array
-     */
-//    public function getChoices(Options $options)
-//    {
-//        $categories = $this->manager->fetchCategories();
-//        $choices = array();
-//        foreach ($categories as $category) {
-//            $choices[$category->getId()] = $category;
-//        }
-//        return $choices;
-//    }
 
     /**
      * {@inheritdoc}

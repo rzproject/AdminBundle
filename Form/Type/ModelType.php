@@ -13,13 +13,13 @@ namespace Rz\AdminBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 
 use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceListInterface;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList;
-use Symfony\Component\Form\FormBuilderInterface;
 use Sonata\AdminBundle\Form\EventListener\MergeCollectionListener;
 use Sonata\AdminBundle\Form\ChoiceList\ModelChoiceList;
 use Sonata\AdminBundle\Form\DataTransformer\ModelsToArrayTransformer;
@@ -54,38 +54,45 @@ class ModelType extends AbstractTypeExtension
             }
         }
     }
-    /**
-     * {@inheritDoc}
-     */
-//    public function buildForm(FormBuilderInterface $builder, array $options)
-//    {
-//        if (!$options['expanded'] && $options['multiple']) {
-//            $builder
-//                ->addEventSubscriber(new MergeCollectionListener($options['model_manager']))
-//                ->addViewTransformer(new ModelsToChoicesTransformer($options['choice_list']), true);
-//        }
-//    }
 
     /**
      * {@inheritDoc}
+     *
+     * @todo Remove it when bumping requirements to SF 2.7+
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setOptional(array('selectpicker_enabled',
-                                     'selectpicker_data_style',
-                                     'selectpicker_title',
-                                     'selectpicker_selected_text_format',
-                                     'selectpicker_show_tick',
-                                     'selectpicker_data_width',
-                                     'selectpicker_data_size',
-                                     'selectpicker_disabled',
-                                     'selectpicker_dropup',
-                                     'select2',
-                                     'chosen_data_placeholder',
-                                     'chosen_no_results_text',
-                                     'multiselect_enabled',
-                                     'multiselect_search_enabled',
-                                    ));
+        $this->configureOptions($resolver);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+
+        $optionalOptions = array('selectpicker_enabled',
+            'selectpicker_data_style',
+            'selectpicker_title',
+            'selectpicker_selected_text_format',
+            'selectpicker_show_tick',
+            'selectpicker_data_width',
+            'selectpicker_data_size',
+            'selectpicker_disabled',
+            'selectpicker_dropup',
+            'select2',
+            'chosen_data_placeholder',
+            'chosen_no_results_text',
+            'multiselect_enabled',
+            'multiselect_search_enabled',
+        );
+
+        if (method_exists($resolver, 'setDefined')) {
+            $resolver->setDefined($optionalOptions);
+        } else {
+            // To keep Symfony <2.6 support
+            $resolver->setOptional($optionalOptions);
+        }
 
         $resolver->setDefaults(array(
             'compound'          => function (Options $options) {

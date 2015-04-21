@@ -13,7 +13,7 @@ namespace Rz\AdminBundle\Form\Type;
 
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
-
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class TranslatableChoiceType extends AbstractTypeExtension
@@ -30,13 +30,22 @@ class TranslatableChoiceType extends AbstractTypeExtension
 
     /**
      * {@inheritDoc}
+     *
+     * @todo Remove it when bumping requirements to SF 2.7+
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
-        $resolver->setDefaults(array(
-            'selectpicker_enabled' => true,
-        ));
+        $this->configureOptions($resolver);
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array('selectpicker_enabled' => true));
     }
 
     /**
