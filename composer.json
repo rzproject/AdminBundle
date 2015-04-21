@@ -19,8 +19,7 @@
     "rmzamora/jquery-bundle": ">=1.11.0,<2.0",
     "rz/block-bundle": "1.2.*",
     "rz/field-type-bundle": "1.0.*",
-    "egeloen/ckeditor-bundle": "~3.0",
-    "rz/codemirror-bundle": "1.0.*"
+    "egeloen/ckeditor-bundle": "~3.0"
   },
   "autoload": {
     "psr-4": { "Rz\\AdminBundle\\": "" }
