@@ -11,43 +11,10 @@ file that was distributed with this source code.
 
 {% extends base_template %}
 
-{#{% block section_stylesheets %}#}
-    {#{{ parent() }}#}
-    {#{% stylesheets#}
-        {#'bundles/rmzamorabootstrap/plugins/timepicker/css/timepicker.min.css'#}
-        {#'bundles/rmzamorabootstrap/plugins/datepicker/css/datepicker.min.css'#}
-        {#'bundles/rmzamoraformextension/lib/codemirror/lib/codemirror.css'#}
-        {#'bundles/rmzamoraformextension/lib/codemirror/theme/rubyblue.css'#}
-        {#filter='cssrewrite,?yui_css'#}
-    {#%}#}
-    {#<link rel="stylesheet" href="{{ asset_url }}" />#}
-    {#{% endstylesheets %}#}
-{#{% endblock section_stylesheets %}#}
-
-{#{% block section_javascripts %}#}
-    {#{{ parent() }}#}
-    {#{% javascripts#}
-        {#'bundles/rmzamorabootstrap/plugins/timepicker/js/timepicker.min.js'#}
-        {#'bundles/rmzamorabootstrap/plugins/datepicker/js/datepicker.min.js'#}
-        {#'bundles/rmzamoraformextension/js/rmzamora-datetime.js'#}
-        {#'bundles/rmzamoraformextension/lib/ckeditor/ckeditor.js'#}
-        {#'bundles/rmzamoraformextension/lib/codemirror/lib/codemirror.js'#}
-        {#'bundles/rmzamoraformextension/lib/codemirror/mode/xml/xml.js'#}
-        {#'bundles/rmzamoraformextension/lib/codemirror/mode/javascript/javascript.js'#}
-        {#'bundles/rmzamoraformextension/lib/codemirror/mode/css/css.js'#}
-        {#'bundles/rmzamoraformextension/lib/codemirror/mode/htmlmixed/htmlmixed.js'#}
-        {#filter='closure'#}
-    {#%}#}
-    {#<script src="{{ asset_url }}" type="text/javascript"></script>#}
-    {#{% endjavascripts %}#}
-{#{% endblock section_javascripts %}#}
 {% block sonata_stylesheet_block %}
     {{ parent() }}
     {# fileupoad #}
     <link href="{{ asset('bundles/rmzamorabootstrap/plugins/fileupload/css/fileupload.css') }}" type="text/css" media="all" rel="stylesheet">
-    {# CodeMirror #}
-    <link href="{{ asset('bundles/rzcodemirror/lib/codemirror.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('bundles/rzcodemirror/theme/rubyblue.css') }}" rel="stylesheet"/>
 
 {% endblock sonata_stylesheet_block %}
 
@@ -58,10 +25,6 @@ file that was distributed with this source code.
     {# ckeditor #}
     <script src="{{ asset('bundles/rzfieldtype/js/rz/forms.js') }}" type="text/javascript"></script>
     <script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}" type="text/javascript"></script>
-    {# codemirror #}
-    <script src="{{ asset('bundles/rzcodemirror/js/codemirror.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('bundles/rzcodemirror/js/rz_codemirror.js') }}" type="text/javascript"></script>
-
 {% endblock sonata_javascript_block %}
 
 {% block title %}
