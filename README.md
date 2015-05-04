@@ -7,7 +7,7 @@ Uses a forked version of SonataAdminBundle
 
 **STABLE VERSION**
 
-[rzpeoject](http://rzproject.github.io)
+Back to: [rzpeoject](http://rzproject.github.io)
 
 
 
