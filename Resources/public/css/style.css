@@ -1641,6 +1641,7 @@
 }
 
 .rz-cms-admin .rz-form .control-group .control-label {
+    display: inline-block;
     padding-left: 25px
 }
 
