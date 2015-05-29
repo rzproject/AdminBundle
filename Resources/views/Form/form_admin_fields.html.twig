@@ -59,7 +59,7 @@ file that was distributed with this source code.
                 </div>
             {% else %}
                 <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-                    {% if not sonata_admin.admin%}
+                    {% if not sonata_admin.admin %}
                         {{- label|trans({}, translation_domain) -}}
                     {% else %}
                         {{ sonata_admin.admin.trans(label, {}, sonata_admin.field_description.translationDomain) }}
