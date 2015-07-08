@@ -17,7 +17,7 @@
     "rmzamora/admin-bundle": "2.4.1.*",
     "rmzamora/bootstrap-bundle": "~2.3.1",
     "rmzamora/jquery-bundle": ">=1.11.0,<2.0",
-    "rz/block-bundle": "1.2.1.*",
+    "rz/block-bundle": "1.2.0.*",
     "rz/field-type-bundle": "1.1.0.*",
     "egeloen/ckeditor-bundle": "~3.0"
   },
