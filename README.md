@@ -5,6 +5,6 @@ Symfony2 Bundle - An extension of [SonataAdminBundle](https://github.com/sonata-
 
 Uses a forked version of SonataAdminBundle
 
-**STABLE VERSION**
+**DEVELOPMENT VERSION**
 
 Back to: [rzproject](http://rzproject.github.io)
