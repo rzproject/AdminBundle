@@ -154,6 +154,9 @@ file that was distributed with this source code.
         <!--[endif]/-->
         {# javascript code block #}
         {% block javascripts_code_block %}{% endblock javascripts_code_block %}
+        {{ rz_google_service_analytics_embed_api() }}
+        <!-- Include the DateRangeSelector component script. -->
+        <script src="{{ asset('bundles/rzgoogleapiclient/js/ga-dev-tools/embed-api/date-range-selector.js')}}"></script>
     {% endblock javascripts %}
     <title>
         {% spaceless %}
