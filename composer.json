@@ -15,10 +15,10 @@
   "minimum-stability": "dev",
   "require": {
     "egeloen/ckeditor-bundle": "~3.0",
-    "rmzamora/admin-bundle": "2.4.*",
+    "rmzamora/admin-bundle": "2.4.2.*",
     "rmzamora/bootstrap-bundle": "~2.3.1",
     "rmzamora/jquery-bundle": ">=1.11.0,<2.0",
-    "rz/block-bundle": "1.2.*",
+    "rz/block-bundle": "1.2.2.*",
     "rz/field-type-bundle": "1.1.*",
     "rz/google-api-client-bundle" : "1.0.*"
   },
@@ -27,7 +27,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-1.1": "1.1.x-dev"
+      "dev-1.1": "1.1.2.x-dev"
     }
   }
 }
