@@ -3399,3 +3399,7 @@ body.rz-cms-admin {
     margin-bottom: 10px;
     margin-left:0;
 }
+
+.rz-cms-admin .select2-container, .select2-drop, .select2-search, .select2-search input {
+    min-width: 300px;
+}
