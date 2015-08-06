@@ -3356,10 +3356,13 @@ body.rz-cms-admin {
     margin-top: 5px;
     margin-left: 1px;
 }
-.rz-login .wrapper .login-body .submit .remember [class*=icheckbox], .rz-login .wrapper .login-body .submit .remember label {
+.rz-login .wrapper .login-body .submit .remember [class*=icheckbox], .rz-login .wrapper .login-body .submit .remember label,
+.control-group .controls .icheck-horizontal-container label,
+.control-group .controls .icheck-horizontal-container [class*=icheckbox]{
     float: left;
 }
-.rz-login .wrapper .login-body .submit .remember label {
+.rz-login .wrapper .login-body .submit .remember label,
+.control-group .controls .icheck-horizontal-container label{
     margin-left: 10px;
 }
 .rz-login .wrapper .login-body .forget {

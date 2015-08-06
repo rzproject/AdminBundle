@@ -31,7 +31,6 @@ use Sonata\AdminBundle\Form\DataTransformer\ModelToIdTransformer;
  */
 class ModelType extends AbstractTypeExtension
 {
-
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $view->vars['btn_add'] = $options['btn_add'];
@@ -133,12 +132,9 @@ class ModelType extends AbstractTypeExtension
             'btn_delete'        => 'link_delete',
             'btn_catalogue'     => 'SonataAdminBundle',
             'choice_list'       => function (Options $options, $previousValue) {
-
-
                 if ($previousValue instanceof ChoiceListInterface && count($choices = $previousValue->getChoices())) {
                     return $previousValue;
                 }
-
                 return new ModelChoiceList(
                     $options['model_manager'],
                     $options['class'],
