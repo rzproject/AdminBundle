@@ -297,7 +297,7 @@ file that was distributed with this source code.
                             {{ form_label(form, label|default(null), { 'attr' : {'class' : 'control-label'} }) }}
                         {% endif %}
                 {% endblock %}
-                <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}" row-fluid>
+                <div class="controls sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
                     {% if (select2 is defined and select2) or (multiselect_enabled is defined and multiselect_enabled)  %}
                         <div class="row-fluid
                                     {% if select2 %} rz-chosen{% endif %}
@@ -472,4 +472,8 @@ file that was distributed with this source code.
         </div>
     {% endspaceless %}
 {% endblock sonata_type_native_collection_widget %}
+
+{% block sonata_type_model_autocomplete_widget %}
+	{% include template %}
+{% endblock sonata_type_model_autocomplete_widget %}
 

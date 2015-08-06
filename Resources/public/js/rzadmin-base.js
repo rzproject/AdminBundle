@@ -821,7 +821,7 @@ var rzadmin = {
         }
 
         if(jQuery(".select2-me").length > 0){
-            jQuery(".select2-me").select2();
+            jQuery(".select2-me").select2({ width: 'resolve' });
         }
 
         if(jQuery(".selectpicker").length > 0){
@@ -944,7 +944,7 @@ var rzadmin = {
 
         if(jQuery('select.chosen-select', modal).length>0) {
             rzadmin.log('PROCESSING initElements [%s]', 'select.chosen-select');
-            modal.find("select.chosen-select").select2();
+            modal.find("select.chosen-select").select2({ width: 'resolve' });
         }
 
 //        if(jQuery('.chosen-select', modal).length>0) {
