@@ -3400,6 +3400,14 @@ body.rz-cms-admin {
     margin-left:0;
 }
 
-.rz-cms-admin .select2-container, .select2-drop, .select2-search, .select2-search input {
+.rz-cms-admin .select2-container, .rz-cms-admin .select2-drop, .rz-cms-admin .select2-search, .rz-cms-admin .select2-search input, .rz-cms-admin .select2-container-multi .select2-choices {
     min-width: 300px;
+}
+
+.rz-cms-admin .modal-body .select2-container,
+.rz-cms-admin .modal-body .select2-drop,
+.rz-cms-admin .modal-body .select2-search,
+.rz-cms-admin .modal-body .select2-search input,
+.rz-cms-admin .select2-container-multi .select2-choices{
+    min-width: 100px;
 }
