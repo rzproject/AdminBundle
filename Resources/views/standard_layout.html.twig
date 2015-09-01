@@ -53,10 +53,13 @@ file that was distributed with this source code.
             'bundles/rmzamorabootstrap/plugins/datetimepicker/css/datetimepicker.css'
             'bundles/rmzamorajquery/jquery-plugins/multi-select/css/multiselect.css'
             'bundles/rmzamorajquery/jquery-plugins/qtip2/css/qtip.css'
+            'bundles/rzuser/css/block-flot.css'
             'bundles/rzadmin/css/style.css'
             'bundles/rzadmin/css/rz-style.css'
             'bundles/rzadmin/css/themes.css'
             'bundles/rzadmin/css/rz-theme.css'
+            'bundles/rzpage/rzcms/css/tree.css'
+            'bundles/rzadmin/css/font.css'
             filter='?yui_css'
         %}
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset_url }}" />
@@ -64,7 +67,6 @@ file that was distributed with this source code.
 
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rmzamorajquery/jquery-plugins/select2/select2.css') }}" />
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rmzamorajquery/jquery-plugins/gritter/css/gritter.css') }}" />
-        <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rzadmin/css/font.css') }}" />
         <link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/rmzamorajquery/jquery-plugins/icheck/skins/all.css') }}" />
         {% block sonata_stylesheet_block %}{% endblock sonata_stylesheet_block %}
         {# Le HTML5 shim, for IE6-8 support of HTML5 elements #}
@@ -84,7 +86,7 @@ file that was distributed with this source code.
     {% endblock %}
 
     {% block jquery_block %}{% endblock jquery_block %}
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     {% block javascripts %}
         {#{% for javascript in admin_pool.getOption('javascripts', []) %}#}
             {#<script src="{{ asset(javascript) }}"></script>#}
@@ -94,7 +96,6 @@ file that was distributed with this source code.
             '@RmzamoraJqueryBundle/Resources/public/jquery/jquery.min.js'
             '@RmzamoraJqueryBundle/Resources/public/jqueryui/jquery-ui.min.js'
             '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/browser-detect/jquery.browser.detect.js'
-            '@FOSJsRoutingBundle/Resources/public/js/router.js'
             '@RmzamoraBootstrapBundle/Resources/public/js/bootstrap.min.js'
             '@RmzamoraBootstrapBundle/Resources/public/plugins/select/js/select.js'
             '@RmzamoraBootstrapBundle/Resources/public/plugins/tabdrop/js/tabdrop.js'
@@ -118,16 +119,20 @@ file that was distributed with this source code.
             '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/masonry/masonry.min.js'
             '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/imagesloaded/imagesloaded.min.js'
             '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/select2/select2.js'
-            '@RzAdminBundle/Resources/public/js/lib/sprintf.js'
-            '@RzAdminBundle/Resources/public/js/rzadmin-base.js'
+            '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/flot/jquery.flot.js'
+            '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/flot/jquery.flot.pie.min.js'
+            '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/flot/jquery.flot.resize.min.js'
+            '@RmzamoraJqueryBundle/Resources/public/jquery-plugins/flot/jquery.flot.stack.js'
+            '@RmzamoraJqueryBundle/Resources/public/lib/sprintf.js'
+	        '@RzAdminBundle/Resources/public/js/rzadmin-base.js'
             '@RzFieldTypeBundle/Resources/public/js/rzadmin-fieldtype.js'
+            '@RzFieldTypeBundle/Resources/public/js/rzadmin-googlemaptype.js'
             '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-many-assoc.js'
             '@RzDoctrineORMAdminBundle/Resources/public/js/rzadmin-one-assoc.js'
             filter='?closure'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
        {% block sonata_javascript_block %}
             {% block javascripts_files %}{% endblock javascripts_files %}
@@ -149,6 +154,9 @@ file that was distributed with this source code.
         <!--[endif]/-->
         {# javascript code block #}
         {% block javascripts_code_block %}{% endblock javascripts_code_block %}
+        {{ rz_google_service_analytics_embed_api() }}
+        <!-- Include the DateRangeSelector component script. -->
+        <script src="{{ asset('bundles/rzgoogleapiclient/js/ga-dev-tools/embed-api/date-range-selector.js')}}"></script>
     {% endblock javascripts %}
     <title>
         {% spaceless %}
@@ -191,7 +199,7 @@ file that was distributed with this source code.
                 </li>
                 {% block top_bar_before_nav %} {% endblock %}
                 {% block sonata_top_bar_nav %}
-                    {% if app.security.token and is_granted('ROLE_SONATA_ADMIN') %}
+                    {% if app.user and is_granted('ROLE_SONATA_ADMIN') %}
                         {% for group in admin_pool.dashboardgroups %}
                         <li>
                             <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
@@ -217,7 +225,7 @@ file that was distributed with this source code.
                     <ul class="dropdown-menu pull-right">
                         <li>
                             {% block sonata_top_bar_search %}
-                                {% if app.security.token and is_granted('ROLE_SONATA_ADMIN') %}
+                                {% if app.user and is_granted('ROLE_SONATA_ADMIN') %}
                                     <form action="{{ url('sonata_admin_search') }}" method="GET"  class="navbar-search rz-admin-search">
                                         <div class="input-append">
                                             <input type="text" name="q" value="{{ app.request.get('q') }}" class="input-large search-query" placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}"/>

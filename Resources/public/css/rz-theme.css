@@ -100,3 +100,8 @@
     color: #B94A48 !important;
 }
 
+.btn.btn-danger.sonata-action-element,
+.btn.btn-success.sonata-action-element {
+    line-height: 22px !important;
+}
+

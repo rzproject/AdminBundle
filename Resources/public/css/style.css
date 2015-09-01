@@ -965,7 +965,6 @@
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .rz-cms-admin  #navigation #brand {
-	    /*background: url("../img/logo@2x.png") no-repeat;*/
 	    background-size: 22px 22px;
 	}
 }
@@ -1642,6 +1641,7 @@
 }
 
 .rz-cms-admin .rz-form .control-group .control-label {
+    display: inline-block;
     padding-left: 25px
 }
 
@@ -2586,7 +2586,15 @@ body.error .wrapper .input-append .btn:hover {
     margin-bottom: 10px
 }
 
-.rz-cms-admin .datepicker.datepicker-dropdown {
+.rz-cms-admin .datetimepicker {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.rz-cms-admin .datetimepicker th.switch {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.rz-cms-admin .datepicker.datepicker-dropdown{
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -2903,7 +2911,9 @@ body.error .wrapper .input-append .btn:hover {
     -webkit-border-radius: 4px !important;
     -moz-border-radius: 4px !important;
     border-radius: 4px !important;
-    background: #fff none;
+    background:  #f9f9f9 none !important;
+    border-color: #cccccc !important;
+    height: 30px;
 }
 
 .rz-cms-admin .control-group .select2-container .select2-choice {
@@ -2913,10 +2923,6 @@ body.error .wrapper .input-append .btn:hover {
 .rz-cms-admin .select2-container-active .select2-choice,
 .rz-cms-admin .select2-container-active .select2-choices {
     border: 1px solid #aaa;
-}
-
-.rz-cms-admin .select2-container .select2-choice {
-    background: transparent none;
 }
 
 .rz-cms-admin .select2-search input {
@@ -2936,6 +2942,15 @@ body.error .wrapper .input-append .btn:hover {
     border-left: 0px;
     background-clip: padding-box;
     background: transparent none;
+    top: 3px;
+    height: 25px;
+    margin-right: 3px;
+}
+
+.rz-cms-admin  .select2-container .select2-choice > .select2-chosen {
+    height: 31px;
+    line-height: 30px;
+    margin-left: 5px;
 }
 
 .rz-cms-admin .select2-container .select2-choice div {
@@ -2952,14 +2967,6 @@ body.error .wrapper .input-append .btn:hover {
 
 .rz-cms-admin .select2-container .select2-search-choice-close {
     top: 3px
-}
-
-.rz-cms-admin .select2-container .select2-choices {
-    -webkit-border-radius: 4px !important;
-    -moz-border-radius: 4px !important;
-    border-radius: 4px !important;
-    background: #f9f9f9 none;
-    padding: 2px 0px;
 }
 
 .rz-cms-admin .select2-drop-active {
@@ -3349,10 +3356,13 @@ body.rz-cms-admin {
     margin-top: 5px;
     margin-left: 1px;
 }
-.rz-login .wrapper .login-body .submit .remember [class*=icheckbox], .rz-login .wrapper .login-body .submit .remember label {
+.rz-login .wrapper .login-body .submit .remember [class*=icheckbox], .rz-login .wrapper .login-body .submit .remember label,
+.control-group .controls .icheck-horizontal-container label,
+.control-group .controls .icheck-horizontal-container [class*=icheckbox]{
     float: left;
 }
-.rz-login .wrapper .login-body .submit .remember label {
+.rz-login .wrapper .login-body .submit .remember label,
+.control-group .controls .icheck-horizontal-container label{
     margin-left: 10px;
 }
 .rz-login .wrapper .login-body .forget {
@@ -3388,4 +3398,16 @@ body.rz-cms-admin {
     display: inline-block;
     margin-bottom: 10px;
     margin-left:0;
+}
+
+.rz-cms-admin .select2-container, .rz-cms-admin .select2-drop, .rz-cms-admin .select2-search, .rz-cms-admin .select2-search input, .rz-cms-admin .select2-container-multi .select2-choices {
+    min-width: 300px;
+}
+
+.rz-cms-admin .modal-body .select2-container,
+.rz-cms-admin .modal-body .select2-drop,
+.rz-cms-admin .modal-body .select2-search,
+.rz-cms-admin .modal-body .select2-search input,
+.rz-cms-admin .select2-container-multi .select2-choices{
+    min-width: 100px;
 }

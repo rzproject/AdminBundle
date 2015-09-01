@@ -218,10 +218,14 @@
     background-image: none !important;
 }
 
-.rz-cms-admin .modal .modal-body ul.page-tree li {
-    list-style: none !important;
-    margin-right: 20px !important;
-    margin-bottom: 20px !important;
+/*.rz-cms-admin .modal .modal-body ul.page-tree li {*/
+    /*list-style: none !important;*/
+    /*margin-right: 20px !important;*/
+    /*margin-bottom: 20px !important;*/
+/*}*/
+
+.rz-cms-admin .rz-one-to-many-table .select2-container {
+    text-align: left;
 }
 
 
@@ -296,4 +300,12 @@
     .rz-cms-admin .rz-form .rz-widget-container-one-to-many table tbody > tr > td {
         width: auto !important
     }
+}
+
+.gmnoprint img {
+    max-width: none;
+}
+
+.rz-cms-admin .gmap {
+    padding-bottom: 10px;
 }

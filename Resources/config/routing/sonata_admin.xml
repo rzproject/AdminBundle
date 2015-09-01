@@ -4,14 +4,14 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="sonata_admin_default" path="/">
-        <default key="_controller">FrameworkBundle:Redirect:urlRedirect</default>
-        <default key="path">/admin/dashboard</default>
+    <route id="sonata_admin_redirect" path="/">
+        <default key="_controller">FrameworkBundle:Redirect:redirect</default>
+        <default key="route">sonata_admin_dashboard</default>
         <default key="permanent">true</default>
     </route>
 
     <route id="sonata_admin_dashboard" path="/dashboard">
-        <default key="_controller">SonataAdminBundle:Core:dashboard</default>
+        <default key="_controller">RzAdminBundle:Core:dashboard</default>
     </route>
 
     <route id="sonata_admin_retrieve_form_element" path="/core/get-form-field-element">
@@ -22,7 +22,7 @@
         <default key="_controller">sonata.admin.controller.admin:appendFormFieldElementAction</default>
     </route>
 
-    <route id="sonata_admin_short_object_information" path="/core/get-short-object-description">
+    <route id="sonata_admin_short_object_information" path="/core/get-short-object-description.{_format}">
         <default key="_controller">sonata.admin.controller.admin:getShortObjectDescriptionAction</default>
         <default key="_format">html</default>
         <requirement key="_format">html|json</requirement>
@@ -32,7 +32,11 @@
         <default key="_controller">sonata.admin.controller.admin:setObjectFieldValueAction</default>
     </route>
 
-    <route id="sonata_admin_search" pattern="/search">
+    <route id="sonata_admin_search" path="/search">
         <default key="_controller">SonataAdminBundle:Core:search</default>
+    </route>
+
+    <route id="sonata_admin_retrieve_autocomplete_items" path="/core/get-autocomplete-items">
+        <default key="_controller">sonata.admin.controller.admin:retrieveAutocompleteItemsAction</default>
     </route>
 </routes>

@@ -12,8 +12,8 @@
 
     {% block stylesheets %}
         {% stylesheets '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap.css'
-                        '@RmzamoraBootstrapBundle/Resources/public/css/docs.min.css'
-                        '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap-responsive.css'
+                       '@RmzamoraBootstrapBundle/Resources/public/css/docs.min.css'
+                       '@RmzamoraBootstrapBundle/Resources/public/css/bootstrap-responsive.css'
             filter='?yui_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -51,9 +51,6 @@
 
     <!-- Favicon -->
     <link href="{{ asset('bundles/rmzamorabootstrap/ico/favicon.ico') }}" rel="shortcut icon">
-    <!-- Apple devices Homescreen icon -->
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('bundles/rzadmin/img/apple-touch-icon-precomposed.png') }}" />
-
 </head>
 
 <body class="theme-darkblue error">
@@ -61,7 +58,7 @@
     <div class="code"><span>404</span><i class="icon-warning-sign"></i></div>
     <div class="desc">The server returned a "{{ status_code }} {{ status_text }}"</div>
     <div class="buttons">
-        <div style="text-align: center"><a href="/" class="btn"><i class="icon-arrow-left"></i> Back</a></div>
+        <div style="text-align: center"><a href="/" class="btn">Back</a></div>
     </div>
 </div>
 

@@ -38,15 +38,39 @@ class RzAdminExtension extends Extension
         $loader->load('form_type.xml');
         $loader->load('core.xml');
         $container->setParameter('rz_admin.configuration.templates', $config['templates']);
-        //replace
+
+        # Replace SonataAdmin Templates
         $container->setParameter('sonata.admin.configuration.templates', $config['templates']);
 
-        // merge RzFieldTypeBundle to RzAdminBundle
+        # Merge RzFieldTypeBundle to RzAdminBundle
         $container->setParameter('twig.form.resources',
                                  array_merge(
                                      $container->getParameter('twig.form.resources'),
                                      array('RzAdminBundle:Form:form_admin_fields.html.twig')
                                  ));
 
+        $this->configureClassesToCompile();
+    }
+
+    public function configureClassesToCompile()
+    {
+        $this->addClassesToCompile(array(
+            "Rz\\AdminBundle\\Form\\DataTransformer\\ModelsToChoicesTransformer",
+            "Rz\\AdminBundle\\Form\\Type\\ModelType",
+            "Rz\\AdminBundle\\Form\\Type\\TranslatableChoiceType",
+            "Rz\\AdminBundle\\Form\\Type\\TreeType",
+            "Rz\\AdminBundle\\Form\\Type\\Filter\\ChoiceType",
+            "Rz\\AdminBundle\\Form\\Type\\Filter\\DateRangeType",
+            "Rz\\AdminBundle\\Form\\Type\\Filter\\DateTimeRangeType",
+            "Rz\\AdminBundle\\Form\\Type\\Filter\\DateTimeType",
+            "Rz\\AdminBundle\\Form\\Type\\Filter\\DateType",
+            "Rz\\AdminBundle\\Form\\Type\\Filter\\DefaultType",
+            "Rz\\AdminBundle\\Form\\Type\\Filter\\NumberType",
+            "Rz\\AdminBundle\\Helper\\TemplateLoaderInterface",
+            "Rz\\AdminBundle\\Helper\\TemplateLoader",
+            "Rz\\AdminBundle\\Twig\\Extension\\RzAdminListExtension",
+            "Rz\\AdminBundle\\Twig\\Extension\\StringHelperExtention",
+            "Rz\\AdminBundle\\Twig\\Extension\\TemplateLoaderExtension"
+        ));
     }
 }
