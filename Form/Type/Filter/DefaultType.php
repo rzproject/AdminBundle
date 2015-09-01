@@ -14,7 +14,7 @@ namespace Rz\AdminBundle\Form\Type\Filter;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DefaultType extends AbstractTypeExtension
 {
@@ -41,7 +41,7 @@ class DefaultType extends AbstractTypeExtension
     /**
      * {@inheritDoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'operator_type'    => 'hidden',
