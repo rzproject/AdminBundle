@@ -11,6 +11,22 @@ file that was distributed with this source code.
 
 {% extends base_template %}
 
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/rmzamorajquery/jquery-plugins/morris/css/morris.css') }}">
+	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('bundles/gmirecommendation/css/audience-graph.css') }}" />
+{% endblock stylesheets %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('bundles/rmzamorajquery/jquery-plugins/morris/js/raphael-min.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/rmzamorajquery/jquery-plugins/morris/js/morris.min.js')}}"></script>		
+	<script type="text/javascript" src="{{ asset('bundles/rmzamorajquery/jquery-plugins/tinycolor/tinycolor-min.js')}}"></script>
+{% endblock javascripts %}
+
+
+
 {% block title %}{{ 'title_dashboard'|trans({}, 'SonataAdminBundle') }}{% endblock%}
 {% block admin_module_title %}
     <div class="page-header">
@@ -147,4 +163,3 @@ file that was distributed with this source code.
     {{ sonata_block_render_event('sonata.admin.dashboard.bottom', { 'admin_pool': admin_pool }) }}
 
 {% endblock %}
-
