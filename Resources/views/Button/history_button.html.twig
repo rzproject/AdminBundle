@@ -1,5 +1,0 @@
-{% if admin.hasroute('history') and admin.id(object) and admin.isGranted('EDIT', object) %}
-    <a class="btn btn-primary sonata-action-element" href="{{ admin.generateObjectUrl('history', object) }}">
-        <i class="icon-book"></i>
-        {{ 'link_action_history'|trans({}, 'SonataAdminBundle') }}</a>
-{% endif %}

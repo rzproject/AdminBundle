@@ -1,7 +1,0 @@
-{% if admin.hasroute('list') and admin.isGranted('LIST')%}
-    <li>
-        <a class="sonata-action-element" href="{{ admin.generateUrl('list') }}">
-            <i class="icon-list"></i>
-            {{ 'link_action_list'|trans({}, 'SonataAdminBundle') }}</a>
-    </li>
-{% endif %}
