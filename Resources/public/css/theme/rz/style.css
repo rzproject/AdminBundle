@@ -46,6 +46,11 @@
     padding-right: 0px;
 }
 
+.modal-body .nav-tabs, .modal-body .nav-pills {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 .box-footer {
     border-radius: 0px;
     -webkit-box-shadow: none;
