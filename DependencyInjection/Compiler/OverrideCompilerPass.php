@@ -21,23 +21,15 @@ class OverrideCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        //override TextBlockService
-        $admin_pool = $container->getDefinition('sonata.admin.pool');
-        $admin_pool->addMethodCall('setTemplates', array($container->getParameter('rz_admin.configuration.templates')));
-
-        $admin_controller = $container->getDefinition('sonata.admin.controller.admin');
-        $admin_controller->setClass($container->getParameter('rz_admin.controller.admin.class'));
-
-        $classes = array(
-            'email'    => 'span8',
-            'textarea' => 'span8',
-            'text'     => 'span8',
-            'choice'   => 'span8',
-            'integer'  => 'span8',
-            'datetime' => 'sonata-medium-date',
-            'date'     => 'sonata-medium-date'
-        );
-
-        $container->getDefinition('sonata.admin.form.extension.field')->replaceArgument(0, $classes);
+        //override admin pool class
+        if($container->hasParameter('rz.admin.pool.base_admin.class'))  {
+            $definition = $container->getDefinition('sonata.admin.pool');
+            $definition->setClass($container->getParameter('rz.admin.pool.base_admin.class'));
+            //add rz bundle options
+            if($container->hasParameter('rz.admin.options.use_footable') && $container->hasParameter('rz.admin.settings.footable')) {
+                $definition->addMethodCall('setOption', array('use_footable', $container->getParameter('rz.admin.options.use_footable')));
+                $definition->addMethodCall('setOption', array('footable_settings', $container->getParameter('rz.admin.settings.footable')));
+            }
+        }
     }
 }
