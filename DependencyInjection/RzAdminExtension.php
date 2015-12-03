@@ -23,7 +23,7 @@ class RzAdminExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        $loader->load('core.xml');
 
         #set options
         $container->setParameter('rz.admin.options.use_footable', $config['options']['use_footable']);
