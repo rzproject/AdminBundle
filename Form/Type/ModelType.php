@@ -64,87 +64,109 @@ class ModelType extends AbstractTypeExtension
         $this->configureOptions($resolver);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-
-        $optionalOptions = array('selectpicker_enabled',
-            'selectpicker_data_style',
-            'selectpicker_title',
-            'selectpicker_selected_text_format',
-            'selectpicker_show_tick',
-            'selectpicker_data_width',
-            'selectpicker_data_size',
-            'selectpicker_disabled',
-            'selectpicker_dropup',
-            'select2',
-            'chosen_data_placeholder',
-            'chosen_no_results_text',
-            'multiselect_enabled',
-            'multiselect_search_enabled',
-        );
-
-        if (method_exists($resolver, 'setDefined')) {
-            $resolver->setDefined($optionalOptions);
-        } else {
-            // To keep Symfony <2.6 support
-            $resolver->setOptional($optionalOptions);
-        }
-
-        $resolver->setDefaults(array(
-            'compound'          => function (Options $options) {
-                if (isset($options['multiple']) && $options['multiple']) {
-                    if (isset($options['expanded']) && $options['expanded']) {
-                        //checkboxes
-                        return true;
-                    }
-
-                    //select tag (with multiple attribute)
-                    return false;
-                }
-
-                if (isset($options['expanded']) && $options['expanded']) {
-                    //radio buttons
-                    return true;
-                }
-
-                //select tag
-                return false;
-            },
-            'select2' => false,
-            'selectpicker_enabled' => false,
-            'multiselect_enabled' => false,
-            'multiselect_search_enabled' => false,
-            'error_bubbling'=> true,
-            'template'          => 'choice',
-            'multiple'          => false,
-            'expanded'          => false,
-            'model_manager'     => null,
-            'class'             => null,
-            'property'          => null,
-            'query'             => null,
-            'choices'           => null,
-            'preferred_choices' => array(),
-            'btn_add'           => 'link_add',
-            'btn_list'          => 'link_list',
-            'btn_delete'        => 'link_delete',
-            'btn_catalogue'     => 'SonataAdminBundle',
-            'choice_list'       => function (Options $options, $previousValue) {
-                if ($previousValue instanceof ChoiceListInterface && count($choices = $previousValue->getChoices())) {
-                    return $previousValue;
-                }
-                return new ModelChoiceList(
-                    $options['model_manager'],
-                    $options['class'],
-                    $options['property'],
-                    $options['query'],
-                    $options['choices']
-                );
-            }
-        ));
-    }
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function configureOptions(OptionsResolver $resolver)
+//    {
+//
+//        $optionalOptions = array('selectpicker_enabled',
+//            'selectpicker_data_style',
+//            'selectpicker_title',
+//            'selectpicker_selected_text_format',
+//            'selectpicker_show_tick',
+//            'selectpicker_data_width',
+//            'selectpicker_data_size',
+//            'selectpicker_disabled',
+//            'selectpicker_dropup',
+//            'select2',
+//            'chosen_data_placeholder',
+//            'chosen_no_results_text',
+//            'multiselect_enabled',
+//            'multiselect_search_enabled',
+//        );
+//
+//        if (method_exists($resolver, 'setDefined')) {
+//            $resolver->setDefined($optionalOptions);
+//        } else {
+//            // To keep Symfony <2.6 support
+//            $resolver->setOptional($optionalOptions);
+//        }
+//
+//        $resolver->setDefaults(array(
+//            'compound'          => function (Options $options) {
+//                if (isset($options['multiple']) && $options['multiple']) {
+//                    if (isset($options['expanded']) && $options['expanded']) {
+//                        //checkboxes
+//                        return true;
+//                    }
+//
+//                    //select tag (with multiple attribute)
+//                    return false;
+//                }
+//
+//                if (isset($options['expanded']) && $options['expanded']) {
+//                    //radio buttons
+//                    return true;
+//                }
+//
+//                //select tag
+//                return false;
+//            },
+//            'select2' => false,
+//            'selectpicker_enabled' => false,
+//            'multiselect_enabled' => false,
+//            'multiselect_search_enabled' => false,
+//            'error_bubbling'=> true,
+//            'template'          => 'choice',
+//            'multiple'          => false,
+//            'expanded'          => false,
+//            'model_manager'     => null,
+//            'class'             => null,
+//            'property'          => null,
+//            'query'             => null,
+//            'choices'           => null,
+//            'preferred_choices' => array(),
+//            'btn_add'           => 'link_add',
+//            'btn_list'          => 'link_list',
+//            'btn_delete'        => 'link_delete',
+//            'btn_catalogue'     => 'SonataAdminBundle',
+//            'choice_list'       => function (Options $options, $previousValue) {
+//                $options = array();
+//                if (interface_exists('Symfony\Component\Form\ChoiceList\Loader\ChoiceLoaderInterface')) { // SF2.7+
+//                    $options['choice_loader'] = function (Options $options, $previousValue) {
+//                        if ($previousValue && count($choices = $previousValue->getChoices())) {
+//                            return $choices;
+//                        }
+//
+//                        return new ModelChoiceLoader(
+//                            $options['model_manager'],
+//                            $options['class'],
+//                            $options['property'],
+//                            $options['query'],
+//                            $options['choices']
+//                        );
+//
+//                    };
+//                } else {
+//                    $options['choice_list'] = function (Options $options, $previousValue) {
+//                        if ($previousValue && count($choices = $previousValue->getChoices())) {
+//                            return $choices;
+//                        }
+//
+//                        return new ModelChoiceList(
+//                            $options['model_manager'],
+//                            $options['class'],
+//                            $options['property'],
+//                            $options['query'],
+//                            $options['choices']
+//                        );
+//                    };
+//                }
+//
+//            }
+//        ));
+//    }
 
     /**
      * {@inheritDoc}
