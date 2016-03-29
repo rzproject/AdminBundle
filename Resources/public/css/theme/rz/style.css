@@ -474,6 +474,7 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
 
 .rz-field-actions {
     padding-left: 0px;
+    margin-bottom: 5px;
 }
 
 .rz-tree-compose-badge-edited {

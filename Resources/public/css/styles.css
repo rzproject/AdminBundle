@@ -447,3 +447,8 @@ div.sonata-filters-box div.form-group span.input-group-addon {
 }
 
 /*override*/
+
+.radio label,
+.checkbox label {
+    padding-left: 0px;
+}
