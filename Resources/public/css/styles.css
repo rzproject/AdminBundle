@@ -446,9 +446,26 @@ div.sonata-filters-box div.form-group span.input-group-addon {
     font-size: 13px;
 }
 
+div.tab-pane div.form-group {
+    display: inline-block;
+    width: 100%;
+}
+
 /*override*/
 
 .radio label,
 .checkbox label {
     padding-left: 0px;
+}
+
+
+.icheckbox_square-blue,
+.iradio_square-blue {
+    height: 25px !important;
+}
+
+tbody.sonata-ba-tbody.ui-sortable > tr > td div.checkbox,
+tbody.sonata-ba-tbody.ui-sortable > tr > td div.radio {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
