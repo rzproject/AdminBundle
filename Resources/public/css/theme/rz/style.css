@@ -506,6 +506,11 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
     margin-bottom: 5px;
     margin-top:   35px;
 }
+
+.rz-immutable-container .form-group .field-container .field-actions .btn-group {
+  margin-right: 5px;
+}
+
 /*.rz-pagination-primary >li>a {*/
     /*color: #fff;*/
     /*background-color: #367fa9;*/
