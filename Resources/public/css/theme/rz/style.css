@@ -271,6 +271,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="search"]
     margin: 0px;
     min-height: 34px;
     border-radius: 0px;
+    min-width: 0;
 }
 
 .sonata-ba-field-list-natural .field-actions {
@@ -509,6 +510,15 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
 
 .rz-immutable-container .form-group .field-container .field-actions .btn-group {
   margin-right: 5px;
+}
+
+.rz-nav-stacked-item {
+    width: 200px;
+    display: inline-block;
+}
+
+.rz-box-widget-info {
+    border-bottom: 1px solid #f4f4f4;
 }
 
 /*.rz-pagination-primary >li>a {*/
