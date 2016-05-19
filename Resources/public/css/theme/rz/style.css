@@ -324,7 +324,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="search"]
 }
 
 div.mosaic-inner-box {
-    height: 150px;
+    height: 100px;
 }
 
 .sonata-tree__item {
@@ -569,6 +569,7 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
 /*}*/
 
 @media (max-width: 767px) {
+
     .rz-table-action-button {
         text-align: center;
     }
@@ -635,6 +636,7 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
 
 
 @media (min-width: 768px) and (max-width: 991px) {
+
     .rz-table-action-button {
         text-align: center;
     }
@@ -675,6 +677,7 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+
     .rz-table-action-button {
         text-align: left;
     }
@@ -711,6 +714,14 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
         padding-right: 0px;
         padding-right: 0px;
     }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+
+}
+
+@media (min-width: 1440px) and (max-width: 1679px) {
+
 }
 
 @media (min-width: 1200px) {
