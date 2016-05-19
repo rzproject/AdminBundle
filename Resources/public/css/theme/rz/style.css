@@ -521,6 +521,17 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
     border-bottom: 1px solid #f4f4f4;
 }
 
+.rz-nav-pills-list {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.rz-table-container-tab-content {
+    padding-top: 30px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
 /*.rz-pagination-primary >li>a {*/
     /*color: #fff;*/
     /*background-color: #367fa9;*/
