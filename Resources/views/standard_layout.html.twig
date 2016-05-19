@@ -287,39 +287,40 @@ file that was distributed with this source code.
 
                     <section class="content">
                         {% block sonata_admin_content %}
+                            {% block rz_admin_content %}
+                                {% block notice %}
+                                    {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
+                                {% endblock notice %}
 
-                            {% block notice %}
-                                {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
-                            {% endblock notice %}
-
-                            {% if _preview is not empty %}
-                                <div class="sonata-ba-preview">{{ _preview|raw }}</div>
-                            {% endif %}
-
-                            {% if _content is not empty %}
-                                <div class="sonata-ba-content">{{ _content|raw }}</div>
-                            {% endif %}
-
-                            {% if _show is not empty %}
-                                <div class="sonata-ba-show">{{ _show|raw }}</div>
-                            {% endif %}
-
-                            {% if _form is not empty %}
-                                <div class="sonata-ba-form">{{ _form|raw }}</div>
-                            {% endif %}
-
-                            {% if _list_table is not empty or _list_filters is not empty %}
-                                {% if _list_filters|trim %}
-                                    <div class="row">
-                                        {{ _list_filters|raw }}
-                                    </div>
+                                {% if _preview is not empty %}
+                                    <div class="sonata-ba-preview">{{ _preview|raw }}</div>
                                 {% endif %}
 
-                                <div class="row">
-                                    {{ _list_table|raw }}
-                                </div>
+                                {% if _content is not empty %}
+                                    <div class="sonata-ba-content">{{ _content|raw }}</div>
+                                {% endif %}
 
-                            {% endif %}
+                                {% if _show is not empty %}
+                                    <div class="sonata-ba-show">{{ _show|raw }}</div>
+                                {% endif %}
+
+                                {% if _form is not empty %}
+                                    <div class="sonata-ba-form">{{ _form|raw }}</div>
+                                {% endif %}
+
+                                {% if _list_table is not empty or _list_filters is not empty %}
+                                    {% if _list_filters|trim %}
+                                        <div class="row">
+                                            {{ _list_filters|raw }}
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="row">
+                                        {{ _list_table|raw }}
+                                    </div>
+
+                                {% endif %}
+                            {% endblock rz_admin_content %}
                         {% endblock sonata_admin_content %}
                     </section>
                 {% endblock sonata_page_content %}
