@@ -157,6 +157,7 @@
                         {% endblock %}
                     </table>
                 {% else %}
+	                {% block list_no_result %}
                     <div class="info-box">
                         <span class="info-box-icon bg-aqua"><i class="fa fa-arrow-circle-right"></i></span>
                         <div class="info-box-content">
@@ -171,6 +172,7 @@
                             </span>
                         </div><!-- /.info-box-content -->
                     </div>
+	                {% endblock list_no_result %}
                 {% endif %}
                 {{ sonata_block_render_event('sonata.admin.list.table.bottom', { 'admin': admin }) }}
             </div>
