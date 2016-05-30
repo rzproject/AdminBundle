@@ -177,7 +177,7 @@
                 {{ sonata_block_render_event('sonata.admin.list.table.bottom', { 'admin': admin }) }}
             </div>
             {% block list_footer %}
-                {% if admin.datagrid.results|length > 0 %}
+                {% if (admin.datagrid.results|length > 0 and not app.request.isXmlHttpRequest) or admin.datagrid.pager.haveToPaginate() %}
                     <div class="box-footer rz-box-footer">
 	                    <div class="container-fluid rz-container-fluid">
 		                    <div class="row">
@@ -198,12 +198,16 @@
 								                    </div>
 								                    <div class="form-group">
 									                    <label for="{{ admin.uniqid }}_batch_action" style="width: 100%">Action</label>
-									                    <select name="action" style="width: auto; height: auto" class="form-control" id="{{ admin.uniqid }}_batch_action">
-										                    {% for action, options in batchactions %}
-											                    <option value="{{ action }}">{{ options.label }}</option>
-										                    {% endfor %}
-									                    </select>
-									                    <input type="submit" class="btn btn-small btn-primary" value="{{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}">
+									                    <div class="input-group select2-bootstrap-append">
+										                    <select name="action" class="form-control" id="{{ admin.uniqid }}_batch_action">
+											                    {% for action, options in batchactions %}
+												                    <option value="{{ action }}">{{ options.label|trans({}, 'SonataAdminBundle') }}</option>
+											                    {% endfor %}
+										                    </select>
+										                    <span class="input-group-btn">
+										                    <input type="submit" class="btn btn-small btn-primary" value="{{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}">
+										                    </span>
+									                    </div>
 								                    </div>
 							                    {% endblock %}'>
 							                    <i class="fa fa-fw fa-refresh"></i> <span class="hidden-xs hidden-sm hidden-md">Actions</span>
