@@ -517,7 +517,7 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
 }
 
 .rz-nav-stacked-item {
-    width: 200px;
+    width: 250px;
     display: inline-block;
 }
 
@@ -636,6 +636,10 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
         float: left !important;
         margin-left: 10px;
     }
+
+    .rz-nav-stacked-item {
+        width: 90%;
+    }
 }
 
 
@@ -677,6 +681,10 @@ table.rz-table-orm > tbody > tr > td.control-group > input[type="text"] {
     .modal-body .rz-container-fluid {
         padding-right: 0px;
         padding-right: 0px;
+    }
+
+    .rz-nav-stacked-item {
+        width: 90%;
     }
 }
 
