@@ -28,12 +28,12 @@ class RzAdminExtension extends Extension
         #set options
         $container->setParameter('rz.admin.options.use_footable', $config['options']['use_footable']);
         #pool class
-        if(isset($config['pool']['base_admin_class'])) {
+        if (isset($config['pool']['base_admin_class'])) {
             $container->setParameter('rz.admin.pool.base_admin.class', $config['pool']['base_admin_class']);
         }
 
         #pool class
-        if(isset($config['footable_settings'])) {
+        if (isset($config['footable_settings'])) {
             $container->setParameter('rz.admin.settings.footable', $config['footable_settings']);
         }
 
