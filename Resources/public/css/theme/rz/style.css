@@ -122,8 +122,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="search"]
     margin-top: 3px;
 }
 
-
-
 /* active state */
 .select2-container-active .select2-choice,
 .select2-container-active .select2-choices {
@@ -345,6 +343,31 @@ div.mosaic-inner-box {
     border: 0px solid transparent;
     top: 0px;
     left: 0px;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active {
+    border-top-color: #d2d6de !important;
+}
+
+.box-dashboard .btn.active, box-dashboard .btn:active {
+    color: #333 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+.box-dashboard .nav-tabs-custom {
+    margin-bottom: 0px !important;
+    border-radius: none !important;
+    box-shadow: none !important;
+}
+
+.box-dashboard .products-list .product-info {
+    margin-left: 30px !important;
+}
+
+.box-dashboard .user-block .username,
+.box-dashboard .user-block .description {
+    margin-left: 10px !important;
 }
 
 /*----------------------------------------------- Retina displays fix ------------------------------------------------*/
