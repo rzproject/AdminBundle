@@ -22,11 +22,11 @@ class OverrideCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         //override admin pool class
-        if($container->hasParameter('rz.admin.pool.base_admin.class'))  {
+        if ($container->hasParameter('rz.admin.pool.base_admin.class')) {
             $definition = $container->getDefinition('sonata.admin.pool');
             $definition->setClass($container->getParameter('rz.admin.pool.base_admin.class'));
             //add rz bundle options
-            if($container->hasParameter('rz.admin.options.use_footable') && $container->hasParameter('rz.admin.settings.footable')) {
+            if ($container->hasParameter('rz.admin.options.use_footable') && $container->hasParameter('rz.admin.settings.footable')) {
                 $definition->addMethodCall('setOption', array('use_footable', $container->getParameter('rz.admin.options.use_footable')));
                 $definition->addMethodCall('setOption', array('footable_settings', $container->getParameter('rz.admin.settings.footable')));
             }
